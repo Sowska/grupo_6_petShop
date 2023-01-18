@@ -25,7 +25,7 @@ Hombres y mujeres de 25 a 45 años, pertenecientes a una clase social media/alta
 
 -Integrantes del equipo:
 
--Natalia Armendiz:
+-Natalia Armendiz: Hola! Tengo 24 años, soy diseñadora en comunicación visual de La Plata, Buenos Aires y este universo nuevo de códigos me parece super interesante!
 
 -Francisco Buddemeyer:
 
