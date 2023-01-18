@@ -29,7 +29,8 @@ Hombres y mujeres de 25 a 45 años, pertenecientes a una clase social media/alta
 
 -Francisco Buddemeyer:
 
--Sofia Losowski:
+-Sofia Losowski: 
+Manicurista de dia, estudiante de Ciencias de la Computación de noche. De San Luis, Argentina.
 
 -Heidy Monterroza:
 
