@@ -27,7 +27,7 @@ Hombres y mujeres de 25 a 45 años, pertenecientes a una clase social media/alta
 
 -Natalia Armendiz: Hola! Tengo 24 años, soy diseñadora en comunicación visual de La Plata, Buenos Aires y este universo nuevo de códigos me parece super interesante!
 
--Francisco Buddemeyer:
+-Francisco Buddemeyer: Hola! tengo 21 años, soy ex estudiante de la escuela de artes davinci, estudiaba programacion de videojuegos, me gusta la programacion ya que me gusta crear cosas
 
 -Sofia Losowski: 
 Manicurista de dia, estudiante de Ciencias de la Computación de noche. De San Luis, Argentina.
