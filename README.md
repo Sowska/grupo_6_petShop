@@ -21,7 +21,9 @@ Hombres y mujeres de 25 a 45 años, pertenecientes a una clase social media/alta
       https://www.etsy.com/
       https://mercadolibre.com/
       https://yarnandbone.com/
-      https://prattspets.com/
+      https://prattspets.com
+      https://www.nutrigreen.com.ar/  (productos destacados)
+      https://www.petshopbiper.com.ar/   (division  para perros y gatos)
 
 -Integrantes del equipo:
 
