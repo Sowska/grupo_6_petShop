@@ -24,6 +24,7 @@ Hombres y mujeres de 25 a 45 años, pertenecientes a una clase social media/alta
       https://prattspets.com
       https://www.nutrigreen.com.ar/  (productos destacados)
       https://www.petshopbiper.com.ar/   (division  para perros y gatos)
+      https://www.tierragro.com/ (pagina de comercio de productos agricolas de antioquia)
 
 -Integrantes del equipo:
 
@@ -38,4 +39,4 @@ Manicurista de dia, estudiante de Ciencias de la Computación de noche. De San L
 
 -Ricardo Suarez:
 
--Jorge Tremel:
+-Jorge Tremel: Hola! Soy Jorge tengo 28 años de Medellin Colombia, Soy Negociador Internacional de profesion, me gusta la programacion, los retos y aprender constantemente.
