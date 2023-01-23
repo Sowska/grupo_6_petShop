@@ -37,6 +37,4 @@ Manicurista de dia, estudiante de Ciencias de la Computación de noche. De San L
 
 -Heidy Monterroza: Soy de Barranquilla, Colombia. Trabajo en Exportaciones pero siempre he querido dedicarme al campo de la tecnologia, y despues de muchos años al fin estoy en direccion a lo que quiero profesionalmente.
 
--Ricardo Suarez:
-
 -Jorge Tremel: Hola! Soy Jorge tengo 28 años de Medellin Colombia, Soy Negociador Internacional de profesion, me gusta la programacion, los retos y aprender constantemente.
