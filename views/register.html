@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>+Cotas</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/register-styles.css">
+    <meta name="theme-color" content="#fafafa">
+</head>
+<body>
+<header>
+    <section class="navigation">
+        <div class="navigation-search">
+            <div class="logo">
+                <img src="./images/Logo +cotas.png" alt="logo" width="120">
+            </div>
+            <div class="search">
+                <div class="search-control">
+                    <img src="./images/search.svg" alt="search icon" width="30">
+                    <input
+                            id="txtSearch"
+                            name="txtSearch"
+                            placeholder="Buscar..."
+                            type="text"
+                    />
+                </div>
+            </div>
+            <div class="navigation-icons">
+                <div class="shopping-cart">
+                    <img src="./images/shopping_cart.svg" alt="cart" width="40">
+                </div>
+                <div>
+                    <img src="./images/favorite.svg" alt="cart" width="40">
+                </div>
+                <div>
+                    <img src="./images/person.svg" alt="cart" width="40">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-list-item">INICIO</li>
+                <li class="navbar-list-item">PRODUCTOS</li>
+                <li class="navbar-list-item">NOSOTROS</li>
+                <li class="navbar-list-item">PROMOS</li>
+                <li class="navbar-list-item">CONTACTO</li>
+            </ul>
+        </nav>
+    </section>
+</header>
+<main class="container">
+    <section class="container-form">
+        <div class="form-card">
+            <h3 class="form-card-title">Registrarme</h3>
+            <div class="form-card-container">
+                <form class="register-form">
+                    <div class="form-control">
+                        <label for="txtName">Nombre</label>
+                        <input type="text" name="txtName" id="txtName" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="txtLastname">Apellido</label>
+                        <input type="text" name="txtLastname" id="txtLastname" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="txtEmail">Correo electronico</label>
+                        <input type="email" name="txtEmail" id="txtEmail" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="txtBirthday">Fecha de nacimiento</label>
+                        <input type="date" name="txtBirthday" id="txtBirthday" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="txtUser">Usuario</label>
+                        <input type="text" name="txtUser" id="txtUser" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="txtPass">Contraseña</label>
+                        <input type="password" name="txtPass" id="txtPass" required>
+                    </div>
+                    <div class="action">
+                        <button type="submit" class="btn-submit">
+                            Finalizar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
