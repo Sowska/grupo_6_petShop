@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.navigation {
+    width: 100%;
+}
+
+.navigation-search {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+}
+
+.navigation .navigation-search .search {
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.navigation .navigation-search .search img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.navigation .navigation-search .search .search-control {
+    width: 300px;
+    position: relative;
+}
+
+.search-control input {
+    background-color: #D8D8D8;
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 40px;
+}
+
+.navigation .navigation-search .navigation-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.shopping-cart {
+    position: relative;
+}
+
+.shopping-cart::before {
+    content: "5";
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    display: grid;
+    place-content: center;
+    padding: 2px;
+    background-color: #D07631;
+    border-radius: 50%;
+    font-size: .8rem;
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #D07631;
+}
+
+.navbar .navbar-list {
+    padding: 20px;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    color: white;
+    gap: 20px;
+}
+
+.navbar-list-item {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+}
+
+.navbar-list-item::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+}
+
+
+hr {
+    color: #5d5d5d;
+}
+
+h4{
+    text-align: left;
+}
+
+h5.contraseña {
+    text-align: left;
+}
+
+
+  .container {
+    width: 100%;
+    height: 100%;
+}
+
+.container .container-form {
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.form-card {
+    margin-top: 60px;
+    background-color: #3A9742;
+    padding: 10px 15px;
+    border-radius: 10px;
+    min-width: 380px;
+}
+
+.form-card h2 {
+    color: white;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.form-card .form-card-container {
+    background-color: white;
+   padding: 35px 50px;
+   border-radius: 10px;
+}
+
+.inicio-secion-form {
+    color:  #5d5d5d;
+    text-align: center;
+}
+
+#contraseña {
+    background-color: #D8D8D8;
+    border: none;
+    max-width: 300px;
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+#mail{
+    background-color: #D8D8D8;
+    border: none;
+    max-width: 300px;
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.ingresar {
+    display: flex;
+    justify-content: center;
+}
+
+.ingresar button {
+    background-color: #D07631;
+    border: none;
+    max-width: 300px;
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+h5 a {
+    color:#5d5d5d;
+}
+
+.logo-juntos {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
