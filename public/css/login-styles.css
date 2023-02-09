@@ -146,7 +146,7 @@ h5.contraseña {
     background-color: #3A9742;
     padding: 10px 15px;
     border-radius: 10px;
-    min-width: 380px;
+    min-width: 310px;
 }
 
 .form-card h2 {
@@ -209,14 +209,18 @@ h5 a {
     color:#5d5d5d;
 }
 
-.logo-juntos {
-    display: flex;
-    align-items: center;
-}
-
 
 .logo {
     display: flex;
     align-items: center;
 }
 
+img {
+    width: 1.5em;
+}
+
+.recordar-mi {
+    display: flex;
+    align-items: center;
+}
+ 
