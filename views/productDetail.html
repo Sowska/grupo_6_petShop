@@ -15,31 +15,52 @@
 
 
     <!--       Hoja de estilos propias             -->
+    <meta name="theme-color" content="#fafafa">
+    <link rel="stylesheet" href="/css/register-styles.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/productDetail-styles.css">
 </head>
 
 <body>
     <header>
-
-        <div class="container-header">
-
-            <div id="logo">
-                <img src="/images/Logo +cotas.png" alt="logo">
+        <section class="navigation">
+            <div class="navigation-search">
+                <div class="logo">
+                    <img src="./images/Logo +cotas.png" alt="logo" width="120">
+                </div>
+                <div class="search">
+                    <div class="search-control">
+                        <img src="./images/search.svg" alt="search icon" width="30">
+                        <input
+                                id="txtSearch"
+                                name="txtSearch"
+                                placeholder="Buscar..."
+                                type="text"
+                        />
+                    </div>
+                </div>
+                <div class="navigation-icons">
+                    <div class="shopping-cart">
+                        <img src="./images/shopping_cart.svg" alt="cart" width="40">
+                    </div>
+                    <div>
+                        <img src="./images/favorite.svg" alt="cart" width="40">
+                    </div>
+                    <div>
+                        <img src="./images/person.svg" alt="cart" width="40">
+                    </div>
+                </div>
             </div>
-
-            <form id="search-header">
-                <input type="text" placeholder="Buscar producto...">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-
-            <button class="icon-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
-
-            <button class="icon-corazon"><i class="fa-solid fa-heart"></i></button>
-            
-            <button class="icon-persona"><i class="fa-solid fa-user"></i></button>
-
-        </div>
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-list-item">INICIO</li>
+                    <li class="navbar-list-item">PRODUCTOS</li>
+                    <li class="navbar-list-item">NOSOTROS</li>
+                    <li class="navbar-list-item">PROMOS</li>
+                    <li class="navbar-list-item">CONTACTO</li>
+                </ul>
+            </nav>
+        </section>
     </header>
 </body>
 
