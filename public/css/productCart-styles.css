@@ -11,7 +11,7 @@ main {
 .green-container{
     background-color: var(--verde);
     display: flex;
-    align-items: center;
+    flex-direction:column;
     border-radius: 15px;
     margin: 100px;
 
@@ -69,4 +69,13 @@ main {
 
 .bill input{
     margin: 10px 0;
+}
+
+.buttonpay{
+    background-color: var(--naranja);
+}
+
+.titulo{
+    color: white;
+    margin: 30px;
 }
