@@ -9,7 +9,7 @@ app.get("/", (req,res) => res.sendFile(path.resolve(__dirname,"./views/home.html
 
 app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));
 
-app.get("/productCart", (req,res) => res.sendFile(path.resolve(__dirname,"./views/productCart.html")));
+app.get("/cart", (req,res) => res.sendFile(path.resolve(__dirname,"./views/cart.html")));
 
 app.get("/productDetail", (req,res) => res.sendFile(path.resolve(__dirname,"./views/productDetail.html")));
 

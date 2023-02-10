@@ -11,6 +11,10 @@
     font-family: "Comic Sans MS", sans-serif;
 }
 
+html{
+    font-family: 'Rubik', sans-serif;
+}
+
 body {
     min-height: 100vh;
 }
