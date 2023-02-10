@@ -16,5 +16,8 @@ app.get("/productDetail", (req,res) => res.sendFile(path.resolve(__dirname,"./vi
 app.get("/register", (req,res) => res.sendFile(path.resolve(__dirname,"./views/register.html")));
 
 
-const port = process.env.PORT || 3030
-app.listen (port,() => console.log(`servidor http://localhost:${port}/ abierto`));
+const port = process.env.PORT || 3030;
+
+app.listen(port, () => {
+    console.log(`Levantando un servidor con Express en: http://localhost:${port}`);
+});
