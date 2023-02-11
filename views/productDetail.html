@@ -8,8 +8,8 @@
     <title>DetalleProducto</title>
 
 
-<!--           Tipografia             -->
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <!--           Tipografia             -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 
 
     <!--              Pagina de iconos                   -->
@@ -34,12 +34,7 @@
                 <div class="search">
                     <div class="search-control">
                         <img src="./images/search.svg" alt="search icon" width="30">
-                        <input
-                                id="txtSearch"
-                                name="txtSearch"
-                                placeholder="Buscar..."
-                                type="text"
-                        />
+                        <input id="txtSearch" name="txtSearch" placeholder="Buscar..." type="text" />
                     </div>
                 </div>
                 <div class="navigation-icons">
@@ -66,12 +61,62 @@
         </section>
     </header>
     <main>
-        <h3>Inicio > Productos > Camperas impermiables</h3>
+        <h3>Inicio > Productos > Collar</h3>
+        <h2 class="title">Collar</h2>
         <div class="container-product">
-            <div class="foto-principal-producto">
-                <img src="/images/D_NQ_NP_734790-MLA46543863235_062021-O.png" alt="producto">
-            </div>
+            <article>
+                <div class="foto-principal-producto">
+                    <img src="/images/collar.png" alt="collar">
+                </div>
+                <div class="main-article">
+                    <p class="precio">$ 14.900</p>
+                    <p class="cuotas">en 6x $ 3.706</p>
+                    <p class="metodos-pagos">Ver los metodos de pago</p>
+                    <!-- cambiarlo a un hipervinculo que saque una solapa con las opciones que hay -->
+                    <p class="envio"><i class="fa-solid fa-truck icon-truck"></i> Envio gratis a todo el pais</p>
+                </div>
+                <div class="boton-comprar">
+                    <button type="submit">
+                        <p>Comprar ahora</p>
+                    </button>
+                </div>
+
+                <div class="boton-agregar-carrito">
+                    <button type="submit">
+                        <p>Agregar al carrito</p>
+                    </button>
+                </div>
+
+                <!-- ver como acomodar achicar el texto y el contenedor dejarlo tal cual -->
+            </article>
         </div>
+        <h2 class="title-productos-relacionados">Productos relacionados</h2>
+        <section class="productos-relacionados">
+            <article class="container-productos-relacionados">
+                <div id="product-relacionado-1">
+                    <img src="/images/collar2.png" alt="collar">
+                </div>
+
+                <div id="product-relacionado-2">
+                    <img src="/images/collar3.png" alt="collar">
+                </div>
+                
+                <div id="product-relacionado-3">
+                    <img src="/images/collar.png" alt="collar">
+                    <h4>collar de perlas</h4>
+                    <div class="info-productos-relacionados">
+                        <i class="fas fa-truck"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <p class="precio">$3000</p>
+                    </div>
+                </div>
+
+
+
+            </article>
+        </section>
+
+
     </main>
 </body>
 
