@@ -95,8 +95,8 @@ button p{
 }
 
 .info-productos-relacionados  i,.precio{
-    /* display: flex;
-    flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
     /* justify-content: space-between; */
 }
 
