@@ -65,16 +65,45 @@
         <h2 class="title">Collar</h2>
         <div class="container-product">
             <article>
-                <div class="foto-principal-producto">
-                    <img src="/images/collar.png" alt="collar">
-                </div>
-                <div class="main-article">
-                    <p class="precio">$ 14.900</p>
-                    <p class="cuotas">en 6x $ 3.706</p>
-                    <p class="metodos-pagos">Ver los metodos de pago</p>
-                    <!-- cambiarlo a un hipervinculo que saque una solapa con las opciones que hay -->
-                    <p class="envio"><i class="fa-solid fa-truck icon-truck"></i> Envio gratis a todo el pais</p>
-                </div>
+
+                <!--        Imagenes del producto            -->
+
+                <section class="container-foto-productos">
+
+                    <div class="foto-principal-producto">
+                        <img src="/images/collar.png" alt="collar">
+                    </div>
+
+                    <div class="fotos-abajo">
+                        <img src="/images/collar.jpg" alt="">
+                        <img src="/images/collar2.png" alt="">
+                        <img src="/images/collar3.png" alt="">
+                    </div>
+                </section>
+
+
+                <!--        Info del producto            -->
+
+                <section class="info-productos-container">
+                    <div class="main-article">
+                        <p class="precio">$ 14.900</p>
+                        <p class="cuotas">en 6x $ 3.706</p>
+                        <p class="metodos-pagos">Ver los metodos de pago</p>
+                        <!-- cambiarlo a un hipervinculo que saque una solapa con las opciones que hay -->
+                        <p class="envio"><i class="fa-solid fa-truck icon-truck"></i> Envio gratis a todo el pais</p>
+                    </div>
+                </section>
+
+
+                <!--        Botones de comprar y de carrito             -->
+
+                    <!-- cambiarlo por una opcion que te mueste una lista de numeros del 1 al 10 asi el usuario no tiene que escribir, solo tiene que seleccionar -->
+                <form class="cantidad-compra" action="">
+                    <label  for="cantidad">Comprar:</label>
+                    <input type="number" id="cantidad" min="1" max="10" name="cantidad" value="1"> 
+                </form>
+
+            <section class="botones-container">
                 <div class="boton-comprar">
                     <button type="submit">
                         <p>Comprar ahora</p>
@@ -86,6 +115,7 @@
                         <p>Agregar al carrito</p>
                     </button>
                 </div>
+            </section>
 
                 <!-- ver como acomodar achicar el texto y el contenedor dejarlo tal cual -->
             </article>
@@ -95,19 +125,31 @@
             <article class="container-productos-relacionados">
                 <div id="product-relacionado-1">
                     <img src="/images/collar2.png" alt="collar">
+                    <h4>collar de perlas</h4>
+                    <div class="info-productos-relacionados">
+                        <i class="fas fa-truck"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <p class="precio-section-relacionados">$3000</p>
+                    </div>
                 </div>
 
                 <div id="product-relacionado-2">
                     <img src="/images/collar3.png" alt="collar">
+                    <h4>collar de perlas</h4>
+                    <div class="info-productos-relacionados">
+                        <i class="fas fa-truck"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <p class="precio-section-relacionados">$3000</p>
+                    </div>
                 </div>
-                
+
                 <div id="product-relacionado-3">
                     <img src="/images/collar.png" alt="collar">
                     <h4>collar de perlas</h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio">$3000</p>
+                        <p class="precio-section-relacionados">$3000</p>
                     </div>
                 </div>
 
