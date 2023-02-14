@@ -13,13 +13,39 @@ html{
 font-family: 'Rubik', sans-serif;
 }
 
-main {
-display: flex;
-align-items: center;
+body{
+    width: 100%;
+    height: auto;
+}
+
+header{
+    width: 100%;
+}
+
+.header-container{
+    border: 3px solid red;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    max-width: 200px;
+    object-fit: contain;
+}
+.navbar-list{
+    display: none;
 }
 
 .navbar-list-item{
 font-family: 'sugarSnow';
+}
+
+main{ 
+    position: center;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .green-container{
@@ -135,30 +161,12 @@ max-width: 20px;
 }
 
 footer {
-
 background-color: var(--naranja);
 padding: 20px 0;
-}
-
-.footer-container {
-width: 90%;
-margin: 0 auto;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+color: white;
 text-align: center;
-}
-
-.images-container {
-display: flex;
-justify-content: center;
-}
-
-.images-container>img {
-margin-right: 20px;
-width: 50px;
-height: 50px;
-}
-
-footer p {
-font-size: 14px;
-color: #3F51B5;
-margin: 0;
 }

@@ -1,0 +1,15 @@
+@media (max-width: 768px){
+    
+
+    
+    }
+
+@media (min-width: 769px){
+        .navbar-list{
+            display: flex;
+        }
+}
+
+@media (min-width: 1200px){
+    
+}
