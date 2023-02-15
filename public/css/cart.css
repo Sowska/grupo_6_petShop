@@ -176,7 +176,7 @@ font-family: 'Rubik', sans-serif;
 
 .titulo{
 color: white;
-margin: 40px;
+margin: 10px;
 max-height: 5px;
 font-size: 1.5em;
 font-family: 'sugarSnow';
@@ -213,4 +213,27 @@ padding: 20px 0;
 width: 100%;
 color: white;
 text-align: center;
+}
+
+.icon-footer-container{
+    /* border: 3px solid brown; */
+
+}
+
+.icon-footer-container i{
+    font-size: 25px;
+    margin: 5px 10px;
+}
+
+.logo-footer-container{
+    /* border: 3px solid brown; */
+}
+
+.copyright{
+    /* border: 3px solid brown; */
+    margin-top: 10px;
+}
+
+.copyright p{
+    font-size: 12px;
 }
