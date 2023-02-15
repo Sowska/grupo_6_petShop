@@ -7,9 +7,6 @@ src: url(./fonts/sugar-snow-webfont.woff2);
 * {
 margin: 0;
 box-sizing: border-box;
-}
-
-html{
 font-family: 'Rubik', sans-serif;
 }
 
@@ -23,14 +20,64 @@ header{
 }
 
 .header-container{
-    border: 3px solid red;
+    /* border: 3px solid red; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 15px;
+}
+
+
+.logo-container{
+    /* border: 3px solid brown; */
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-container{
+    /* border: 3px solid brown; */
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar{
+    padding:10px;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.search-bar input{
+    border: none;
+    width: 100%;
+    height: 40px;
+    background-color: var(--grisClaro);
+    border-radius: 20px;
+    padding-left: 40px;
+}
+
+.search-bar button{
+    background-color: transparent;
+    border: transparent;
+    font-size: 20px;
+    position:absolute;
+    width: 30px;
+    margin-top: 8px;
+}
+
+.navigation-icons-container{
+    /* border: 3px solid brown; */
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-icons-container button{
+    font-size: 40px;
+    margin: 0 5px;
+    background-color: transparent;
+    border: transparent;
 }
 
 .logo{
     max-width: 200px;
-    object-fit: contain;
 }
 .navbar-list{
     display: none;
@@ -40,12 +87,8 @@ header{
 font-family: 'sugarSnow';
 }
 
-main{ 
-    position: center;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main{
+        padding: 15px;
 }
 
 .green-container{
@@ -139,6 +182,10 @@ font-size: 1.5em;
 font-family: 'sugarSnow';
 }
 
+.counter input{
+    max-width: 50px;
+}
+
 .collar{
 max-width: 80px;
 }
@@ -163,9 +210,6 @@ max-width: 20px;
 footer {
 background-color: var(--naranja);
 padding: 20px 0;
-position: fixed;
-left: 0;
-bottom: 0;
 width: 100%;
 color: white;
 text-align: center;
