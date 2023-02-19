@@ -6,7 +6,7 @@ const controller = {
     },
 
     cart: (req, res) => {
-        res.sendFile(path.resolve(__dirname,"../views/cart.html"));
+        res.render('cart');
     }
 };
 

@@ -1,0 +1,70 @@
+<!-- HEAD DINAMICO -->
+<%- include('partials/head')  %>
+
+<body>
+
+<!-- HEADER DINAMICO -->
+<%- include('partials/header')  %>   
+
+<main>
+
+    <section class="green-container">
+        <h2 class="titulo">Tu carrito de compras</h2>
+
+        <div class="white-container">
+            <div class="products">
+
+                <div class="detail">
+                    <img src="./images/collar.jpg" alt="collar" class="producto" width="100">
+                    <p class="description">Collar para perro</p>
+
+                    <div class="price-container">
+                        <p class="price">$3000</p>
+                        <div class="counter">
+                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                            <input type="text" value="1">
+                            <span class="up" onClick='increaseCount(event, this)'>+</span>
+                        </div>
+                    </div>
+
+                </div>
+                <a href="" class="delete-tag">Eliminar producto</a>
+            </div>
+
+            <div class="white-container-bottom">
+                <div class="total-description">
+                    <div class="bill">
+
+                        <div class="bill-row">
+                            <p class="subtotal-label">Subtotal:</p>
+                            <p class="pricing-label">$1500</p>
+                        </div>
+
+                        <div class="bill-row">
+                            <p class="shipping-label">envio:</p>
+                            <p class="pricing-label">$1500</p>
+                        </div>
+                        <input type="text" placeholder="Ingrese codigo promocional...">
+                    </div>
+
+                    <div class="bill-row-bottom">                
+                        <p class="total-label">Total:</p>
+                        <p class="total-price">$3000</p>
+                    </div>
+                    
+                </div>
+                <button type="submit" class="buttonpay"> Continuar Compra</button>
+            </div>
+        </div>
+
+
+    </section>
+    
+</main>
+
+<!-- FOOTER DINAMICO -->
+<%- include('partials/footer')  %> 
+
+</body>
+
+</html>
