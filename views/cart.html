@@ -16,17 +16,50 @@
 <!--Hoja de estilos propias -->
 <link rel="stylesheet" href="/css/variables.css">
 <link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/cart-media-queries.css">
 
 </head>
 
 <body>
 <header>
 <section class="header-container">
+    <div class="top-header-container">
+        <div class="burger-container">
 
-    <div class="logo-container">
-        <div class="logo">
-            <img src="./images/Logo +cotas.png" alt="logo" width="200px">
+                <nav id="navbar" class="navigation" role="navigation">
+                    <input id="toggle1" type="checkbox" />
+                    <label class="hamburger1" for="toggle1">
+                    <div class="top"></div>
+                    <div class="meat"></div>
+                    <div class="bottom"></div>
+                    </label>
+                
+                    <!-- parte que se despliega al click -->
+                    <nav class="menu1"> 
+                    <a class="link1" href="/">Inicio</a>
+                    <a class="link1" href="">Productos</a>
+                    <a class="link1" href="">Nosotros</a>
+                    <a class="link1" href="">Promos</a>
+                    <a class="link1" href="">Contacto</a>
+                    </nav>
+                </nav>
+                
         </div>
+
+        <div class="logo-container">
+
+            <div class="logo">
+                <img src="./images/Logo +cotas.png" alt="logo" width="200px">
+            </div>
+
+        </div>
+
+        <div class="navigation-icons-container">
+            <button><i class="fa fa-shopping-cart"></i></button>
+            <button><i class="fa fa-heart"></i></button>
+            <button><i class="fa fa-user"></i></button>
+        </div>
+
     </div>
 
     <div class="search-bar-container">
@@ -34,16 +67,6 @@
             <button><i class="fas fa-search"></i></button>
             <input type="text" placeholder="Buscar...">
         </div>
-    </div>
-
-    <div class="burger-container">
-
-    </div>
-
-    <div class="navigation-icons-container">
-        <button><i class="fa fa-shopping-cart"></i></button>
-        <button><i class="fa fa-heart"></i></button>
-        <button><i class="fa fa-user"></i></button>
     </div>
 
     
@@ -73,7 +96,7 @@
 
                 <div class="detail">
                     <img src="./images/collar.jpg" alt="collar" class="producto" width="100">
-                    <p class="description">Collar para perro vegano</p>
+                    <p class="description">Collar para perro</p>
 
                     <div class="price-container">
                         <p class="price">$3000</p>
@@ -83,33 +106,37 @@
                             <span class="up" onClick='increaseCount(event, this)'>+</span>
                         </div>
                     </div>
+
                 </div>
+                <a href="" class="delete-tag">Eliminar producto</a>
             </div>
 
-            <div class="total-description">
-                <div class="bill">
+            <div class="white-container-bottom">
+                <div class="total-description">
+                    <div class="bill">
 
-                    <div class="bill-row">
-                        <p class="subtotal-label">Subtotal:</p>
-                        <p class="pricing-label">$1500</p>
+                        <div class="bill-row">
+                            <p class="subtotal-label">Subtotal:</p>
+                            <p class="pricing-label">$1500</p>
+                        </div>
+
+                        <div class="bill-row">
+                            <p class="shipping-label">envio:</p>
+                            <p class="pricing-label">$1500</p>
+                        </div>
+                        <input type="text" placeholder="Ingrese codigo promocional...">
                     </div>
 
-                    <div class="bill-row">
-                        <p class="shipping-label">envio:</p>
-                        <p class="pricing-label">$1500</p>
+                    <div class="bill-row-bottom">                
+                        <p class="total-label">Total:</p>
+                        <p class="total-price">$3000</p>
                     </div>
-                    <input type="text" placeholder="Ingrese codigo promocional...">
+                    
                 </div>
+                <button type="submit" class="buttonpay"> Continuar Compra</button>
             </div>
-
-            <div class="total-pricing"></div>
-                <p class="total-label">Total:</p>
-                <p class="total-price">$3000</p>
-            </div>
-
-            <button type="submit" class="buttonpay"> Continuar Compra</button>
-
         </div>
+
 
     </section>
     
