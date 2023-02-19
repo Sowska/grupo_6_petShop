@@ -11,12 +11,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
+app.use('/cart', mainRoutes);
 
-//app.get("/", (req,res) => res.sendFile(path.resolve(__dirname,"./views/home.html")));
 
-app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));
-
-app.get("/cart", (req,res) => res.sendFile(path.resolve(__dirname,"./views/cart.html")));
+//app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));
 
 //app.get("/productDetail", (req,res) => res.sendFile(path.resolve(__dirname,"./views/productDetail.html")));
 
