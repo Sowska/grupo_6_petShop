@@ -10,9 +10,3 @@ A veces entendemos que menos es mas y en el primer Sprint entregamos algunas cos
 podamos cumplir con los objetivos de cada entrega. Aunque aun tenemos la inspiracion siempre estamos abiertos a discutirlo.
 ![Estrella](https://user-images.githubusercontent.com/113376793/217674251-0078a661-31cb-464a-9302-529408e0c207.PNG)
 
-
-TABLERO DE TRABAJO UTILIZADO PARA LAS RESPONSABILIDADES > TRELLO
-
-A continuacion ver link de la herramiento para organizacion del trabajo, el equipo estuvo de acuerdo en hacer el seguimiento grupal e individual a traves de la herramiento TRELLO, ya que es una herramiento muy visual y que tiene muchas opciones.
-
-https://trello.com/invite/b/G5nlJRIe/ATTI2c828b14273d2460c3f01183a5d4f7abD5E22579/html-y-css
