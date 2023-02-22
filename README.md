@@ -38,3 +38,12 @@ Manicurista de dia, estudiante de Ciencias de la Computación de noche. De San L
 -Heidy Monterroza: Soy de Barranquilla, Colombia. Trabajo en Exportaciones pero siempre he querido dedicarme al campo de la tecnologia, y despues de muchos años al fin estoy en direccion a lo que quiero profesionalmente.
 
 -Jorge Tremel: Hola! Soy Jorge tengo 28 años de Medellin Colombia, Soy Negociador Internacional de profesion, me gusta la programacion, los retos y aprender constantemente.
+
+
+
+TABLERO DE TRABAJO UTILIZADO PARA LAS RESPONSABILIDADES > TRELLO
+
+A continuacion ver link de la herramiento para organizacion del trabajo, el equipo estuvo de acuerdo en hacer el seguimiento grupal e individual a traves de la herramiento TRELLO, ya que es una herramiento muy visual y que tiene muchas opciones.
+
+https://trello.com/invite/b/G5nlJRIe/ATTI2c828b14273d2460c3f01183a5d4f7abD5E22579/html-y-css
+
