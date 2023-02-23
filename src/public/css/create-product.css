@@ -1,0 +1,55 @@
+/* //Comida</option>
+<option value="juguetes">Juguetes</option>
+<option value="accesorios">Accesorios</option>
+<option value="salud">Salud</option>
+<option value="higiene">Higiene
+ */
+.comida_campos {
+    display: none;
+}
+
+.juguete_campos {
+    display: none;
+}
+
+.accesorio_campos {
+    display: none;
+}
+
+.salud_campos {
+    display: none;
+}
+
+.higiene_campos {
+    display: none;
+}
+
+form {
+    color: gray;
+    margin: 15px;
+}
+
+form>input,
+select {
+    border-radius: 5px;
+    border: 1px gray solid
+}
+
+form>.otros>input {
+    border-radius: 5px;
+}
+
+form>.otros>#precio {
+    border-radius: 5px;
+
+    border: 1px gray solid
+}
+.save,.clear {
+    background-color: #1259c3;
+    border: none;
+    font-size: 12px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    height: 35px;
+}

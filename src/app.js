@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
+app.use('/createProduct',mainRoutes);
 
 
 //app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));

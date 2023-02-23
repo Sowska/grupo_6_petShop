@@ -6,5 +6,6 @@ const router = express.Router(); //ruta en comun
 
 router.get('/', mainController.index); //el metodo GET pide una vista
 router.get('/cart', mainController.cart);
+router.get('/createProduct',mainController.createProduct);
 
 module.exports = router; //ruta en comun
