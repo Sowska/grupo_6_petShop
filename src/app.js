@@ -12,6 +12,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
+app.use('/register', mainRoutes);
+app.use('/login', mainRoutes);
+app.use('/productDetail', mainRoutes);
 app.use('/createProduct',mainRoutes);
 
 
