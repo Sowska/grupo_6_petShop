@@ -10,7 +10,7 @@
     }
 
     .search-bar-container{
-        position:fixed;
+        width: 40%;
     }
 
     .navbar{
