@@ -12,18 +12,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
-app.use('/register', mainRoutes);
-app.use('/login', mainRoutes);
 app.use('/productDetail', mainRoutes);
 app.use('/createProduct',mainRoutes);
-
-
-//app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));
-
-//app.get("/productDetail", (req,res) => res.sendFile(path.resolve(__dirname,"./views/productDetail.html")));
-
-//app.get("/register", (req,res) => res.sendFile(path.resolve(__dirname,"./views/register.html")));
-
 
 const port = process.env.PORT || 3030;
 
