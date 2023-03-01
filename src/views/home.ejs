@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html> //esto ya esta en el head dinamico, se puede borrar
+<html lang="en"> -->
+
+
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+<!-- HEADER DINAMICO -->
+<body>
+<%-include('partials/header') %>
+
+
+    <div class="secciones">
+        <div class="section-selector">
+            <img src="./images/perros.png" alt="perros" width="300">
+            <a href="" class="link">PERROS</a>
+        </div>
+        <div class="section-selector">
+            <img src="./images/gatos.png" alt="gatos" width="300" class="">
+            <a href="" class="link">GATOS</a>
+        </div>
+    </div>
+<div class="line"></div>
+
+<div id="myCarousel">
+    <div class="slides-container">
+      <div class="slide">
+        <img src="./images/collar.png" alt="item 1">
+        <p class="description">Description 1</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="slide">
+        <img src="./images/bandana.png" alt="item 2">
+        <p class="description">Description 2</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="slide">
+        <img src="./images/collar2.png" alt="item 3">
+        <p class="description">Description 3</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="slide">
+        <img src="./images/capa.png" alt="item 4">
+        <p class="description">Description 4</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="slide">
+        <img src="./images/collar3.png" alt="item 5">
+        <p class="description">Description 5</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <button class="ant-btn">Anterior</button>
+    <button class="sig-btn">Siguiente</button>
+  </div>
+  <script>
+   
+  </script>
+</body>
+<%-include('partials/footer') %>
+
+</html>
