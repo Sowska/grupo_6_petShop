@@ -17,14 +17,6 @@ app.use('/productDetail', mainRoutes);
 app.use('/register', mainRoutes);
 app.use('/createProduct', mainRoutes)
 
-
-//app.get("/login", (req,res) => res.sendFile(path.resolve(__dirname,"./views/login.html")));
-
-//app.get("/productDetail", (req,res) => res.sendFile(path.resolve(__dirname,"./views/productDetail.html")));
-
-//app.get("/register", (req,res) => res.sendFile(path.resolve(__dirname,"./views/register.html")));
-
-
 const port = process.env.PORT || 3030;
 
 app.listen(port, () => {
