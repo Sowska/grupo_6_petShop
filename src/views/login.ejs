@@ -1,67 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>+Cotas Login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--        Hojas de estilo propias         -->
-    <link rel="stylesheet" href="/css/login-styles.css">
-    <link rel="stylesheet" href="/css/register-styles.css">
-    <meta name="theme-color" content="#fafafa">
-
-    <!-- tipografia -->
-    <link rel="stylesheet" type="text/css" herf="http.//fonts.googleapis.com/css" family=Rubik>
-
-
-
-
-</head>
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+<!-- HEADER DINAMICO -->
 
 <body>
-    <header>
-        <section class="navigation">
-            <div class="navigation-search">
-                <div class="logo">
-                    <img src="./images/Logo +cotas.png" alt="logo" width="120">
-                </div>
-                <div class="search">
-                    <div class="search-control">
-                        <img src="./images/search.svg" alt="search icon" width="30">
-                        <input
-                                id="txtSearch"
-                                name="txtSearch"
-                                placeholder="Buscar..."
-                                type="text"
-                        />
-                    </div>
-                </div>
-                <div class="navigation-icons">
-                    <div class="shopping-cart">
-                        <img src="./images/shopping_cart.svg" alt="cart" width="40">
-                    </div>
-                    <div>
-                        <img src="./images/favorite.svg" alt="cart" width="40">
-                    </div>
-                    <div>
-                        <img src="./images/person.svg" alt="cart" width="40">
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-list-item">INICIO</li>
-                    <li class="navbar-list-item">PRODUCTOS</li>
-                    <li class="navbar-list-item">NOSOTROS</li>
-                    <li class="navbar-list-item">PROMOS</li>
-                    <li class="navbar-list-item">CONTACTO</li>
-                </ul>
-            </nav>
-        </section>
-    </header>
-
+        <%-include('partials/header') %>
 
     <main>
 
@@ -130,10 +72,7 @@
         <br>
         <br>
 
-
-        <footer>
-
-        </footer>
+        <%-include('partials/footer') %>
 
 
 </body>

@@ -105,6 +105,6 @@
   },
   "homepage": "https://github.com/Sowska/grupo_6_petShop#readme",
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.21"
   }
 }

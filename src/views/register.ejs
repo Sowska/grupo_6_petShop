@@ -1,57 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+<!-- HEADER DINAMICO -->
 
-<head>
-    <meta charset="utf-8">
-    <title>+Cotas</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fafafa">
-
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/register-styles.css">
-</head>
 <body>
-<header>
-    <section class="navigation">
-        <div class="navigation-search">
-            <div class="logo">
-                <img src="./images/Logo +cotas.png" alt="logo" width="120">
-            </div>
-            <div class="search">
-                <div class="search-control">
-                    <img src="./images/search.svg" alt="search icon" width="30">
-                    <input
-                            id="txtSearch"
-                            name="txtSearch"
-                            placeholder="Buscar..."
-                            type="text"
-                    />
-                </div>
-            </div>
-            <div class="navigation-icons">
-                <div class="shopping-cart">
-                    <img src="./images/shopping_cart.svg" alt="cart" width="40">
-                </div>
-                <div>
-                    <img src="./images/favorite.svg" alt="cart" width="40">
-                </div>
-                <div>
-                    <img src="./images/person.svg" alt="cart" width="40">
-                </div>
-            </div>
-        </div>
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li class="navbar-list-item">INICIO</li>
-                <li class="navbar-list-item">PRODUCTOS</li>
-                <li class="navbar-list-item">NOSOTROS</li>
-                <li class="navbar-list-item">PROMOS</li>
-                <li class="navbar-list-item">CONTACTO</li>
-            </ul>
-        </nav>
-    </section>
-</header>
+    <%-include('partials/header') %>
+
 <main class="container">
     <section class="container-form">
         <div class="form-card">
@@ -92,5 +45,7 @@
         </div>
     </section>
 </main>
+<%-include('partials/footer') %>
 </body>
+
 </html>

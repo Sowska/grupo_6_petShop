@@ -31,6 +31,12 @@ header{
 
 .top-header-container{
     display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.both-container{
+    display: flex;
     flex-direction: row;
 }
 
@@ -39,14 +45,11 @@ header{
     /* border: 3px solid brown; */
     display: flex;
     align-items: space-between;
+    width: auto;
 }
 
 .logo img{
     width: 100%;
-}
-
-.burger-container{
-    /* border: 2px solid blue; */
 }
 
 /* hamburger menu */
@@ -180,12 +183,13 @@ padding: 10px;
 
 .navigation-icons-container{
     /* border: 3px solid brown; */
-    display: none;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .navigation-icons-container button{
-    font-size: 40px;
+    font-size: 30px;
     margin: 0 5px;
     background-color: transparent;
     border: transparent;
