@@ -10,7 +10,9 @@
       <section class="green-container">
         <h2 class="titulo">Agregar Producto</h2>
         <div class="white-container">
-          <form action="/create" method="post">
+
+          <!-- el method post estaba en miniscula y lo pase a mayuscula porque no se si lo toma en minuscula  -->
+          <form action="/create" method="POST">
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="">
             <br>
