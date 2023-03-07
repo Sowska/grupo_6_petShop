@@ -15,24 +15,25 @@
                 <section class="container-foto-productos">
 
                     <div class="foto-principal-producto">
-                        <img src="/images/collar.png" alt="collar">
+                        <img src="/images/<%= product.image %>" alt="collar">
                     </div>
 
                     <div class="fotos-abajo">
-                        <img src="/images/collar.jpg" alt="">
-                        <img src="/images/collar2.png" alt="">
-                        <img src="/images/collar3.png" alt="">
+                        <img src="/images/<%= product.image %>" alt="">
+                        <img src="/images/<%= product.image %>" alt="">
+                        <img src="/images/<%= product.image %>" alt="">
                     </div>
                 </section>
 
 
                 <!--        Info del producto            -->
+                <!-- hacer la formula para el precio final si es que hay descuento -->
 
                 <section class="info-productos-container">
                     <div class="main-article">
-                        <p class="precio">$ 14.900</p>
-                        <p class="cuotas">en 6x $ 3.706</p>
-                        <p class="metodos-pagos">Ver los metodos de pago</p>
+                        <p class="precio">$<%= product.precio %></p>
+                        <p class="cuotas">en<%= product.cuotas %> $ <%= product.precio-en-cuotas %></p>
+                        <p class="metodos-pagos"><%= product.metodos-pagos %></p>
                         <!-- cambiarlo a un hipervinculo que saque una solapa con las opciones que hay -->
                         <p class="envio"><i class="fa-solid fa-truck icon-truck"></i> Envio gratis a todo el pais</p>
                     </div>
@@ -68,32 +69,32 @@
         <section class="productos-relacionados">
             <article class="container-productos-relacionados">
                 <div id="product-relacionado-1">
-                    <img src="/images/collar2.png" alt="collar">
-                    <h4>collar de perlas</h4>
+                    <img src="/images/<%= product.image %>" alt="collar">
+                    <h4><%= product.name %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$3000</p>
+                        <p class="precio-section-relacionados">$<%= product.precio %></p>
                     </div>
                 </div>
 
                 <div id="product-relacionado-2">
-                    <img src="/images/collar3.png" alt="collar">
-                    <h4>collar de perlas</h4>
+                    <img src="/images/<%= product.image %>" alt="collar">
+                    <h4><%= product.name %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$3000</p>
+                        <p class="precio-section-relacionados">$<%= product.precio %></p>
                     </div>
                 </div>
 
                 <div id="product-relacionado-3">
-                    <img src="/images/collar.png" alt="collar">
-                    <h4>collar de perlas</h4>
+                    <img src="/images/<%= product.image %>" alt="collar">
+                    <h4><%= product.name %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$3000</p>
+                        <p class="precio-section-relacionados">$<%= product.precio %></p>
                     </div>
                 </div>
 
