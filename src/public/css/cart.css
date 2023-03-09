@@ -226,8 +226,10 @@ font-family: 'sugarSnow';
 .navbar-list-item a:link, .navbar-list-item a:visited{
     text-decoration: none;
     color: white;
+    font-family: 'sugarSnow';
 }
 
+/* ====================MAIN========================= */
 main{
         padding: 15px;
 }
@@ -379,6 +381,8 @@ p{
     max-width: 20px;
 }
 
+/* =====================FOOTER========================= */
+
 footer {
     background-color: var(--naranja);
     padding: 20px 0;
@@ -406,7 +410,7 @@ footer {
     font-size: 12px;
 }
 
-/* ESTILOS DE /PRODUCTS */
+/* ======================= /PRODUCTS =========================== */
 
 .products-wrapper{
     text-align: center;
@@ -464,7 +468,7 @@ color:white;
 
 .add{
 background-color: initial;
-background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+background-image: linear-gradient(-180deg, var(--verde), green);
 border-radius: 6px;
 box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
 color: #FFFFFF;
@@ -486,7 +490,7 @@ transition: box-shadow .2s;
 }
 
 .add:hover {
-box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+box-shadow: var(--verde) 0 3px 8px;
 }
 
 .fa-info{
