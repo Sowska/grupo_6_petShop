@@ -1,18 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
+const productsFilePath = path.join(__dirname, '../data/products.json');
+
 function getProducts(){
 	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-}
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+} //esta funcion permite actualizar la lista de products para cada accion del CRUD.
 
 
 const controller = {
 	// 1.Listado de productos
-	products: (req, res) => {
+	allProducts: (req, res) => {
         const products = getProducts();
+        res.render('products', { products });  
 	
 	},
 

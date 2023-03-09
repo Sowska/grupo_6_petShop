@@ -96,12 +96,12 @@ body {
     gap: 20px;
 }
 
-.navbar-list-item {
+/* .navbar-list-item {
     cursor: pointer;
     text-decoration: none;
     position: relative;
     text-align: center;
-}
+} */
 
 .navbar-list-item::after {
     content: '';
