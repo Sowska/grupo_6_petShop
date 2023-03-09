@@ -223,6 +223,11 @@ padding: 10px;
 font-family: 'sugarSnow';
 }
 
+.navbar-list-item a:link, .navbar-list-item a:visited{
+    text-decoration: none;
+    color: white;
+}
+
 main{
         padding: 15px;
 }
