@@ -1,52 +1,58 @@
 <!-- HEAD DINAMICO -->
 <%-include('partials/head') %>
-<!-- HEADER DINAMICO -->
+    <!-- HEADER DINAMICO -->
 
-<body>
+    <body>
         <%-include('partials/header') %>
 
-<div class="content-wrapper">
+            <div class="content-wrapper">
 
-    <figure>
-        <img src="/images/<%= product.image %>" alt="product image" class="product-detail-img">
-    </figure>
+                <figure>
+                    <img src="/images/<%= product.image %>" alt="product image" class="product-detail-img">
+                </figure>
 
-    <div>
+                <div>
 
-        <h2 class="product-title"><%= product.product %></h2>
-        <div class="detail-row">
-            <div>Material:</div>
-            <div><%=product.material %></div>
-        </div>
+                    <h2 class="product-title">
+                        <%= product.product %>
+                    </h2>
+                    <div class="detail-row">
+                        <div>Material:</div>
+                        <div>
+                            <%=product.material %>
+                        </div>
+                    </div>
 
-        <div class="detail-row">
-            <div>Tamaño:</div>
-            <div><%=product.size %></div>
-        </div>
+                    <div class="detail-row">
+                        <div>Tamaño:</div>
+                        <div>
+                            <%=product.size %>
+                        </div>
+                    </div>
 
-        <div>
-            <button class="add"> Agregar al carrito </button>
-            <div class="counter">
-                <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                <input type="text" value="1">
-                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                    <div>
+                        <button class="add"> Agregar al carrito </button>
+                        <div class="counter">
+                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                            <input type="text" value="1">
+                            <span class="up" onClick='increaseCount(event, this)'>+</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <a href="#" class="action-button edit">EDITAR PRODUCTO</a>
+                            <form action="#" method="POST" style="display: inline-flex">
+                                <button type="submit" class="action-button delete">ELIMINAR</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
 
-        <div class="detail-row">
-            <a href="#" class="action-button edit">EDITAR PRODUCTO</a>
-            <form action="#" method="POST" style="display: inline-flex">
-                <button type="submit" class="action-button delete">ELIMINAR</button>
-            </form>
-        </div>
+            <%-include('partials/footer') %>
+    </body>
 
-        </div>
-
-
-    </div>
-
-</div>
-
-    <%-include('partials/footer') %>
-</body>
-
-</html>
+    </html>
