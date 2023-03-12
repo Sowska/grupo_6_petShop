@@ -11,7 +11,7 @@ router.get('/', productsController.allProducts);
 /*** Crear un producto***/
 
 /*** Ver el detalle de un producto ***/
-router.get('/detail/:id', productsController.detail);
+router.get('/:id', productsController.detail);
 
 /*** Editar un producto ***/
 
