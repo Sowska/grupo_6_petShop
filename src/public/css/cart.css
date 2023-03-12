@@ -521,3 +521,12 @@ color:var(--verde);
 .link-prod:hover{
 color:var(--naranja);
 }
+
+
+/* ====================PRODUCT DETAIL========================= */
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 20px;
+}
