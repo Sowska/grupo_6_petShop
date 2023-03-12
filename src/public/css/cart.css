@@ -326,11 +326,6 @@ main{
     width: 30%;
 }
 
-.counter{
-    display: flex;
-    flex-direction: row;
-}
-
 .detail{
     width: 100%;
     display: flex;
@@ -474,19 +469,21 @@ box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
 color: #FFFFFF;
 cursor: pointer;
 display: inline-block;
-height: 40px;
 line-height: 40px;
 outline: 0;
 pointer-events: auto;
 text-align: center;
 user-select: none;
-user-select: none;
 vertical-align: top;
 white-space: nowrap;
-width: 80%;
 z-index: 9;
 border: 0;
 transition: box-shadow .2s;
+}
+
+.add-product{
+    width: 80%;
+    height: 40px;
 }
 
 .add:hover {
@@ -527,6 +524,75 @@ color:var(--naranja);
 
 .content-wrapper{
     display: grid;
-    grid-template-columns: 50% 50%;
+    margin: 5%;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
     grid-gap: 20px;
+}
+
+.content-wrapper figure{
+    text-align: center;
+    display: flex;
+}
+
+.content-wrapper figure img{
+    margin: auto;
+    width: 100%;
+}
+
+
+.detail-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.product-title{
+    text-align:center;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.detail-row2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.add-detail{
+    width: 60%;
+    margin: 5%;
+    font-size: 1.2em;
+}
+
+.counter{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 5%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.counter input{
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    border: 2px solid var(--naranja);
+}
+
+.down{
+    grid-column: 1;
+    grid-row: 2;
+    height: auto;
+    border: 1px;
+}
+
+.up{
+    grid-column: 3;
+    grid-row: 2;
+    border: 1px solid var(--naranja);
 }
