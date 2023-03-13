@@ -31,9 +31,9 @@
 
                 <section class="info-productos-container">
                     <div class="main-article">
-                        <p class="precio">$<%= product.precio %></p>
-                        <p class="cuotas">en<%= product.cuotas %> $ <%= product.precio-en-cuotas %></p>
-                        <p class="metodos-pagos"><%= product.metodos-pagos %></p>
+                        <p class="precio">$<%= product.price %></p>
+                        <p class="cuotas">en<%=  %> $</p>
+                        <p class="metodos-pagos"></p>
                         <!-- cambiarlo a un hipervinculo que saque una solapa con las opciones que hay -->
                         <p class="envio"><i class="fa-solid fa-truck icon-truck"></i> Envio gratis a todo el pais</p>
                     </div>
@@ -70,31 +70,31 @@
             <article class="container-productos-relacionados">
                 <div id="product-relacionado-1">
                     <img src="/images/<%= product.image %>" alt="collar">
-                    <h4><%= product.name %></h4>
+                    <h4><%= product.product %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$<%= product.precio %></p>
+                        <p class="precio-section-relacionados">$<%= product.price %></p>
                     </div>
                 </div>
 
                 <div id="product-relacionado-2">
                     <img src="/images/<%= product.image %>" alt="collar">
-                    <h4><%= product.name %></h4>
+                    <h4><%= product.product %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$<%= product.precio %></p>
+                        <p class="precio-section-relacionados">$<%= product.price %></p>
                     </div>
                 </div>
 
                 <div id="product-relacionado-3">
                     <img src="/images/<%= product.image %>" alt="collar">
-                    <h4><%= product.name %></h4>
+                    <h4><%= product.product %></h4>
                     <div class="info-productos-relacionados">
                         <i class="fas fa-truck"></i>
                         <i class="fa-regular fa-heart"></i>
-                        <p class="precio-section-relacionados">$<%= product.precio %></p>
+                        <p class="precio-section-relacionados">$<%= product.price %></p>
                     </div>
                 </div>
 
