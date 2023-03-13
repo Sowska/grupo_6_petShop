@@ -19,13 +19,13 @@ const controller = {
     res.render('createProduct');
     },
 
-    productDetail: (req,res)=>{
-        const {id} = req.params;
-        const productos = getProductos()
-        const product = productos.find((product) => product.id === +id)
+    // productDetail: (req,res)=>{
+    //     const {id} = req.params;
+    //     const productos = getProductos()
+    //     const product = productos.find((product) => product.id === +id)
 
-        res.render('productDetail',{product});
-    },
+    //     res.render('productDetail',{product});
+    // },
 
     login: (req,res)=>{
         res.render('login');

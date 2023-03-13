@@ -15,9 +15,8 @@ router.get('/login',mainController.login);
 
 router.get('/register',mainController.register);
 
-// router.get('/productDetail',mainController.productDetail);// hay que crear una pagina que lleve a todos los productos
-// dejar estar ruta siempre abajo de las demas
-router.get('/:id',mainController.productDetail);
+
+
 
 
 module.exports = router; //ruta en comun

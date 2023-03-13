@@ -10,10 +10,12 @@ router.get('/', productsController.allProducts);
 
 /*** Crear un producto***/
 
-/*** Ver el detalle de un producto ***/
-
 /*** Editar un producto ***/
 
 /*** Eliminar un producto***/
+
+/*** Ver el detalle de un producto ***/
+
+router.get('/detail/:id',productsController.detail); // dejar estar ruta siempre abajo de las demas
 
 module.exports = router;
