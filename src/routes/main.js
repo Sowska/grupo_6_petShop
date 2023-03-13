@@ -11,4 +11,12 @@ router.get('/productDetail',mainController.productDetail);
 router.get('/login',mainController.login);
 router.get('/register',mainController.register);
 
+
+
+/*se requiere ruta para storage mirar video*/
+
+router.post('/createProduct', mainController.storage); 
+
+
+
 module.exports = router; //ruta en comun

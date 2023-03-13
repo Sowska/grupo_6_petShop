@@ -17,6 +17,11 @@ app.use('/productDetail', mainRoutes);
 app.use('/register', mainRoutes);
 app.use('/createProduct', mainRoutes)
 
+
+/*se requiere app use para storage*/
+
+
+
 const port = process.env.PORT || 3030;
 
 app.listen(port, () => {

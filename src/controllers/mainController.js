@@ -23,7 +23,20 @@ const controller = {
 
     register: (req,res)=>{
         res.render('register');
+        
+    },
+
+
+
+
+    /*mirar video*/
+
+    storage: (req,res)=>{
+        res.render('Guardado con exito');
     }
+
+
+
 }
 
 module.exports = controller;
