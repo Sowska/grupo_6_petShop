@@ -38,6 +38,8 @@ const controller = {
 	// 5. Formulario de edición de productos
 	edit: (req, res) => {
         const products = getProducts();
+		const product = products.find(element => element.id == req.params.id);
+		res.render('edit-product', { productToEdit: product });
 		
 	},
 
