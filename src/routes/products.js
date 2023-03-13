@@ -10,6 +10,7 @@ router.get('/', productsController.allProducts);
 
 /*** Crear un producto***/
 router.get('/create', productsController.create);
+router.post('/', productsController.store); 
 
 /*** Ver el detalle de un producto ***/
 router.get('/:id', productsController.detail);
