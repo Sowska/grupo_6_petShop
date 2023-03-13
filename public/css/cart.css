@@ -12,7 +12,6 @@ margin: 0;
 
 body{
     width: 100%;
-    /* height: auto; */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -223,6 +222,13 @@ padding: 10px;
 font-family: 'sugarSnow';
 }
 
+.navbar-list-item a:link, .navbar-list-item a:visited{
+    text-decoration: none;
+    color: white;
+    font-family: 'sugarSnow';
+}
+
+/* ====================MAIN========================= */
 main{
         padding: 15px;
 }
@@ -374,6 +380,8 @@ p{
     max-width: 20px;
 }
 
+/* =====================FOOTER========================= */
+
 footer {
     background-color: var(--naranja);
     padding: 20px 0;
@@ -399,4 +407,116 @@ footer {
 
 .copyright p{
     font-size: 12px;
+}
+
+/* ======================= /PRODUCTS =========================== */
+
+.products-wrapper{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-container {
+width: 60%;
+margin: 20px;
+height: 250px;
+position: relative;
+}
+
+.prod-img{
+    height: 100px;
+    width: 100px;
+}
+
+.box {
+width: 100%;
+height: 100%;
+padding: 5px;
+position: absolute;
+top: 0;
+left: 0;
+text-align: center;
+border-radius: 10px;
+box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    }
+
+.card{
+padding-top:20px;
+width: 100%;
+height:95%;
+position: absolute;
+clip-path: circle(8% at 85% 10%);
+transition: all ease-in-out .3s;
+background-color:var(--naranja);
+color:white;
+}
+
+.card:hover{
+    clip-path: circle(100%);
+    border-radius:15px;
+    background:black;
+    opacity: 90%;
+}
+
+.pet-type{
+    padding: 10px;
+    display:inline-block;
+}
+
+.add{
+background-color: initial;
+background-image: linear-gradient(-180deg, var(--verde), green);
+border-radius: 6px;
+box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+color: #FFFFFF;
+cursor: pointer;
+display: inline-block;
+height: 40px;
+line-height: 40px;
+outline: 0;
+pointer-events: auto;
+text-align: center;
+user-select: none;
+user-select: none;
+vertical-align: top;
+white-space: nowrap;
+width: 80%;
+z-index: 9;
+border: 0;
+transition: box-shadow .2s;
+}
+
+.add:hover {
+box-shadow: var(--verde) 0 3px 8px;
+}
+
+.fa-info{
+position:absolute;
+font-size: 1.5em;
+left: 83%;
+top: 5%;
+transition: opacity .2s;
+}
+
+.card:hover .fa-info {
+    opacity: 0%;
+}
+
+.info-container{
+padding:20px; 
+}
+
+.info-container > * {
+    margin: 20px;
+    font-weight: bold;
+}
+
+.link-prod:link, .link-prod:visited{
+color:var(--verde);
+}
+
+.link-prod:hover{
+color:var(--naranja);
 }

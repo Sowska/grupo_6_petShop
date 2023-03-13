@@ -1,15 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: "Comic Sans MS", sans-serif; */
-}
-
-
-body {
-    min-height: 100vh;
-}
-
 .navigation {
     width: 100%;
 }
@@ -96,12 +84,12 @@ body {
     gap: 20px;
 }
 
-.navbar-list-item {
+/* .navbar-list-item {
     cursor: pointer;
     text-decoration: none;
     position: relative;
     text-align: center;
-}
+} */
 
 .navbar-list-item::after {
     content: '';
@@ -207,12 +195,6 @@ body {
   .sig-btn {
     right: 0
 }
-
-footer {
-    
-    /* background-color: orange; */
-    /* padding: 20px 0; */
-  }
   
   .footer-container {
     width: 90%;

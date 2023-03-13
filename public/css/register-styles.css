@@ -1,24 +1,3 @@
-:root {
-    --green: #3A9742;
-    --orange: #D07631;
-    --grey: #D8D8D8;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Comic Sans MS", sans-serif;
-}
-
-html{
-    font-family: 'Rubik', sans-serif;
-}
-
-body {
-    min-height: 100vh;
-}
-
 .navigation {
     width: 100%;
 }
@@ -55,7 +34,7 @@ body {
     border: none;
     width: 100%;
     height: 40px;
-    background-color: var(--grey);
+    background-color: var(--gris);
     border-radius: 20px;
     padding-left: 40px;
 }
@@ -81,7 +60,7 @@ body {
     display: grid;
     place-content: center;
     padding: 2px;
-    background-color: var(--orange);
+    background-color: var(--naranja);
     border-radius: 50%;
     font-size: .8rem;
     color: white;
@@ -89,7 +68,7 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: var(--orange);
+    background-color: var(--naranja);
 }
 
 .navbar .navbar-list {
@@ -143,7 +122,7 @@ body {
 
 .form-card {
     margin-top: 40px;
-    background-color: var(--green);
+    background-color: var(--verde);
     padding: 10px 15px;
     border-radius: 10px;
     min-width: 600px;
@@ -181,7 +160,7 @@ body {
 
 .register-form .form-control input {
     border: none;
-    background-color: var(--grey);
+    background-color: var(--gris);
     padding: 10px;
     border-radius: 4px;
 }
@@ -197,7 +176,7 @@ body {
     max-width: 300px;
     width: 100%;
     padding: 6px;
-    background-color: var(--orange);
+    background-color: var(--naranja);
     border: none;
     border-radius: 4px;
     color: white;

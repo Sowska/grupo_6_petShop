@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const mainRoutes = require('./routes/main');
+const productsRoutes = require('./routes/products');
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use('/login', mainRoutes);
 app.use('/productDetail', mainRoutes);
 app.use('/register', mainRoutes);
 app.use('/createProduct', mainRoutes)
+
+app.use('/products', productsRoutes)
 
 const port = process.env.PORT || 3030;
 
