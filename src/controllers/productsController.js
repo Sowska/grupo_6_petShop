@@ -18,7 +18,7 @@ const controller = {
 
     // 2.Formulario de creación de productos
 	create: (req, res) => {
-
+		res.render('createProduct');
 	},
 
 	// 3. Detalle de un producto particular
