@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+const methodOverride =  require('method-override');
+app.use(methodOverride('_method'));
+
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
 app.use('/login', mainRoutes);
