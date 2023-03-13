@@ -612,11 +612,11 @@ footer {
         padding: 5%;
     }
 
-    .product-title {
+    .products-title{
         text-align: center;
-        font-weight: bold;
+        margin: 10px;
         color: var(--verde);
-    }
+        }
 
     .detail-row2 {
         width: 100%;
@@ -690,12 +690,15 @@ footer {
 
     /* ==================/CREATE PRODUCT=========================== */
 
-    .products-title {
-        color: var(--verde);
-        padding: 20px;
+    .title-div{
+        display: grid;
+        flex-direction: row;
+        position: relative;
     }
 
     .title-div a {
+        position: absolute;
+        top: 10px;
         appearance: none;
         background-color: var(--gris);
         border: 2px solid var(--grisClaro);
