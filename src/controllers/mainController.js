@@ -13,9 +13,9 @@ const controller = {
     res.render('createProduct');
     },
 
-    productDetail: (req,res)=>{
+/*     productDetail: (req,res)=>{
         res.render('productDetail');
-    },
+    }, */
 
     login: (req,res)=>{
         res.render('login');
