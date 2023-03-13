@@ -327,6 +327,11 @@ main {
     width: 30%;
 }
 
+.counter {
+    display: flex;
+    flex-direction: row;
+}
+
 .detail {
     width: 100%;
     display: flex;
@@ -470,13 +475,16 @@ footer {
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
+    height: 40px;
     line-height: 40px;
     outline: 0;
     pointer-events: auto;
     text-align: center;
     user-select: none;
+    user-select: none;
     vertical-align: top;
     white-space: nowrap;
+    width: 80%;
     z-index: 9;
     border: 0;
     transition: box-shadow .2s;
@@ -512,12 +520,11 @@ footer {
     font-weight: bold;
 }
 
-.link-prod:link,
+.link-prod:link, 
 .link-prod:visited {
     color: var(--verde);
 }
 
-<<<<<<< HEAD
 .link-prod:hover{
 color:var(--naranja);
 }
@@ -570,7 +577,7 @@ color:var(--naranja);
 
 .title-div a i{
     padding: 5px;
-=======
+
 .link-prod:hover {
     color: var(--naranja);
 }
@@ -678,5 +685,55 @@ color:var(--naranja);
     background-image: linear-gradient(#ee519a, #cd143c);
     border-color: #d3274c;
     text-decoration: none;
->>>>>>> crud-product-detail
 }
+
+/* ==================/CREATE PRODUCT=========================== */
+
+.products-title {
+    color: var(--verde);
+    padding: 20px;
+}
+
+.title-div a {
+    appearance: none;
+    background-color: var(--gris);
+    border: 2px solid var(--grisClaro);
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 10px;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 10%;
+    will-change: transform;
+}
+
+.title-div a:disabled {
+    pointer-events: none;
+}
+
+.title-div a:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.title-div a:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.title-div a i {
+    padding: 5px;
+}
+
