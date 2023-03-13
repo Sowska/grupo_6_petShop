@@ -1,156 +1,55 @@
 <!-- HEAD DINAMICO -->
 <%-include('partials/head') %>
 
-<body>
+  <body>
 
-<!-- HEADER DINAMICO -->
-<%-include('partials/header') %>
+    <!-- HEADER DINAMICO -->
+    <%-include('partials/header') %>
 
       <section class="green-container">
         <h2 class="titulo">Agregar Producto</h2>
         <div class="white-container">
-          <form action="/create" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="">
-            <br>
-            <label for="marca">Marca:</label>
-            <input type="text" name="marca" id="marca">
-            <br>
-            <label for="especie">Especie:</label>
-            <select name="especie" id="especie">
-              <option value="perro">Perro</option>
-              <option value="gato">Gato</option>
-            </select>
-            <br>
-            <label for="peso">Peso:</label>
-            <input type="text" name="peso" id="">
-            <br>
-            <label for="categoria">Categoría:</label>
-            <select name="categoria" id="categoria">
-              <option value="comida">Comida</option>
-              <option value="juguetes">Juguetes</option>
-              <option value="accesorios">Accesorios</option>
-              <option value="salud">Salud</option>
-              <option value="higiene">Higiene</option>
-            </select>
-            <br>
-            <div class="comida_campos">
-              <label for="comida_tipo">Tipo de comida:</label>
-              <select name="comida_tipo" id="comida_tipo">
-                <option value="seca">Seca</option>
-                <option value="humeda">Húmeda</option>
-                <option value="semihumeda">Semihúmeda</option>
-              </select><br>
-              <label for="comida_sabor">Sabor:</label>
-              <select name="comida_sabor" id="comida_sabor">
-                <option value="pollo">Pollo</option>
-                <option value="pescado">Pescado</option>
-                <option value="res">Res</option>
-                <option value="vegetales">Vegetales</option>
-              </select>
-              <br><label for="comida_tamano">Tamaño:</label>
-              <select name="comida_tamano" id="comida_tamano">
-                <option value="pequeno">Pequeño</option>
-                <option value="mediano">Mediano</option>
-                <option value="grande">Grande</option>
-              </select>
-              <br>
-            </div>
-            <div class="juguete_campos">
-              <label for="juguete_tipo">Tipo de juguete:</label>
-              <select name="juguete_tipo" id="juguete_tipo">
-                <option value="pelota">Pelota</option>
-                <option value="hueso">Hueso</option>
-                <option value="juguetes_relleno">Juguetes de relleno</option>
-                <option value="cuerda">Cuerda</option>
-              </select><br>
-              <label for="juguete_color">Color:</label>
-              <select name="juguete_color" id="juguete_color">
-                <option value="rojo">Rojo</option>
-                <option value="azul">Azul</option>
-                <option value="verde">Verde</option>
-                <option value="amarillo">Amarillo</option>
-              </select><br>
-            </div>
-            <div class="accesorio_campos">
-              <label for="accesorio_tipo">Tipo de accesorio:</label>
-              <select name="accesorio_tipo" id="accesorio_tipo">
-                <option value="collares">Collares</option>
-                <option value="arneses">Arneses</option>
-                <option value="correas">Correas</option>
-                <option value="ropa">Ropa</option>
-                <option value="camas">Camas</option>
-              </select><br>
-              <label for="accesorio_color">Color:</label>
-              <select name="accesorio_color" id="accesorio_color">
-                <option value="rojo">Rojo</option>
-                <option value="azul">Azul</option>
-                <option value="verde">Verde</option>
-                <option value="amarillo">Amarillo</option>
-              </select><br>
-              <label for="accesorio_material">Material:</label>
-              <select name="accesorio_material" id="accesorio_material">
-                <option value="algodon">Algodón</option>
-                <option value="nylon">Nylon</option>
-                <option value="cuero">Cuero Vegano</option>
-                <option value="poliester">Poliéster</option>
-              </select><br>
-              <label for="accesorio_tamano">Tamaño:</label>
-              <select name="accesorio_tamano" id="accesorio_tamano">
-                <option value="pequeno">Pequeño</option>
-                <option value="mediano">Mediano</option>
-                <option value="grande">Grande</option>
-              </select>
-              <br>
-            </div>
-            <div class="salud_campos">
-              <label for="salud_tratamiento">Tratamiento:</label>
-              <input type="text" name="salud_tratamiento" id="salud_tratamiento"><br>
+          <form action="/products" method="POST" enctype="multipart/form-data">
+            <div class="row product-detail">
+              <div>
+                <label for="name" class="form-label">Nombre del producto:</label>
+                <input type="text" id="name" name="name" placeholder="Ej: Collar de cascabel" class="form-input">
+              </div>
+              <div>
+                <label for="price" class="form-label">Precio del producto:</label>
+                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+              </div>
+              <div>
+                <label for="material" class="form-label">Material:</label>
+                <input type="text" id="material" name="discount" placeholder="Ej: algodón" class="form-input">
+              </div>
+              <div>
+                <label for="size" class="form-label">Tamaño:</label>
+                <input type="text" id="size" name="size" placeholder="Ej: M" class="form-input">
+              </div>
 
-              <label for="salud_dosis">Dosis:</label>
-              <input type="text" name="salud_dosis" id="salud_dosis"><br>
+              <div class="centered-row">
+                <label for="category" class="form-label">Categoría:</label>
+                <select name="category" id="category" class="form-input">
+                  <option value="">Elegí</option>
+                  <option value="cat">Gato</option>
+                  <option value="dog">Perro</option>
+                </select>
+              </div>
+              <div class="centered-row">
+                <label for="image" class="img-label">Imagen:</label>
+                <input type="file" id="image" name="image" class="img-input">
+              </div>
+              <div class="centered-row">
+                <button type="submit" class="save save-button">Guardar producto</button>
+                <button type="reset" class="clear">Borrar todo</button>
+              </div>
             </div>
-            <div class="higiene_campos">
-              <label for="higiene_producto">Producto:</label>
-              <input type="text" name="higiene_producto" id="higiene_producto"><br>
-
-              <label for="higiene_uso">Uso:</label>
-              <input type="text" name="higiene_uso" id="higiene_uso"><br>
-            </div>
-            <div class="otros">
-              <br>
-              <label for="imagen">Imágenes:</label>
-              <input type="file" name="imagen" id="imagen"><br>
-              <label for="precio">Precio:</label>
-              <input type="number" name="precio" id="precio">
-              <br>
-              <label for="disponibilidad">Disponibilidad:</label>
-              <input type="checkbox" name="disponibilidad" id="disponibilidad"><br>
-
-              <label for="opciones_envio">Opciones de envío:</label>
-              <select name="opciones_envio" id="opciones_envio">
-                <option value="envio_gratuito">Envío gratuito</option>
-                <option value="envio_urgente">Envío urgente</option>
-                <option value="recoger_en_tienda">Recoger en tienda</option>
-              </select><br>
-
-              <label for="opciones_pago">Opciones de pago:</label>
-              <select name="opciones_pago" id="opciones_pago">
-                <option value="tarjeta_credito">Tarjeta de crédito</option>
-                <option value="paypal">PayPal</option>
-                <option value="efectivo">Efectivo</option>
-              </select>
-
-            </div>
-            <div class="buttons">
-              <button type="submit" class="save">Crear</button>
-              <button type="reset" class="clear">Clear</button>
-            </div>
-
           </form>
         </div>
       </section>
-      <script>
+      
+<!--       <script>
         // Obtener los campos relacionados con cada categoría
         var campos_comida = document.querySelector('.comida_campos');
         var campos_juguete = document.querySelector('.juguete_campos');
@@ -181,10 +80,10 @@
             campos_accesorio.style.display = 'block';
           }
         });
-      </script>
+      </script> -->
 
-<%-include('partials/footer') %>
+      <%-include('partials/footer') %>
 
-</body>
+  </body>
 
-</html>
+  </html>
