@@ -1,0 +1,46 @@
+<%-include('partials/head') %>
+
+    <body>
+        <%-include('partials/header') %>
+        <div class="title-div">
+            <h2 class="products-title">Nuestro catálogo de productos</h2>
+        </div>
+            <div class="products-wrapper">
+
+                        <% products.forEach((product)=> { %>
+                            <div class="product-container">
+                                <div class="box">
+                                    <div class="card">
+                                        <span class="card_infoicon">
+                                            <i class="fa fa-info"></i>
+                                        </span>
+                                        <div class="info-container">
+                                            <p>Material:<%=product.material %></p>
+                                            <p>Tamaño:<%= product.size %></p>
+                                            <a href="/products/detail/<%= product.id%>" class="link-prod"> Ver producto...</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="pet-type"><%= product.pet %></h4>
+
+                                    <figure class="product-box_image">
+                                        <img class="prod-img" src="/images/<%= product.image %>" alt="imagen de producto" width=100px>
+                                    </figure>
+                                    <h2 class="product-name"> <%= product.product %></h2>
+                                    <section class="product-data">
+                                        <div class="product-data-right">
+                                            <h3><%= product.price %></h3>
+                                        </div>
+                                    </section>
+                                    <button class="add"> Agregar al carrito </button>
+                                </div>
+
+                            </div>
+                            <% }) %>
+
+
+            </div>
+
+            <%-include('partials/footer') %>
+    </body>
+
+    </html>

@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const mainRoutes = require('./routes/main');
+const productsRoutes = require('./routes/products');
 
 const app = express();
 
@@ -17,10 +18,14 @@ app.use('/productDetail', mainRoutes);
 app.use('/register', mainRoutes);
 app.use('/createProduct', mainRoutes)
 
+<<<<<<< HEAD
 
 /*se requiere app use para storage*/
 
 
+=======
+app.use('/products', productsRoutes)
+>>>>>>> main
 
 const port = process.env.PORT || 3030;
 

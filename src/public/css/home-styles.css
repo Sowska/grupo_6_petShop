@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Comic Sans MS", sans-serif;
+    /* font-family: "Comic Sans MS", sans-serif; */
 }
 
 
@@ -96,12 +96,12 @@ body {
     gap: 20px;
 }
 
-.navbar-list-item {
+/* .navbar-list-item {
     cursor: pointer;
     text-decoration: none;
     position: relative;
     text-align: center;
-}
+} */
 
 .navbar-list-item::after {
     content: '';
@@ -119,7 +119,10 @@ body {
 
 .secciones{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .section-selector>img{    
     width: 100%;
 }
