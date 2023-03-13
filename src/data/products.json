@@ -1,182 +1,177 @@
 [
-    {
-        "id": 1,
-        "product": "Pretal",
-        "material": "algodón",
-        "pet": "gato",
-        "size": "XL",
-        "price": "$2267.11",
-        "image": "pretal.jpg"
-    },
-    {
-        "id": 2,
-        "product": "Correa",
-        "material": "acrílico",
-        "pet": "gato",
-        "size": "XL",
-        "price": "$1056.77",
-        "image": "correa1.jpg"
-    },
-    {
-        "id": 3,
-        "product": "Correa",
-        "material": "cáñamo",
-        "pet": "perro",
-        "size": "S",
-        "price": "$406.66",
-        "image": "correa2.jpg"
-    },
-    {
-        "id": 4,
-        "product": "Juguete",
-        "material": "ecoplast",
-        "pet": "perro",
-        "size": null,
-        "price": "$4659.42",
-        "image": "juguete1.jpg"
-    },
-    {
-        "id": 5,
-        "product": "Bandana",
-        "material": "algodón",
-        "pet": "perro",
-        "size": "M",
-        "price": "$1044.88",
-        "image": "bandana.png"
-    },
-    {
-        "id": 6,
-        "product": "Correa",
-        "material": "cáñamo",
-        "pet": "gato",
-        "size": "L",
-        "price": "$2407.69",
-        "image": "correa3.jpg"
-    },
-    {
-        "id": 7,
-        "product": "Correa",
-        "material": "acrílico",
-        "pet": "perro",
-        "size": "M",
-        "price": "$1125.29",
-        "image": "correa4.jpg"
-    },
-    {
-        "id": 8,
-        "product": "Pretal",
-        "material": "cuero sintético",
-        "pet": "perro",
-        "size": "M",
-        "price": "$3947.72",
-        "image": "pretal2jpg"
-    },
-    {
-        "id": 9,
-        "product": "Morral",
-        "material": "metal",
-        "pet": "gato",
-        "size": "L",
-        "price": "$3434.25",
-        "image": "morral2.jpg"
-    },
-    {
-        "id": 10,
-        "product": "Collar",
-        "material": "cuero sintético",
-        "pet": "perro",
-        "size": "L",
-        "price": "$4290.35",
-        "image": "collar.jpg"
-    },
-    {
-        "id": 11,
-        "product": "Dije",
-        "material": "metal",
-        "pet": "perro",
-        "size": null,
-        "price": "$4006.92",
-        "image": "http://dummyimage.com/220x101.png/dddddd/000000"
-    },
-    {
-        "id": 12,
-        "product": "Collar",
-        "material": "algodón",
-        "pet": "gato",
-        "size": "L",
-        "price": "$3204.97",
-        "image": "collar2.jpg"
-    },
-    {
-        "id": 13,
-        "product": "Morral",
-        "material": "cáñamo",
-        "pet": "gato",
-        "size": "M",
-        "price": "$4612.04",
-        "image": "Morral.jpg"
-    },
-    {
-        "id": 14,
-        "product": "Collar",
-        "material": "acrílico",
-        "pet": "perro",
-        "size": "L",
-        "price": "$1597.90",
-        "image": "collar3.jpg"
-    },
-    {
-        "id": 15,
-        "product": "Correa",
-        "material": "acrílico",
-        "pet": "gato",
-        "size": "M",
-        "price": "$3556.79",
-        "image": "http://dummyimage.com/237x107.png/cc0000/ffffff"
-    },
-    {
-        "id": 16,
-        "product": "Morral",
-        "material": "algodón",
-        "pet": "perro",
-        "size": "XL",
-        "price": "$4683.80",
-        "image": "http://dummyimage.com/145x146.png/ff4444/ffffff"
-    },
-    {
-        "id": 17,
-        "product": "Collar",
-        "material": "algodón",
-        "pet": "perro",
-        "size": "L",
-        "price": "$4725.78",
-        "image": "http://dummyimage.com/146x103.png/cc0000/ffffff"
-    },
-    {
-        "id": 18,
-        "product": "Pretal",
-        "material": "algodón",
-        "pet": "gato",
-        "size": "M",
-        "price": "$4379.16",
-        "image": "http://dummyimage.com/127x239.png/ff4444/ffffff"
-    },
-    {
-        "id": 19,
-        "product": "Dije",
-        "material": "metal",
-        "pet": "perro",
-        "size": null,
-        "price": "$2043.01",
-        "image": "http://dummyimage.com/194x151.png/cc0000/ffffff"
-    },
-    {
-        "id": 20,
-        "product": "Collar",
-        "material": "algodón",
-        "pet": "perro",
-        "size": "XL",
-        "price": "$871.10",
-        "image": "http://dummyimage.com/142x247.png/dddddd/000000"
-    }
+  {
+    "id": 1,
+    "image": "pretal.jpg",
+    "product": "Pretal editado",
+    "material": "",
+    "pet": "",
+    "size": "",
+    "price": ""
+  },
+  {
+    "id": 2,
+    "image": "correa1.jpg"
+  },
+  {
+    "id": 3,
+    "product": "Correa",
+    "material": "cáñamo",
+    "pet": "perro",
+    "size": "S",
+    "price": "$406.66",
+    "image": "correa2.jpg"
+  },
+  {
+    "id": 4,
+    "product": "Juguete",
+    "material": "ecoplast",
+    "pet": "perro",
+    "size": null,
+    "price": "$4659.42",
+    "image": "juguete1.jpg"
+  },
+  {
+    "id": 5,
+    "product": "Bandana",
+    "material": "algodón",
+    "pet": "perro",
+    "size": "M",
+    "price": "$1044.88",
+    "image": "bandana.png"
+  },
+  {
+    "id": 6,
+    "product": "Correa",
+    "material": "cáñamo",
+    "pet": "gato",
+    "size": "L",
+    "price": "$2407.69",
+    "image": "correa3.jpg"
+  },
+  {
+    "id": 7,
+    "product": "Correa",
+    "material": "acrílico",
+    "pet": "perro",
+    "size": "M",
+    "price": "$1125.29",
+    "image": "correa4.jpg"
+  },
+  {
+    "id": 8,
+    "product": "Pretal",
+    "material": "cuero sintético",
+    "pet": "perro",
+    "size": "M",
+    "price": "$3947.72",
+    "image": "pretal2jpg"
+  },
+  {
+    "id": 9,
+    "product": "Morral",
+    "material": "metal",
+    "pet": "gato",
+    "size": "L",
+    "price": "$3434.25",
+    "image": "morral2.jpg"
+  },
+  {
+    "id": 10,
+    "product": "Collar",
+    "material": "cuero sintético",
+    "pet": "perro",
+    "size": "L",
+    "price": "$4290.35",
+    "image": "collar.jpg"
+  },
+  {
+    "id": 11,
+    "product": "Dije",
+    "material": "metal",
+    "pet": "perro",
+    "size": null,
+    "price": "$4006.92",
+    "image": "http://dummyimage.com/220x101.png/dddddd/000000"
+  },
+  {
+    "id": 12,
+    "product": "Collar",
+    "material": "algodón",
+    "pet": "gato",
+    "size": "L",
+    "price": "$3204.97",
+    "image": "collar2.jpg"
+  },
+  {
+    "id": 13,
+    "product": "Morral",
+    "material": "cáñamo",
+    "pet": "gato",
+    "size": "M",
+    "price": "$4612.04",
+    "image": "Morral.jpg"
+  },
+  {
+    "id": 14,
+    "product": "Collar",
+    "material": "acrílico",
+    "pet": "perro",
+    "size": "L",
+    "price": "$1597.90",
+    "image": "collar3.jpg"
+  },
+  {
+    "id": 15,
+    "product": "Correa",
+    "material": "acrílico",
+    "pet": "gato",
+    "size": "M",
+    "price": "$3556.79",
+    "image": "http://dummyimage.com/237x107.png/cc0000/ffffff"
+  },
+  {
+    "id": 16,
+    "product": "Morral",
+    "material": "algodón",
+    "pet": "perro",
+    "size": "XL",
+    "price": "$4683.80",
+    "image": "http://dummyimage.com/145x146.png/ff4444/ffffff"
+  },
+  {
+    "id": 17,
+    "product": "Collar",
+    "material": "algodón",
+    "pet": "perro",
+    "size": "L",
+    "price": "$4725.78",
+    "image": "http://dummyimage.com/146x103.png/cc0000/ffffff"
+  },
+  {
+    "id": 18,
+    "product": "Pretal",
+    "material": "algodón",
+    "pet": "gato",
+    "size": "M",
+    "price": "$4379.16",
+    "image": "http://dummyimage.com/127x239.png/ff4444/ffffff"
+  },
+  {
+    "id": 19,
+    "product": "Dije",
+    "material": "metal",
+    "pet": "perro",
+    "size": null,
+    "price": "$2043.01",
+    "image": "http://dummyimage.com/194x151.png/cc0000/ffffff"
+  },
+  {
+    "id": 20,
+    "product": "Collar",
+    "material": "algodón",
+    "pet": "perro",
+    "size": "XL",
+    "price": "$871.10",
+    "image": "http://dummyimage.com/142x247.png/dddddd/000000"
+  }
 ]

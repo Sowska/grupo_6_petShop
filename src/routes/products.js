@@ -15,6 +15,7 @@ router.get('/:id', productsController.detail);
 
 /*** Editar un producto ***/
 router.get('/:id/edit', productsController.edit); 
+router.put('/:id', productsController.update);
 
 /*** Eliminar un producto***/
 
