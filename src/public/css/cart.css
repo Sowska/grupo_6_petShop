@@ -232,11 +232,12 @@ header {
 
 /* ====================MAIN========================= */
 main {
+    align-items: center;
     padding: 15px;
 }
 
 .green-container {
-    width: 90%;
+    width: 80%;
     background-color: var(--verde);
     display: flex;
     flex-direction: column;
@@ -244,7 +245,7 @@ main {
     align-items: center;
     border-radius: 15px;
     padding: 8px;
-    margin: 10px;
+    margin: auto;
 }
 
 .titulo {
@@ -736,5 +737,3 @@ footer {
     .title-div a i {
         padding: 5px;
     }
-
-    
