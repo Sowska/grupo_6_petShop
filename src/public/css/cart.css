@@ -740,3 +740,10 @@ footer {
     .title-div a i {
         padding: 5px;
     }
+
+    .form-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
