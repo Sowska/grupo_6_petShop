@@ -23,8 +23,10 @@ const controller = {
 
 	// 3. Detalle de un producto particular
 	detail: (req, res) => {
-        const products = getProducts();
-
+		const products = getProducts();
+		const { id } = req.params;
+		const product = products.find((element) => element.id === +id);
+		res.render('ProductDetail', { product });
 	},
 	
 	//4. Acción de creación (se usara en products.js con POST)

@@ -12,6 +12,7 @@ router.get('/', productsController.allProducts);
 router.get('/create', productsController.create); 
 
 /*** Ver el detalle de un producto ***/
+router.get('/:id', productsController.detail);
 
 /*** Editar un producto ***/
 
