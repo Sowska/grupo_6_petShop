@@ -18,3 +18,22 @@ Durante el desarrollo de la restrospectiva, los miembros del equipo hicimos una 
 En conclusion, todos coincidimos que debemos agterrizar el diseño final de la pagina, debemos hacerla mas funcional y que todos si hay link, estos deben redirigirse a una pagina valida. 
 
 Tambien conincidimos en usar branches y poder trabajar en partes de la pagina, en done concluyamos que cambios se aceptan y cuales se dejan en grupo, ver link a continuacion: https://app.moqups.com/8ouPYYR1O6oENjYoPpxMdInVhISPFtfN/edit/page/adc66d496
+
+
+
+RETROSPECTIVA #3
+
+En esta parte del sprint empezamos usar branches para dividir las responsabilidades, nos dimos cuenta que algunas responsabilidades dependian de otras, pero igual hicimos las pruebas trbajando independientemente. Haciamos reuniones grupales para hacer merge al main. Ver link- https://app.moqups.com/8ouPYYR1O6oENjYoPpxMdInVhISPFtfN/edit/page/af57a1326
+
+![sprint 3](https://user-images.githubusercontent.com/113376793/225161961-61638242-5ffb-485a-b4e0-fdcc5fa4d696.PNG)
+
+
+RETROSPECTIVA #4
+
+En el proceso de la reytospectiva, evidenciamos que el uso de branches es una herramienta para trabjar en equipo y que las reuniones para acordar los cambios es lo mejor. Entre todos despejamos dudas y arreglamos de a poco el proyecto final. Hay temas, pequenos detalles sobre diseno que hay que llegar a un acuerdo, un ejemplo es el menu y el footer.
+
+
+https://app.moqups.com/8ouPYYR1O6oENjYoPpxMdInVhISPFtfN/edit/page/a14175f27
+![image](https://user-images.githubusercontent.com/113376793/225163186-78b36c91-6c53-4f37-869e-8617178f4c26.png)
+
+
