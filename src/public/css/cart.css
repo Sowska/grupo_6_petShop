@@ -532,6 +532,40 @@ footer {
 
 /* ==================/CREATE PRODUCT=========================== */
 
+/* ====================PRODUCT DETAIL========================= */
+
+.content-wrapper {
+    display: grid;
+    margin: 5%;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "left right"
+}
+
+.content-wrapper figure {
+    text-align: center;
+    display: flex;
+}
+
+.content-wrapper figure img {
+    margin: auto;
+    width: 100%;
+}
+
+
+.detail-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.product-title {
+    text-align: center;
+    font-weight: bold;
+
 .products-title {
     color: var(--verde);
     padding: 20px;
@@ -569,6 +603,18 @@ footer {
 .title-div a:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
+}
+
+.action-button {
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #ffffff;
+    display: inline-flex;
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .title-div a:active {
@@ -752,5 +798,60 @@ footer {
     background-image: linear-gradient(#ee519a, #cd143c);
     border-color: #d3274c;
     text-decoration: none;
-    cursor: pointer;
 }
+
+/* =====================/EDITAR PRODUCTO/============================= */
+
+.products-title{
+text-align: center;
+margin: 10px;
+color: var(--verde);
+}
+
+
+.content-wrapper-edit{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper-edit form{
+    width: 30%;
+}
+
+.product-detail{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+
+}
+
+.product-detail div{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 10px;
+}
+
+.centered-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.save-button{
+    background-image: linear-gradient(#51A9EE, #147BCD);
+    border-color: #1482D0;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #ffffff;
+    width: 50%;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
