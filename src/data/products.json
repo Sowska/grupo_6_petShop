@@ -160,5 +160,47 @@
     "size": null,
     "price": "$2043.01",
     "image": "http://dummyimage.com/194x151.png/cc0000/ffffff"
+  },
+  {
+    "id": 20,
+    "product": "Collar",
+    "material": "algodón",
+    "pet": "perro",
+    "size": "XL",
+    "price": "$871.10",
+    "image": "http://dummyimage.com/142x247.png/dddddd/000000"
+  },
+  {
+    "id": 21
+  },
+  {
+    "id": 22
+  },
+  {
+    "id": 23
+  },
+  {
+    "id": 24,
+    "product": "Catnip",
+    "material": "hierba de gatos",
+    "pet": "cat",
+    "size": "s",
+    "price": "2500"
+  },
+  {
+    "id": 25,
+    "product": "Catnip",
+    "material": "hierba de gatos",
+    "pet": "cat",
+    "size": "s",
+    "price": "2500"
+  },
+  {
+    "id": 26,
+    "product": "pipeta",
+    "material": "plastico",
+    "pet": "perro",
+    "size": "s",
+    "price": "29999"
   }
 ]

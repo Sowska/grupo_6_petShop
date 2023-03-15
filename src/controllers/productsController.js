@@ -18,7 +18,7 @@ const controller = {
 
     // 2.Formulario de creación de productos
 	create: (req, res) => {
-
+		res.render('createProduct');
 	},
 
 	// 3. Detalle de un producto particular
@@ -32,6 +32,17 @@ const controller = {
 	//4. Acción de creación (se usara en products.js con POST)
 	store: (req, res) => {
         const products = getProducts();
+		const newProduct = {
+			id: products[products.length -1].id +1,
+			product: req.body.product,
+			material: req.body.material,
+			pet: req.body.pet,
+			size: req.body.size,
+			price: req.body.price,
+		}
+		products.push(newProduct);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
 
 	},
 
