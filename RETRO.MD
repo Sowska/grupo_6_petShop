@@ -30,10 +30,19 @@ En esta parte del sprint empezamos usar branches para dividir las responsabilida
 
 RETROSPECTIVA #4
 
-En el proceso de la reytospectiva, evidenciamos que el uso de branches es una herramienta para trabjar en equipo y que las reuniones para acordar los cambios es lo mejor. Entre todos despejamos dudas y arreglamos de a poco el proyecto final. Hay temas, pequenos detalles sobre diseno que hay que llegar a un acuerdo, un ejemplo es el menu y el footer.
+En el proceso de la retrospectiva, evidenciamos que el uso de branches es una herramienta para trabjar en equipo y que las reuniones para acordar los cambios es lo mejor. Entre todos despejamos dudas y arreglamos de a poco el proyecto final. Hay temas, pequenos detalles sobre diseno que hay que llegar a un acuerdo, un ejemplo es el menu y el footer.
 
 
 https://app.moqups.com/8ouPYYR1O6oENjYoPpxMdInVhISPFtfN/edit/page/a14175f27
 ![image](https://user-images.githubusercontent.com/113376793/225163186-78b36c91-6c53-4f37-869e-8617178f4c26.png)
+
+
+RETROSPECTIVA #5
+
+Durante el desarrollo de la restrospectiva #5, evaluamos el estado de cada responsabilidad y notamos que no se cumplieron todos los objetivos en el sprint #4, quedaron temas pendientes para completar. Y acordamos pedir ayuda al equipo si estamos atrasados o sino entendemos el tema siempre y cuando se haga el compromiso de estar al dia con los temas y las actividades de playground para estar al mismo nivel de conocimiento. Ver link de la herramienta usada: https://app.moqups.com/8ouPYYR1O6oENjYoPpxMdInVhISPFtfN/edit/page/a5662cdd1
+
+
+![image](https://user-images.githubusercontent.com/113376793/225181187-74022ea0-8c86-4c93-af95-3b91da5b596b.png)
+
 
 
