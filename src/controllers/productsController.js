@@ -49,12 +49,25 @@ const controller = {
 	// 5. Formulario de edición de productos
 	edit: (req, res) => {
         const products = getProducts();
-		
+		const product = products.find(element => element.id == req.params.id);
+		res.render('edit-product', { productToEdit: product });
+
 	},
 
 	// 6.Acción de edición (se usara en products.js con PUT):
 	update: (req, res) => {
         const products = getProducts();
+		const productIndex = products.findIndex(element => element.id == req.params.id);
+		products[productIndex] = {
+			...products[productIndex], //express operator: como el id de ese producto no sera sobreescrito, mantiene esos valores, sobreescribe los campos especificos.
+			product: req.body.product,
+			material: req.body.material,
+			pet: req.body.pet,
+			size: req.body.size,
+			price: req.body.price,
+		};
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
 		
 	},
 

@@ -1,39 +1,12 @@
 [
   {
     "id": 2,
-    "product": "Correa",
+    "product": "Correa editada",
     "material": "acrílico",
     "pet": "gato",
     "size": "XL",
     "price": "$1056.77",
     "image": "correa1.jpg"
-  },
-  {
-    "id": 3,
-    "product": "Correa",
-    "material": "cáñamo",
-    "pet": "perro",
-    "size": "S",
-    "price": "$406.66",
-    "image": "correa2.jpg"
-  },
-  {
-    "id": 4,
-    "product": "Juguete",
-    "material": "ecoplast",
-    "pet": "perro",
-    "size": null,
-    "price": "$4659.42",
-    "image": "juguete1.jpg"
-  },
-  {
-    "id": 5,
-    "product": "Bandana",
-    "material": "algodón",
-    "pet": "perro",
-    "size": "M",
-    "price": "$1044.88",
-    "image": "bandana.png"
   },
   {
     "id": 6,

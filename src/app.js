@@ -1,22 +1,20 @@
+
 const express = require("express");
 const path = require("path");
-
 const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
-
 const app = express();
 
-
 app.use(express.static(path.join(__dirname,'public')));
-const methodOverride =  require('method-override');
-app.use(methodOverride('_method'));
-
-app.use(express.urlencoded({ extended: false}));
-app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
+
+const methodOverride =  require('method-override');
+app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
