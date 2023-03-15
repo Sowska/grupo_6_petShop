@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "product": "Pretal",
-    "material": "algodón",
-    "pet": "gato",
-    "size": "XL",
-    "price": "$2267.11",
-    "image": "pretal.jpg"
-  },
-  {
     "id": 2,
     "product": "Correa",
     "material": "acrílico",

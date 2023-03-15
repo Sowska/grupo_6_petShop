@@ -6,7 +6,10 @@ const productsRoutes = require('./routes/products');
 
 const app = express();
 
+
 app.use(express.static(path.join(__dirname,'public')));
+const methodOverride =  require('method-override');
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());

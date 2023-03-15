@@ -747,3 +747,10 @@ footer {
         justify-content: space-between;
         padding: 10px;
     }
+
+.delete {
+    background-image: linear-gradient(#ee519a, #cd143c);
+    border-color: #d3274c;
+    text-decoration: none;
+    cursor: pointer;
+}
