@@ -1,5 +1,6 @@
 [
   {
+
     "id": 1,
     "image": "pretal.jpg",
     "product": "Pretal editado",
@@ -10,6 +11,11 @@
   },
   {
     "id": 2,
+    "product": "Correa",
+    "material": "acrílico",
+    "pet": "gato",
+    "size": "XL",
+    "price": "$1056.77",
     "image": "correa1.jpg"
   },
   {
