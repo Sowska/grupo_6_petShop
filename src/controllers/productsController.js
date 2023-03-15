@@ -18,18 +18,31 @@ const controller = {
 
     // 2.Formulario de creación de productos
 	create: (req, res) => {
-
+		res.render('createProduct');
 	},
 
 	// 3. Detalle de un producto particular
 	detail: (req, res) => {
-        const products = getProducts();
-
+		const products = getProducts();
+		const { id } = req.params;
+		const product = products.find((element) => element.id === +id);
+		res.render('ProductDetail', { product });
 	},
 	
 	//4. Acción de creación (se usara en products.js con POST)
 	store: (req, res) => {
         const products = getProducts();
+		const newProduct = {
+			id: products[products.length -1].id +1,
+			product: req.body.product,
+			material: req.body.material,
+			pet: req.body.pet,
+			size: req.body.size,
+			price: req.body.price,
+		}
+		products.push(newProduct);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
 
 	},
 
@@ -48,6 +61,10 @@ const controller = {
 	// 7.Accion de borrado
 	destroy : (req, res) => {
         const products = getProducts();
+		const productIndex = products.findIndex(element => element.id == req.params.id);
+		products.splice(productIndex, 1);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
 
 	}
 };

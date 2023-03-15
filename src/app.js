@@ -6,10 +6,17 @@ const productsRoutes = require('./routes/products');
 
 const app = express();
 
+
 app.use(express.static(path.join(__dirname,'public')));
+const methodOverride =  require('method-override');
+app.use(methodOverride('_method'));
+
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
