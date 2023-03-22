@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+
 const router = express.Router(); //ruta en comun
 
 const productsController = require('../controllers/productsController');
