@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 /* Routers */
 const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
+const userRoutes = require('./routes/users')
 
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
@@ -20,7 +21,8 @@ const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);
-app.use('/products', productsRoutes)
+app.use('/products', productsRoutes);
+app.use('/user', userRoutes);
 
 const port = process.env.PORT || 3030;
 

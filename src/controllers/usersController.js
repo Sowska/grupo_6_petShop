@@ -1,9 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/users.json');
+const { validationResult } = require('express-validator');
 
 const controller = {
+
+    register: (req,res)=>{
+        return res.render('register');
+    },
+
+    login: (req,res)=>{
+        return res.render('login');
+    }
 
 }
 
