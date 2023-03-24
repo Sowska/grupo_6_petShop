@@ -231,8 +231,7 @@ header {
 
 /* ====================MAIN========================= */
 main {
-    align-items: center;
-    padding: 15px;
+    display: contents;
 }
 
 .green-container {
