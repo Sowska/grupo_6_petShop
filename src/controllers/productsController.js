@@ -39,6 +39,7 @@ const controller = {
 			pet: req.body.pet,
 			size: req.body.size,
 			price: req.body.price,
+			image: req.file.filename
 		}
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
@@ -56,6 +57,7 @@ const controller = {
 
 	// 6.Acción de edición (se usara en products.js con PUT):
 	update: (req, res) => {
+		var ulimg;
         const products = getProducts();
 		const productIndex = products.findIndex(element => element.id == req.params.id);
 		products[productIndex] = {
@@ -64,7 +66,9 @@ const controller = {
 			material: req.body.material,
 			pet: req.body.pet,
 			size: req.body.size,
-			price: req.body.price,
+			price: req.body.price, 
+			image: req.file.filename
+
 		};
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
 		res.redirect('/products');
