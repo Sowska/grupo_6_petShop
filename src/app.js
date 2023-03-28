@@ -1,8 +1,12 @@
 
 const express = require("express");
 const path = require("path");
+const { body } = require('express-validator');
+
 const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
+const userRoutes = require('./routes/user');
+
 const app = express();
 
 app.use(express.static(path.join(__dirname,'public')));
@@ -18,9 +22,13 @@ app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);
 app.use('/cart', mainRoutes);
-app.use('/login', mainRoutes);
+
+// app.use('/login', userRoutes);
+
 app.use('/productDetail', mainRoutes);
-app.use('/register', mainRoutes);
+
+app.use('/user', userRoutes); 
+
 app.use('/createProduct', mainRoutes)
 
 app.use('/products', productsRoutes)

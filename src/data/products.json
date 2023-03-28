@@ -175,5 +175,13 @@
     "pet": "perro",
     "size": "s",
     "price": "29999"
+  },
+  {
+    "id": 27,
+    "product": "prueba",
+    "material": "algodon",
+    "pet": "perro",
+    "size": "s",
+    "price": "2"
   }
 ]

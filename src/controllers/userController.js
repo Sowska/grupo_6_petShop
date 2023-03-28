@@ -1,14 +1,15 @@
 const fs = require('fs');
+
 const path = require('path');
 
 const User = require ('../models/user');
 
+const usersFilePath = path.join(__dirname, '../data/users.json');
+
 function getUsers(){
 	return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-} //esta funcion permite actualizar la lista de usuarios para cada accion del CRUD.
+} //esta funcion permite actualizar la lista de products para cada accion del CRUD.
 
-
-const productsFilePath = path.join(__dirname, '../data/users.json');
 
 const controller = {
     login: (req,res)=>{
@@ -25,6 +26,7 @@ const controller = {
             firstName
         }
     }
+
 }
 
 module.exports = controller;
