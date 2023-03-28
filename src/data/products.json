@@ -69,7 +69,7 @@
     "pet": "gato",
     "size": "L",
     "price": "$3204.97",
-    "image": "collar2.jpg"
+    "image": "1679685861836_product.jpg"
   },
   {
     "id": 13,
@@ -78,7 +78,7 @@
     "pet": "gato",
     "size": "M",
     "price": "$4612.04",
-    "image": "Morral.jpg"
+    "image": "default.jpg"
   },
   {
     "id": 14,
@@ -87,16 +87,16 @@
     "pet": "perro",
     "size": "L",
     "price": "$1597.90",
-    "image": "collar3.jpg"
+    "image": "1679685896290_product.png"
   },
   {
     "id": 15,
     "product": "Correa",
     "material": "acrílico",
-    "pet": "gato",
+    "pet": "perro",
     "size": "M",
     "price": "$3556.79",
-    "image": "http://dummyimage.com/237x107.png/cc0000/ffffff"
+    "image": "1679685910921_product.jpg"
   },
   {
     "id": 16,
@@ -144,15 +144,6 @@
     "image": "http://dummyimage.com/142x247.png/dddddd/000000"
   },
   {
-    "id": 21
-  },
-  {
-    "id": 22
-  },
-  {
-    "id": 23
-  },
-  {
     "id": 24,
     "product": "Catnip",
     "material": "hierba de gatos",
@@ -178,10 +169,11 @@
   },
   {
     "id": 27,
-    "product": "prueba",
+    "product": "Vestido para perro",
     "material": "algodon",
     "pet": "perro",
     "size": "s",
-    "price": "2"
+    "price": "2500",
+    "image": "1679685566856_product.jpg"
   }
 ]
