@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const fs = require('fs');
 const path = require('path');
 
@@ -10,9 +9,6 @@ function getUsers(){
 
 
 const productsFilePath = path.join(__dirname, '../data/users.json');
-=======
-const { validationResult } = require('express-validator');
->>>>>>> main
 
 const controller = {
     login: (req,res)=>{
@@ -20,7 +16,6 @@ const controller = {
     },
 
     register: (req,res)=>{
-<<<<<<< HEAD
         res.render('register');
     },
     procerRegister: (req,res) =>{
@@ -30,15 +25,6 @@ const controller = {
             firstName
         }
     }
-=======
-        return res.render('register');
-    },
-
-    login: (req,res)=>{
-        return res.render('login');
-    }
-
->>>>>>> main
 }
 
 module.exports = controller;
