@@ -16,7 +16,7 @@ router.get('/login',usersController.login);
 router.get('/register',usersController.register);
 
 //Procesamiento del formulario de creacion
-router.post('/',  uploadFile.single('new-avatar'), usersController.store);
+router.post('/', usersController.store);
 
 //Detalle de un Usuario
 router.get('/:id', usersController.detail);

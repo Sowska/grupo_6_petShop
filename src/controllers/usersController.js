@@ -36,18 +36,20 @@ const controller = {
     store: (req, res) =>{
 
         const users = getUsers();
+		var ulimg = new String(); 
+		ulimg = "default-user.jpg"
 		const newUser = {
 			id: users[users.length -1].id +1,
-			firstName: req.body.product,
-			lastName: req.body.material,
-			email: req.body.pet,
-			password: req.body.size,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			password: req.body.password,
 			admin: false,
-			avatar: req.file.filename
+			avatar: ulimg
 		}
 		users.push(newUser);
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/userDetail');
+		res.redirect('/user');
 
     },
 
@@ -61,17 +63,23 @@ const controller = {
         const users = getUsers();
 		const userIndex = users.findIndex(element => element.id == req.params.id);
 		const boolValue = req.body.adminValue === "true" ? true : false;
+		var ulimg = new String(); 
+		if (!req.file) {
+		ulimg = users[userIndex].avatar
+		} else {
+			ulimg = req.file.filename
+		}
 		users[userIndex] = {
 			...users[userIndex],
-			firstName: req.body.product,
-			lastName: req.body.material,
-			email: req.body.pet,
-			password: req.body.size,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			password: req.body.password,
 			admin: boolValue,
-			avatar: req.file.filename
+			avatar: ulimg,
 		};
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/userDetail');
+		res.redirect('/user');
     },
 
     destroy:(req, res)=>{
@@ -79,7 +87,7 @@ const controller = {
         const userIndex = users.findIndex(element => element.id == req.params.id);
 		users.splice(userIndex, 1);
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/');
+		res.redirect('/user');
 
     }
 

@@ -901,6 +901,7 @@ footer {
     border-radius: 50%;
     padding: 7px;
     width:100px;
+    height: 100px;
 }
 
 button.primary {
@@ -915,4 +916,5 @@ button.primary {
 button.primary.ghost {
     background-color: white;
     color: var(--verde);
+    cursor: pointer;
 }
