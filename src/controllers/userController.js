@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { validationResult } = require('express-validator');
 
 const path = require('path');
 
@@ -20,11 +21,19 @@ const controller = {
         res.render('register');
     },
     procerRegister: (req,res) =>{
-        const imagen = req.file ? req.file.fileName : "imagenDefaul.png"; //falta el multer
-        const users = getUsers(); // almacenar todos los usuarios dentro de esta funcion
-        const newUser = {
-            firstName
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            res.redirect('home')
+        }else{
+            res.render('register',{errors: errors.arrays()});
         }
+
+
+        // const imagen = req.file ? req.file.fileName : "imagenDefaul.png"; //falta el multer
+        // const users = getUsers(); // almacenar todos los usuarios dentro de esta funcion
+        // const newUser = {
+        //     firstName
+        // }
     }
 
 }

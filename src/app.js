@@ -3,12 +3,9 @@ const express = require("express");
 const path = require("path");
 const { body } = require('express-validator');
 
-const mainRoutes = require('./routes/main');
-const productsRoutes = require('./routes/products');
-const userRoutes = require('./routes/user');
 
 const app = express();
-const path = require("path");
+// const path = require("path");
 
 app.use(express.static(path.join(__dirname,'public')));
 
