@@ -20,8 +20,8 @@ const controller = {
 
     allUsers: (req,res)=>{
         const users = getUsers();
-		const admin = users.filter((user) => user.type === 'Admin');
-		const costumer = users.filter((user) => user.type === 'Costumer');
+		const admin = users.filter((user) => user.admin);
+		const costumer = users.filter((user) => !user.admin);
         res.render('users', { admin, costumer });
     },
 
