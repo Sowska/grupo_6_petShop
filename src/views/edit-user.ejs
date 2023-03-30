@@ -4,56 +4,54 @@
 
 <body>
     <%-include('partials/header') %>
-
-    <div class="content-wrapper-edit">
+<main>
+    <div class="user-wrapper-edit">
         <div class="col-12">
             <h2 class="products-title">Estás editando: <i>
-                    <%= productToEdit.product%>
+                    <%= userToEdit.firstName%> <%= userToEdit.lastName%>
                 </i></h2>
         </div>
 
-        <form action="users/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/user/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="row product-detail">
                 <div>
-                    <label for="name" class="form-label">Nombre:</label>
-                    <input type="text" id="product" name="product" placeholder="Ej: Collar de cascabel"
-                        class="form-input" value="<%= productToEdit.product %>">
+                    <label for="firstName" class="form-label">Nombre:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Ej: Jane"
+                        class="form-input" value="<%= userToEdit.firstName %>">
                 </div>
                 <div>
-                    <label for="price" class="form-label">Apellido:</label>
-                    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input"
-                        value="<%= productToEdit.price %>">
+                    <label for="lastName" class="form-label">Apellido:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Ej: Doe" class="form-input"
+                        value="<%= userToEdit.lastName %>">
                 </div>
                 <div>
-                    <label for="material" class="form-label">Email:</label>
-                    <input type="text" id="material" name="material" placeholder="Ej: algodón"
-                        class="form-input" value="<%= productToEdit.material %>">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Ej: algodón"
+                        class="form-input" value="<%= userToEdit.email %>">
                 </div>
                 <div>
-                    <label for="size" class="form-label">Contraseña:</label>
-                    <input type="text" id="size" name="size" placeholder="Ej: M" class="form-input"
-                        value="<%= productToEdit.size %>">
+                    <label for="password" class="form-label">Nueva contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Debe tener al menos 6 caracteres" class="form-input">
                 </div>
 
                 <div class="centered-row">
-                    <label for="category" class="form-label">Tipo:</label>
-                    <select name="pet" id="pet" class="form-input">
-                        <option value="">Elegí</option>
-                        <option value="gato" <%=productToEdit.pet==='gato' && 'selected' %>>Gato</option>
-                        <option value="perro" <%=productToEdit.pet==='perro' && 'selected' %>>Perro</option>
-                    </select>
+                    <label for="category" class="form-label">Este usuario es administrador:</label>
+                    <input type="radio" id="adminValue" name="adminValue" value="true" <%= userToEdit.admin ? "checked" : "" %> >Si</input>
+                    <input type="radio" name="adminValue" value="false" <%= userToEdit.admin ? "" : "checked" %>>No</input>
                 </div>
                 <div class="centered-row">
-                    <label for="image" class="new-product">Imagen:</label>
-                    <input type="file" id="new-product" name="new-product" class="img-input">
+                    <label for="image" class="new-avatar">Imagen:</label>
+                    <input type="file" id="new-avatar" name="new-avatar" class="img-input">
                 </div>
                 <div class="centered-row">
-                    <button type="submit" class="save-button">Guardar producto</button>
+                    <button type="submit" class="save-button">Guardar información</button>
                 </div>
             </div>
         </form>
 
     </div>
+
+</main>
 <%-include('partials/footer') %>
 </body>
 

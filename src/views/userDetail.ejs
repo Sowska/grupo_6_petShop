@@ -8,27 +8,28 @@
             <main class="container">
                 <section class="user-container">
                     <div class="top-buttons">
-                        <a href="#" class="action-button edit">Editar</a>
-                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST"
+                        <a href="<%= user.id %>/edit" class="action-button edit">Editar</a>
+                        <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
                             style="display: inline-flex">
+                            
                             <button type="submit" class="action-button delete">Eliminar</button>
                         </form>
                     </div>
 
                     <div class="left-column">
-
-                        <h2>
-                            Admin
-                        </h2>
-
+                        <% if(user.admin) { %>
+                        <h2>Admin</h2>
+                            <% } else { %>
+                        <h2>Usuario</h2>  
+                        <% } %>    
                         <figure class="user_image">
-                            <img class="user-avatar" src="" alt="imagen de usuario" width=100px>
+                            <img class="user-avatar" src="<%= user.avatar %>" alt="imagen de usuario" width=100px>
                         </figure>
 
                         <div class="user-info">
-                            <h3>Nombre: </h3>
-                            <h3>Apellido: </h3>
-                            <h3>Email: </h3>
+                            <h3>Nombre: <%= user.firstName %></h3>
+                            <h3>Apellido: <%= user.lastName %></h3>
+                            <h3>Email: <%= user.email %></h3>
                         </div>
 
                     </div>

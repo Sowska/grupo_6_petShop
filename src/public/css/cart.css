@@ -814,7 +814,7 @@ footer {
 .user-container {
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 20% 70%;
     column-gap: 2%;
     grid-template-areas:
         "left top"
@@ -823,19 +823,22 @@ footer {
 
 .left-column {
     grid-area: left;
-    background-color: red;
     text-align: center;
-
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .top-buttons {
     grid-area: top;
     text-align: right;
+    display: flex;
+    flex-direction: row;
 }
 
 .user-content {
     grid-area: right;
-    background-color: grey;
     text-align: center;
 }
 

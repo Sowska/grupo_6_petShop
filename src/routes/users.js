@@ -4,6 +4,8 @@ const usersController = require('../controllers/usersController');
 
 const router = express.Router();
 
+const uploadFile = require('../middlewares/multer');
+
 //Todos los usuarios
 router.get('/', usersController.allUsers);
 
@@ -14,14 +16,14 @@ router.get('/login',usersController.login);
 router.get('/register',usersController.register);
 
 //Procesamiento del formulario de creacion
-router.post('/', usersController.store);
+router.post('/',  uploadFile.single('new-avatar'), usersController.store);
 
 //Detalle de un Usuario
 router.get('/:id', usersController.detail);
 
 /*** Editar un usuario ***/
 router.get('/:id/edit', usersController.edit); 
-router.put('/:id', usersController.update);
+router.put('/:id', uploadFile.single('new-avatar'), usersController.update);
 
 /*** Eliminar un usuario***/
 router.delete('/:id', usersController.destroy); 

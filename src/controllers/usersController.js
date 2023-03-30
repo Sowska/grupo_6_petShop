@@ -29,7 +29,7 @@ const controller = {
         const users = getUsers();
 		const { id } = req.params;
 		const user = users.find((element) => element.id === +id);
-		res.render('UserDetail', { user });
+		res.render('userDetail', { user });
 
     },
 
@@ -42,10 +42,10 @@ const controller = {
 			lastName: req.body.material,
 			email: req.body.pet,
 			password: req.body.size,
-			type: req.body.price,
+			admin: false,
 			avatar: req.file.filename
 		}
-		users.push(NewUser);
+		users.push(newUser);
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 		res.redirect('/userDetail');
 
@@ -60,13 +60,14 @@ const controller = {
     update:(req, res) =>{
         const users = getUsers();
 		const userIndex = users.findIndex(element => element.id == req.params.id);
+		const boolValue = req.body.adminValue === "true" ? true : false;
 		users[userIndex] = {
 			...users[userIndex],
 			firstName: req.body.product,
 			lastName: req.body.material,
 			email: req.body.pet,
 			password: req.body.size,
-			type: req.body.price,
+			admin: boolValue,
 			avatar: req.file.filename
 		};
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
