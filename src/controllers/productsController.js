@@ -32,6 +32,12 @@ const controller = {
 	//4. Acción de creación (se usara en products.js con POST)
 	store: (req, res) => {
         const products = getProducts();
+		var ulimg = new String(); 
+		if (!req.file) {
+		ulimg = "default.jpg"
+		} else {
+			ulimg = req.file.filename
+		}
 		const newProduct = {
 			id: products[products.length -1].id +1,
 			product: req.body.product,
@@ -39,7 +45,7 @@ const controller = {
 			pet: req.body.pet,
 			size: req.body.size,
 			price: req.body.price,
-			image: req.file.filename
+			image: ulimg
 		}
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
@@ -57,9 +63,15 @@ const controller = {
 
 	// 6.Acción de edición (se usara en products.js con PUT):
 	update: (req, res) => {
-		var ulimg;
+
         const products = getProducts();
 		const productIndex = products.findIndex(element => element.id == req.params.id);
+		var ulimg = new String(); 
+		if (!req.file) {
+		ulimg = products[productIndex].image
+		} else {
+			ulimg = req.file.filename
+		}
 		products[productIndex] = {
 			...products[productIndex], //express operator: como el id de ese producto no sera sobreescrito, mantiene esos valores, sobreescribe los campos especificos.
 			product: req.body.product,
@@ -67,7 +79,7 @@ const controller = {
 			pet: req.body.pet,
 			size: req.body.size,
 			price: req.body.price, 
-			image: req.file.filename
+			image: ulimg
 
 		};
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
