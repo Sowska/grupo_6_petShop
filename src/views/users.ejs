@@ -1,0 +1,49 @@
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+    <!-- HEADER DINAMICO -->
+
+    <body>
+        <%-include('partials/header') %>
+
+            <main class="users-container">
+                <h1>Administradores</h1>
+                <div class="admin-row">
+                    <% admin.forEach((user) => { %>
+                    <div class="card-container">
+                        <img class="round" src="/images/users/<%= user.avatar %>" alt="user" />
+                        <h3><%= user.firstName %> <%= user.lastName %> </h3>
+                        <div class="buttons">
+                            <a href="user/<%= user.id%>" class="primary"> Ver</a>
+                            <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
+                                style="display: inline-flex">
+                                
+                                <button type="submit" class="primary ghost">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <h1>Usuarios</h1>
+                <div class="users-row">
+                    <% costumer.forEach((user) => { %>
+                    <div class="card-container">
+                        <img class="round" src="/images/users/<%= user.avatar %>" alt="user" />
+                        <h3><%= user.firstName %> <%= user.lastName %> </h3>
+                        <div class="buttons">
+                            <a href="user/<%= user.id%>" class="primary"> Ver</a>
+                            <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
+                                style="display: inline-flex">
+                                
+                                <button type="submit" class="primary ghost">Eliminar</button>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+
+
+
+            </main>
+            <%-include('partials/footer') %>
+    </body>
+
+    </html>

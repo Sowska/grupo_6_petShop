@@ -10,30 +10,22 @@
         <div class="form-card">
             <h3 class="form-card-title">Registrarme</h3>
             <div class="form-card-container">
-                <form class="register-form">
+                <form action="/user" class= "register-form" method="POST">
                     <div class="form-control">
                         <label for="txtName">Nombre</label>
-                        <input type="text" name="txtName" id="txtName" required minlength="5">
+                        <input type="text" name="firstName" required minlength="3">
                     </div>
                     <div class="form-control">
                         <label for="txtLastname">Apellido</label>
-                        <input type="text" name="txtLastname" id="txtLastname" required minlength="4">
+                        <input type="text" name="lastName" required minlength="3">
                     </div>
                     <div class="form-control">
                         <label for="txtEmail">Correo electronico</label>
-                        <input type="email" name="txtEmail" id="txtEmail" required>
-                    </div>
-                    <div class="form-control">
-                        <label for="txtBirthday">Fecha de nacimiento</label>
-                        <input type="date" name="txtBirthday" id="txtBirthday" required max="2005-02-06">
-                    </div>
-                    <div class="form-control">
-                        <label for="txtUser">Usuario</label>
-                        <input type="text" name="txtUser" id="txtUser" required minlength="4">
+                        <input type="email" name="email" required>
                     </div>
                     <div class="form-control">
                         <label for="txtPass">Contraseña</label>
-                        <input type="password" name="txtPass" id="txtPass" required minlength="4">
+                        <input type="password" name="password" required minlength="6">
                     </div>
                     <div class="action">
                         <button type="submit" class="btn-submit">
