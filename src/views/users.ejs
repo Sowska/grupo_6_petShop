@@ -1,0 +1,53 @@
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+    <!-- HEADER DINAMICO -->
+
+    <body>
+        <%-include('partials/header') %>
+
+            <main class="users-container">
+
+                <div class="admin-row">
+                    <h1>Administradores</h1>
+                    <% admin.forEach((user) => { %>
+                    <div class="card-container">
+                        <img class="round" src="<%= user.avatar %>" alt="user" />
+                        <h3><%= user.firstName %></h3>
+                        <div class="buttons">
+                            <button class="primary">
+                                Ver
+                            </button>
+                            <button class="primary ghost">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+
+                <div class="users-row">
+                    <h1>Usuarios</h1>
+                    <% costumer.forEach((user) => { %>
+                    <div class="card-container">
+                        <span class="pro">PRO</span>
+                        <img class="round" src="<%= user.avatar %>" alt="user" />
+                        <h3><%= user.firstName %></h3>
+                        <div class="buttons">
+                            <button class="primary">
+                                Ver
+                            </button>
+                            <button class="primary ghost">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+
+
+
+            </main>
+            <%-include('partials/footer') %>
+    </body>
+
+    </html>
