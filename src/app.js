@@ -18,7 +18,7 @@ const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users')
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
 
 const methodOverride =  require('method-override');

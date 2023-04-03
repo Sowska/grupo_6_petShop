@@ -1,10 +1,13 @@
 const express = require('express');
 
+
 const usersController = require('../controllers/usersController');
 
 const router = express.Router();
 
 const uploadFile = require('../middlewares/multer');
+const validatorToCreateForm =  require('../middlewares/userValidations');
+
 
 //Todos los usuarios
 router.get('/', usersController.allUsers);
@@ -16,7 +19,7 @@ router.get('/login',usersController.login);
 router.get('/register',usersController.register);
 
 //Procesamiento del formulario de creacion
-router.post('/', usersController.store);
+router.post('/', validatorToCreateForm, usersController.store);
 
 //Detalle de un Usuario
 router.get('/:id', usersController.detail);

@@ -13,19 +13,39 @@
                 <form action="/user" class= "register-form" method="POST">
                     <div class="form-control">
                         <label for="txtName">Nombre</label>
-                        <input type="text" name="firstName" required minlength="3">
+                        <input type="text" name="firstName" value="<%= locals.oldData ? oldData.firstName : null%>">
+                        <% if (locals.errors && errors.firstName) { %>
+                            <div class="text-danger">
+                                <%= errors.firstName.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="form-control">
                         <label for="txtLastname">Apellido</label>
-                        <input type="text" name="lastName" required minlength="3">
+                        <input type="text" name="lastName" value="<%= locals.oldData ? oldData.lastName : null%>">
+                        <% if (locals.errors && errors.lastName) { %>
+                            <div class="text-danger">
+                                <%= errors.lastName.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="form-control">
                         <label for="txtEmail">Correo electronico</label>
-                        <input type="email" name="email" required>
+                        <input type="email" name="email" value="<%= locals.oldData ? oldData.email : null%>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="form-control">
                         <label for="txtPass">Contraseña</label>
-                        <input type="password" name="password" required minlength="6">
+                        <input type="password" name="password">
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="action">
                         <button type="submit" class="btn-submit">

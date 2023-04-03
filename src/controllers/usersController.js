@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
@@ -13,8 +14,8 @@ const controller = {
         res.render('login');
     },
 
-    login: (req,res)=>{
-        return res.render('login');
+    register: (req,res)=>{
+        return res.render('register');
     },
 
     allUsers: (req,res)=>{
@@ -34,6 +35,14 @@ const controller = {
 
     store: (req, res) =>{
 
+		const resultValidation = validationResult(req);
+
+		if(resultValidation.errors.length > 0){
+			return res.render('register',{
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+			});
+		}
         const users = getUsers();
 		var ulimg = new String(); 
 		ulimg = "default-user.jpg"
