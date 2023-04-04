@@ -5,6 +5,7 @@
 <body>
         <%-include('partials/header') %>
 
+
     <main>
 
         <main class="container">
@@ -13,16 +14,16 @@
                     <h2 class="form-card-title">Mi Cuenta</h2>
 
                     <div class="form-card-container">
-                        <form class="inicio-secion-form">
+                        <form action= "/user/login" method= "POST" class="inicio-secion-form">
                             <div class="form-control">
 
                                 <h4 for="titulo-mail">Dirección de correo electronico</h4>
-                                <input type="email" name="va-mail" id="mail" required>
+                                <input type="email" name="email" id="email" required>
                             </div>
                             <br>
                             <div class="form-control">
                                 <h4 for="titulo-contraseña">Contraseña</h4>
-                                <input type="password" name="contraseña" id="contraseña" required>
+                                <input type="password" name="password" id="password" required>
                             </div>
 
                             <div>
@@ -32,13 +33,25 @@
                             <br>
 
                             <div class="ingresar">
-                                <button class="ingresar">
+                                <button class="ingresar" type="submit" value="Login">
                                     Acceder
                                 </button>
                             </div>
+                            <br>
+
+                            <% if (typeof errors != 'undefined') { %>
+                                <p style="color: rgb(255, 102, 0)"> Error al ingresar los datos </p>
+                                <ul> 
+                                    <% for (let i = 0; i < errors.length; i ++) { %>
+                                        <li>
+                                            <%=errors[i].msg%>
+                                        </li>
+                                        <%  }  %>
+                                </ul>
+                                <%  }  %>
 
                             <br>
-                            <div class="recordar-mi"><input class="checkbox" type="checkbox">
+                            <div class="recordar-mi"><input class="checkbox" type="checkbox" name="recordame">
                                 <h5 class="recordar-cuenta"> Recordar mi cuenta</h5>
                             </div>
                             <br>
