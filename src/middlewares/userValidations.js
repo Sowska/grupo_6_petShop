@@ -8,8 +8,7 @@ const validatorCreateForm = [
     body('lastName').notEmpty().withMessage('Tienes que escribir un apellido'),
 
     body('email').notEmpty().withMessage('tiene que escribir un email').bail()
-    .isEmail().withMessage('Tienes que escribir un formato de email'),
-    
+    .isEmail().withMessage('Tienes que escribir un formato de email').bail(),
     body('password').notEmpty().withMessage('ingresa una contraseña')
 
 ];

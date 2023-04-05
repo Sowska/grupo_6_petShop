@@ -19,7 +19,7 @@ router.get('/login',usersController.login);
 router.get('/register',usersController.register);
 
 //Procesamiento del formulario de creacion
-router.post('/', validatorToCreateForm, usersController.store);
+router.post('/register', validatorToCreateForm, usersController.store);
 
 //Detalle de un Usuario
 router.get('/:id', usersController.detail);
