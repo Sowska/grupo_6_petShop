@@ -1,12 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-
-function getUsers(){
-	return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-}
-
+const { validationResult } = require('express-validator');
 
 const User = require('../models/User');
 const bcryptjs = require('bcryptjs');
@@ -40,6 +32,7 @@ const controller = {
 
                 return res.redirect('/home');
             }
+        }
 
         return res.render('login', {
             errors: {
@@ -47,15 +40,7 @@ const controller = {
                     msg: 'Las credenciales son invalidas'
                 }
             }
-        })
 
-    
-        return res.render('login', {
-        errors: {
-            email: {
-                msg: 'Correo electronico incorrecto'
-            }
-        }
     });
 
 },
