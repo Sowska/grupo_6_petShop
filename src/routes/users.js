@@ -5,22 +5,14 @@ const usersController = require('../controllers/usersController');
 
 const router = express.Router();
 
-router.get('/login',usersController.login);
-router.post('/login', [
-    check('email').isEmail().withMessage('email incorrecto'),
-    check('password').isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
-] ,usersController.processLogin);
+const guestMiddleware = require ('../middlewares/guestMiddleware');
 
-router.get('/check', function(req, res) {
-    if(req.session.usuarioLogueado == undefined) {
-    res.send ("Aún no estas logueado");
-}else{
-    res.send ("El usuario logueado es " + req.session.usuarioLogueado.email);
-}
-    })
+router.get('/login', guestMiddleware, usersController.login);
+router.post('/login', usersController.processLogin);
+
+router.get('/userProfile', usersController.profile);
 
 router.get('/register',usersController.register);
-
 
 
 

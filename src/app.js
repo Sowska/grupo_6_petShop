@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const cookieParser = require('cookie-parser')
+const cookies = require('cookie-parser');
 
 const session = require ('express-session');
 
@@ -17,13 +17,16 @@ app.set('views', path.join(__dirname, 'views'));
 const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
-const recordameMiddlewares = require('./middlewares/recordameMiddlewares');
+
 
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
-app.use(cookieParser());
-app.use(session({secret: 'Secreto!!!'}));
-app.use(recordameMiddlewares);
+app.use(cookies());
+
+app.use(session({secret: 'Secreto!!!',
+resave: false,
+saveUninitialized: false}));
+
 
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));

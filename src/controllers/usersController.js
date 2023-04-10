@@ -1,4 +1,7 @@
 const { validationResult } = require('express-validator');
+
+const User = require('../models/User');
+
 const { empty } = require('statuses');
 
 const controller = {
@@ -11,49 +14,48 @@ const controller = {
         return res.render('login');
     },
 
-    processLogin: function (req,res) {
-       let errors = validationResult (req);
-       const fs = require('fs');
-       if  (errors.isEmpty()){
+    processLogin: (req,res)=>{
+        let userToLogin = User.findByField ('email', req.body.email);
 
-        let usersJSON = fs.readFileSync ('users.json', { encoding: 'utf-8' });
-        let users; 
-       
-        if (usersJSON == "") {
-            users =[];
-        } else{
-            users = JSON.parse(usersJSON);
-        }
-        let usuarioALoguearse
+        if (userToLogin) {
+            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+           if (isOkThePassword) {
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;
 
-        for( let i = 0; i < users.length; i++) {
-            if (users[i].email == req.body.email) {
-                if(bcrypt.compareSync(req.body.password, users[i].password)) {
-                usuarioALoguearse = users[i];
-                break;
-                }
+            if (req.body.recordame) {
+                res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60})
+            }
+
+
+
+            return res.redirect ('/home');
+           }
+
+           return res.render('login', {
+            errors: {
+                email: {
+                msg: 'Las credenciales son invalidas'
             }
         }
-         if (usuarioALoguearse == undefined) {
-        return res.render('login', {errors: [
-            {msg: 'Credenciales invalidas'}
+     });
 
-        ]});
-    }
+        }
+        return res.render('login', {
+            errors: {
+                email: {
+                msg: 'Correo electronico incorrecto'
+            }
+        }
+     });
+      
+},
 
-    req.session.usuarioLogueado = usuarioALoguearse;
+profile: (req,res)=>{
+    return res.render('profile');
+        
+},
 
-    if (req.body.recordame != undefined){
-        res.cookie ('recordame', usuarioALoguearse.email, {maxAge: 60000 })
-    }
-
-
-    res.render('success');
-
-       } else {
-         return res.render('login', {errors: errors.errors});
-       }
-    }
 }
 
 module.exports = controller;
