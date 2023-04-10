@@ -7,6 +7,7 @@ const cookies = require('cookie-parser');
 const session = require ('express-session');
 
 
+
 app.use(express.static(path.join(__dirname,'public')));
 
 /* Template engine */
