@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
+const bcryptjs = require('bcryptjs');
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
@@ -9,13 +11,12 @@ function getUsers(){
 
 
 const controller = {
+    login: (req,res)=>{
+        res.render('login');
+    },
 
     register: (req,res)=>{
         return res.render('register');
-    },
-
-    login: (req,res)=>{
-        return res.render('login');
     },
 
     allUsers: (req,res)=>{
@@ -36,6 +37,27 @@ const controller = {
     store: (req, res) =>{
 
         const users = getUsers();
+		const resultValidation = validationResult(req);
+		const existingUser = users.find(user => user.email === req.body.email);
+
+		if(resultValidation.errors.length > 0){
+			return res.render('register',{
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+			});
+		}else if(existingUser){
+			const errors = {
+				email:{
+					msg: 'El email ingresado ya existe'
+				}
+			};
+			delete req.body.email
+			return res.render('register',{
+				errors: errors,
+				oldData: req.body,
+			});
+		}
+
 		var ulimg = new String(); 
 		ulimg = "default-user.jpg"
 		const newUser = {
@@ -43,13 +65,15 @@ const controller = {
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
-			password: req.body.password,
+			password: bcryptjs.hashSync(req.body.password, 10),
 			admin: false,
 			avatar: ulimg
 		}
+
+		
 		users.push(newUser);
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/user');
+		res.redirect('/user/login');
 
     },
 
@@ -90,7 +114,6 @@ const controller = {
 		res.redirect('/user');
 
     }
-
 }
 
 module.exports = controller;
