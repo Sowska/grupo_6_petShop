@@ -1,28 +1,29 @@
 const express = require('express');
+const { check } = require('express-validator');
 
 
 const usersController = require('../controllers/usersController');
 
 const router = express.Router();
 
+const guestMiddleware = require ('../middlewares/guestMiddleware');
+
+router.get('/login', guestMiddleware, usersController.login);
+router.post('/login', usersController.processLogin);
+
 const uploadFile = require('../middlewares/multer');
-const validatorToCreateForm =  require('../middlewares/userValidations');
+const validator =  require('../middlewares/userValidations');
 
 
-//Todos los usuarios
-router.get('/', usersController.allUsers);
+router.get('/register', usersController.register);
 
-//Formulario de ingreso
-router.get('/login',usersController.login);
+router.post('/', validator.validatorCreateForm, usersController.store);
 
-//Formulario de creación
-router.get('/register',usersController.register);
+router.get('login', usersController.login);
 
-//Procesamiento del formulario de creacion
-router.post('/register', validatorToCreateForm, usersController.store);
+router.post("/processLogin", validator.login, usersController.processLogin);
 
-//Detalle de un Usuario
-router.get('/:id', usersController.detail);
+router.get('/profile', usersController.profile);
 
 /*** Editar un usuario ***/
 router.get('/:id/edit', usersController.edit); 
@@ -32,3 +33,4 @@ router.put('/:id', uploadFile.single('new-avatar'), usersController.update);
 router.delete('/:id', usersController.destroy); 
 
 module.exports = router;
+
