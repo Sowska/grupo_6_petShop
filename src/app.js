@@ -1,12 +1,15 @@
-
 const express = require("express");
-const app = express();
 const path = require("path");
 const cookies = require('cookie-parser');
 
 const session = require ('express-session');
 
 
+const { body } = require('express-validator');
+
+
+const app = express();
+// const path = require("path");
 
 app.use(express.static(path.join(__dirname,'public')));
 
@@ -20,7 +23,7 @@ const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
 app.use(cookies());
 
@@ -29,7 +32,9 @@ resave: false,
 saveUninitialized: false}));
 
 
+
 const methodOverride =  require('method-override');
+const session = require("express-session");
 app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);

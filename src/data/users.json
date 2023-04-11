@@ -277,5 +277,86 @@
     "password": "",
     "admin": false,
     "avatar": "1680215766794_user.jpg"
+  },
+  {
+    "id": 32,
+    "firstName": "asdas",
+    "lastName": "adasd",
+    "email": "sadasd@gmail.com",
+    "password": "asdadasda",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 33,
+    "firstName": "francisco",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdadsas",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 34,
+    "firstName": "francisco",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "asdasdasd",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 35,
+    "firstName": "pepep",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdasd",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 36,
+    "firstName": "francisco131231",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdasda",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 37,
+    "firstName": "juanfran",
+    "lastName": "adasd",
+    "email": "re@gmail.com",
+    "password": "1234",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 38,
+    "firstName": "juanfrancisco",
+    "lastName": "adasd",
+    "email": "pepepe@gmail.com",
+    "password": "f1234",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 39,
+    "firstName": "asda12312asda",
+    "lastName": "asd123",
+    "email": "dasdsad@gmail.com",
+    "password": "asdasdas",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 40,
+    "firstName": "caro",
+    "lastName": "adasd",
+    "email": "caro@gmail.com",
+    "password": "$2a$10$lPQyj2aYwJETHH2Jy48JxuOoFnvG1HAWHZ9AyJHsgN.4o2YPnyHc2",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
