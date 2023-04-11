@@ -16,13 +16,12 @@
                     <div class="form-card-container">
                         <form action= "/user/processLogin" method= "POST" class="inicio-secion-form">
                             <div class="form-control">
-
                                 <h4 for="titulo-mail">Dirección de correo electronico</h4>
                                 <input type="email" name="email" id="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>" required>
                             </div>
                                 <% if (locals.errors && errors.email) { %>
                                 <div class="text-danger">
-                                    <% errors.email.msg %>
+                                    <%= errors.email.msg %>
                                 </div>
                                 <%  }  %>
                             <br>
@@ -31,7 +30,7 @@
                                 <input type="password" name="password" id="password" required>
                                 <% if (locals.errors && errors.password) { %>
                                     <div class="text-danger">
-                                        <% errors.password.msg %>
+                                        <%= errors.password.msg %>
                                     </div>
                                     <%  }  %>
                             </div>

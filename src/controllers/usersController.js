@@ -49,7 +49,7 @@ const controller = {
 		if (errors.isEmpty()) {
 			const existingUser = users.find(user => user.email === req.body.email);
 			if (existingUser) {
-				return res.render('user/register', {
+				return res.render('register', {
 					errors: {
 						email: {
 							msg: "El email ya se encuentra registrado"
@@ -76,7 +76,7 @@ const controller = {
 
 			}
 		} else {
-			res.render('user/register', {
+			res.render('register', {
 				errors: errors.mapped(),
 				oldData: req.body,
 			});
@@ -130,13 +130,13 @@ const controller = {
 			let userToLogin = users.find((visitor) => visitor.email == req.body.email)
 
 			if (userToLogin) {
-				let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+				let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 				if (isOkThePassword) {
 					delete userToLogin.password;
 					req.session.userLogged = userToLogin;
 					return res.redirect("/");
 				} else {
-					return res.render('user/login', {
+					return res.render('login', {
 						errors: {
 							password: {
 								msg: "Contraseña incorrecta"
@@ -146,7 +146,7 @@ const controller = {
 
 				}
 			} else {
-				return res.render('user/login', {
+				return res.render('login', {
 					errors: {
 						email: {
 							msg: "Email no registrado"
@@ -156,7 +156,7 @@ const controller = {
 				})
 			}
 		} else {
-			res.render('user/login', {
+			res.render('login', {
 				errors: errors.mapped(),
 				oldData: req.body,
 			});

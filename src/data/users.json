@@ -358,5 +358,23 @@
     "password": "$2a$10$lPQyj2aYwJETHH2Jy48JxuOoFnvG1HAWHZ9AyJHsgN.4o2YPnyHc2",
     "admin": false,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 41,
+    "firstName": "Juan",
+    "lastName": "Perez",
+    "email": "juanperez@gmail.com",
+    "password": "$2a$10$0OGyThx3n4EuqhphpONxaulml3myFt2jXt7s9N8044maVPPKpne7S",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 42,
+    "firstName": "ana",
+    "lastName": "maria",
+    "email": "anita@gmail.com",
+    "password": "$2a$10$JkxE4xAQs1ns4JCDDrO8/ePF9JNAoK0rEQk.PS448UM0qnBxbKaei",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
