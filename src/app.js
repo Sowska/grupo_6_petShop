@@ -34,7 +34,6 @@ saveUninitialized: false}));
 
 
 const methodOverride =  require('method-override');
-const session = require("express-session");
 app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);

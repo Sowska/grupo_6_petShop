@@ -15,9 +15,6 @@ const uploadFile = require('../middlewares/multer');
 const validatorToCreateForm =  require('../middlewares/userValidations');
 
 
-router.get('/userProfile', usersController.profile);
-
-
 router.get('/register',usersController.register);
 
 //Procesamiento del formulario de creacion
