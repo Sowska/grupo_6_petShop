@@ -358,5 +358,14 @@
     "password": "$2a$10$lPQyj2aYwJETHH2Jy48JxuOoFnvG1HAWHZ9AyJHsgN.4o2YPnyHc2",
     "admin": false,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 41,
+    "firstName": "natalia",
+    "lastName": "armendariz",
+    "email": "armendariznaty@hotmail.com",
+    "password": "$2a$10$aJbhGjrMKbQqLQqw8j4sOOmGa8PtI6FYGisqa/8BOzFIon2p1.73y",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
