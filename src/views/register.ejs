@@ -10,10 +10,10 @@
         <div class="form-card">
             <h3 class="form-card-title">Registrarme</h3>
             <div class="form-card-container">
-                <form action="/user/register" class= "register-form" method="POST">
-                    <div class="form-control">
-                        <label for="txtName">Nombre</label>
-                        <input type="text" name="firstName" value="<%= locals.oldData ? oldData.firstName : null%>">
+                <form action="/user/" class= "register-form" method="POST">
+                <div class="form-control">
+                <label for="txtName">Nombre</label>
+                <input type="text" name="firstName" value="<%= locals.oldData ? oldData.firstName : null%>">
                         <% if (locals.errors && errors.firstName) { %>
                             <div class="text-danger">
                                 <%= errors.firstName.msg %>

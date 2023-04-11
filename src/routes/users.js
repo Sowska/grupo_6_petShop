@@ -15,15 +15,15 @@ const uploadFile = require('../middlewares/multer');
 const validator =  require('../middlewares/userValidations');
 
 
-router.get('/register',usersController.register);
+router.get('/register', usersController.register);
 
-//Procesamiento del formulario de creacion
-router.post('/', usersController.store);
+router.post('/', validator.validatorCreateForm, usersController.store);
 
-//Autenticacion de usuario logeado
-router.post("/successLogin", validator.login, usersController.processLogin)
-//Detalle de un Usuario
-router.get('/:id', usersController.detail);
+router.get('login', usersController.login);
+
+router.post("/processLogin", validator.login, usersController.processLogin);
+
+router.get('/profile', usersController.profile);
 
 /*** Editar un usuario ***/
 router.get('/:id/edit', usersController.edit); 
