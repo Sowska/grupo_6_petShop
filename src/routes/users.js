@@ -12,7 +12,7 @@ router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', usersController.processLogin);
 
 const uploadFile = require('../middlewares/multer');
-const validatorToCreateForm =  require('../middlewares/userValidations');
+const validator =  require('../middlewares/userValidations');
 
 
 router.get('/register',usersController.register);
@@ -20,6 +20,8 @@ router.get('/register',usersController.register);
 //Procesamiento del formulario de creacion
 router.post('/', usersController.store);
 
+//Autenticacion de usuario logeado
+router.post("/successLogin", validator.login, usersController.processLogin)
 //Detalle de un Usuario
 router.get('/:id', usersController.detail);
 
