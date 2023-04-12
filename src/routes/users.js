@@ -17,7 +17,7 @@ const validator =  require('../middlewares/userValidations');
 
 router.get('/register', usersController.register);
 
-router.post('/', validator.validatorCreateForm, usersController.store);
+router.post('/register', validator.validatorCreateForm, usersController.store);
 
 router.get('login', usersController.login);
 

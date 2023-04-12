@@ -367,5 +367,14 @@
     "password": "$2a$10$aJbhGjrMKbQqLQqw8j4sOOmGa8PtI6FYGisqa/8BOzFIon2p1.73y",
     "admin": false,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 42,
+    "firstName": "francisco pa",
+    "lastName": "adasdas2",
+    "email": "e@gmail.com",
+    "password": "$2a$10$PyQ/j7LDJnKsE4twjCiHe.Hu8woODJx3Gr3INVYYIns3G0N6.TH3K",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
