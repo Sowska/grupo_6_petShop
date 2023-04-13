@@ -14,10 +14,6 @@ function getUsers() {
 }
 
 const controller = {
-	login: (req, res) => {
-		res.render('login');
-	},
-
 	register: (req, res) => {
 		return res.render('register');
 	},
@@ -134,7 +130,7 @@ const controller = {
 				if (isOkThePassword) {
 					delete userToLogin.password;
 					req.session.userLogged = userToLogin;
-					return res.redirect("/");
+					return res.redirect('/');
 				} else {
 					return res.render('login', {
 						errors: {
@@ -164,7 +160,7 @@ const controller = {
 	},
 
 	profile: (req, res) => {
-		return res.render('profile');
+		return res.render('/userProfile');
 
 	}
 
