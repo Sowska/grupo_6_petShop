@@ -15,11 +15,11 @@ const uploadFile = require('../middlewares/multer');
 const validator =  require('../middlewares/userValidations');
 
 
-router.get('/register', usersController.register);
+router.get('/register', guestMiddleware, usersController.register);
 
 router.post('/register', validator.validatorCreateForm, usersController.store);
 
-router.get('login', usersController.login);
+router.get('login',guestMiddleware, usersController.login);
 
 router.post('/processLogin', validator.login, usersController.processLogin);
 
