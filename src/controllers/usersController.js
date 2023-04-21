@@ -164,6 +164,11 @@ const controller = {
 			user: req.session.userLogged
 		});
 
+	},
+
+	logout: (req, res) => {
+		req.session.destroy();
+		return res.redirect('/');
 	}
 
 };
