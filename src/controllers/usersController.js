@@ -145,7 +145,7 @@ const controller = {
 				return res.render('login', {
 					errors: {
 						email: {
-							msg: "Email no registrado"
+							msg: "Usuario no registrado"
 						}
 					}, oldData: req.body
 

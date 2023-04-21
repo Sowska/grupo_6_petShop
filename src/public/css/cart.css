@@ -918,3 +918,17 @@ button.primary.ghost {
     color: var(--verde);
     cursor: pointer;
 }
+
+/* =================REGISTER==================== */
+
+.text-danger{
+    color:red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.loginlink{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
