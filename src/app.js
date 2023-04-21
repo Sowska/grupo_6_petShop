@@ -34,7 +34,6 @@ app.use(cookies());
 app.use(rememberMiddleware);
 
 const methodOverride =  require('method-override');
-const rememberMiddleware = require("./middlewares/rememberMiddleware");
 app.use(methodOverride('_method'));
 
 app.use('/', mainRoutes);

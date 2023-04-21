@@ -164,9 +164,10 @@ const controller = {
 		}
 	},
 
-	profile: (req, res) => {
-		return res.render('userProfile');
-
+profile: (req, res) => {
+		return res.render('userProfile', {
+			user: req.session.userLogged
+		});
 	},
 
 	logout: (req, res) => {
