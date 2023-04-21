@@ -32,5 +32,8 @@ router.put('/:id', uploadFile.single('new-avatar'), usersController.update);
 /*** Eliminar un usuario***/
 router.delete('/:id', usersController.destroy); 
 
+//logout
+router.get('/logout', usersController.logout);
+
 module.exports = router;
 
