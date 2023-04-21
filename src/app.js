@@ -28,11 +28,10 @@ const userRoutes = require('./routes/users');
 app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
 app.use(cookies());
-app.use(userLoggedMiddleware);
-
 app.use(session({secret: 'Secreto!!!',
 resave: false,
 saveUninitialized: false}));
+app.use(userLoggedMiddleware);
 
 
 
