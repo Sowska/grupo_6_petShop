@@ -162,6 +162,11 @@ const controller = {
 	profile: (req, res) => {
 		return res.render('userProfile');
 
+	},
+
+	logout: (req, res) => {
+		req.session.destroy();
+		return res.redirect('/');
 	}
 
 };

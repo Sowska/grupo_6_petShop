@@ -376,5 +376,14 @@
     "password": "$2a$10$PyQ/j7LDJnKsE4twjCiHe.Hu8woODJx3Gr3INVYYIns3G0N6.TH3K",
     "admin": false,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 43,
+    "firstName": "Juan",
+    "lastName": "prueba",
+    "email": "juan@prueba.com",
+    "password": "$2a$10$xTS5s3bYt7GGRa7E2IVCy.Dv4odz5zdOmVQ1IJau6XXN44ieeWNs.",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
