@@ -5,7 +5,7 @@ const cookies = require('cookie-parser');
 const session = require ('express-session');
 
 
-const { body } = require('express-validator');
+const rememberMiddleware =require('./middlewares/rememberMiddleware');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
@@ -32,8 +32,7 @@ app.use(session({secret: 'Secreto!!!',
 resave: false,
 saveUninitialized: false}));
 app.use(userLoggedMiddleware);
-
-
+app.use(rememberMiddleware);
 
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));
