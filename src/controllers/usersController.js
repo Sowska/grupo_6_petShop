@@ -150,7 +150,7 @@ const controller = {
 				return res.render('login', {
 					errors: {
 						email: {
-							msg: "Email no registrado"
+							msg: "Usuario no registrado"
 						}
 					}, oldData: req.body
 
@@ -164,10 +164,12 @@ const controller = {
 		}
 	},
 
+
 profile: (req, res) => {
 		return res.render('userProfile', {
 			user: req.session.userLogged
 		});
+
 	},
 
 	logout: (req, res) => {

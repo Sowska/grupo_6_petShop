@@ -7,6 +7,8 @@ const session = require ('express-session');
 
 const rememberMiddleware =require('./middlewares/rememberMiddleware');
 
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
 
 const app = express();
 // const path = require("path");
@@ -25,12 +27,11 @@ const userRoutes = require('./routes/users');
 
 app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
-
+app.use(cookies());
 app.use(session({secret: 'Secreto!!!',
 resave: false,
 saveUninitialized: false}));
-
-app.use(cookies());
+app.use(userLoggedMiddleware);
 app.use(rememberMiddleware);
 
 const methodOverride =  require('method-override');
