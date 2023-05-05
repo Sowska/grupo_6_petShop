@@ -4,8 +4,7 @@ const cookies = require('cookie-parser');
 
 const session = require ('express-session');
 
-
-const { body } = require('express-validator');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
 const app = express();
@@ -25,13 +24,13 @@ const userRoutes = require('./routes/users');
 
 app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
-app.use(cookies());
-
 app.use(session({secret: 'Secreto!!!',
 resave: false,
 saveUninitialized: false}));
 
+app.use(cookies());
 
+app.use(userLoggedMiddleware);
 
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));

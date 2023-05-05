@@ -130,6 +130,11 @@ const controller = {
 				if (isOkThePassword) {
 					delete userToLogin.password;
 					req.session.userLogged = userToLogin;
+
+					if(req.body.remember_me){
+						res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
+					}
+
 					return res.redirect('/');
 				} else {
 					return res.render('login', {
@@ -159,12 +164,17 @@ const controller = {
 		}
 	},
 
-	profile: (req, res) => {
-		return res.render('userProfile');
+
+profile: (req, res) => {
+
+		return res.render('userProfile', {
+			user: req.session.userLogged
+		});
 
 	},
 
 	logout: (req, res) => {
+		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
 	}
