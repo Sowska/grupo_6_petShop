@@ -2,7 +2,7 @@ module.exports = (sequelize,dataType) =>{
     const alias = 'Categorie'; // Este nombre tiene que ser igual al nombre del archivo
     const cols = {
         id: {
-            type: dataType.INTEGER(10).UNSIGNED,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -19,6 +19,13 @@ module.exports = (sequelize,dataType) =>{
         deletedAt: false
     }
      const Categorie = sequelize.define (cols, config, alias)
+
+     Categorie.associate = (models) => {
+        Categorie.BelongsTo(models.Product, {
+            as: 'product',
+            foreigKey: 'category_id'
+        });
+     }
 
      return Categorie;
 

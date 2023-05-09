@@ -2,7 +2,7 @@ module.exports = (sequelize,dataType) =>{
     const alias = 'User'; // Este nombre tiene que ser igual al nombre del archivo
     const cols = {
         id: {
-            type: dataType.INTEGER(10).UNSIGNED,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -26,7 +26,7 @@ module.exports = (sequelize,dataType) =>{
           type: dataType.STRING(45),
         },
         id_role: {
-          type: dataType.INTERGER(),
+          type: dataType.INTERGER(11),
         }
         
     }
@@ -38,6 +38,20 @@ module.exports = (sequelize,dataType) =>{
         deletedAt: false
     }
      const User = sequelize.define (cols, config, alias)
+
+     User.associate = (models) => {
+        User.BelongsTo(models.Cart, {
+            as: 'carts',
+            foreigKey: 'user_id'
+        });
+     }
+
+     User.associate = (models) => {
+        User.HasMany(models.Role, {
+            as: 'role',
+            foreigKey: 'id_role'
+        });
+     }
 
      return User;
 

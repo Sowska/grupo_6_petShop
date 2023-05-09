@@ -1,13 +1,13 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Rol'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Role'; // Este nombre tiene que ser igual al nombre del archivo
     const cols = {
         id: {
-            type: dataType.INTEGER(10).UNSIGNED,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
         role: {
-            type: dataType.INTERGER(),
+            type: dataType.INTERGER(11),
         }
  
     }
@@ -18,8 +18,8 @@ module.exports = (sequelize,dataType) =>{
         updatedAt: 'updated_at',
         deletedAt: false
     }
-     const Rol = sequelize.define (cols, config, alias)
+     const Role = sequelize.define (cols, config, alias)
 
-     return Rol;
+     return Role;
 
 }
