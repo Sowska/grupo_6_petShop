@@ -1,4 +1,3 @@
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -6,6 +5,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema petshop
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `petshop` ;
 
 -- -----------------------------------------------------
 -- Schema petshop
@@ -50,20 +50,21 @@ CREATE TABLE IF NOT EXISTS `petshop`.`products` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `price` DECIMAL(9,2) NULL,
-  `image_url` VARCHAR(45) NULL,
+  `price` DECIMAL(10,2) NULL,
   `discount_id` INT NULL,
-  `inStock` INT NOT NULL,
+  `inStock` TINYINT NOT NULL,
   `flavor` VARCHAR(45) NULL,
-  `material` VARCHAR(45) NULL,
+  `material_id` INT NOT NULL,
   `category_id` INT NOT NULL,
   `fragrance` VARCHAR(45) NULL,
   `color_id` INT NULL,
   `size` CHAR(1) NULL,
   PRIMARY KEY (`id`),
-  INDEX `discount_id_idx` (`discount_id` ASC) VISIBLE,
-  INDEX `color_id_idx` (`color_id` ASC) VISIBLE,
-  INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
+    CONSTRAINT `material_id`
+    FOREIGN KEY (`material_id`)
+    REFERENCES `petshop`.`materials` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `discount_id`
     FOREIGN KEY (`discount_id`)
     REFERENCES `petshop`.`discounts` (`id`)
@@ -80,7 +81,6 @@ CREATE TABLE IF NOT EXISTS `petshop`.`products` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `petshop`.`roles`
@@ -104,7 +104,6 @@ CREATE TABLE IF NOT EXISTS `petshop`.`users` (
   `avatar_url` VARCHAR(45) NULL,
   `id_role` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `id_role_idx` (`id_role` ASC) VISIBLE,
   CONSTRAINT `id_role`
     FOREIGN KEY (`id_role`)
     REFERENCES `petshop`.`roles` (`id`)
@@ -120,9 +119,8 @@ CREATE TABLE IF NOT EXISTS `petshop`.`cart` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `created_at` DATE NOT NULL,
   `user_id` INT NULL,
-  `total` DECIMAL(9,2) NULL,
+  `total` DECIMAL(10,2) NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `petshop`.`users` (`id`)
@@ -140,8 +138,6 @@ CREATE TABLE IF NOT EXISTS `petshop`.`cart_item` (
   `cart_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `cart_id_idx` (`cart_id` ASC) VISIBLE,
-  INDEX `product_id_idx` (`product_id` ASC) VISIBLE,
   CONSTRAINT `cart_id`
     FOREIGN KEY (`cart_id`)
     REFERENCES `petshop`.`cart` (`id`)
@@ -161,15 +157,15 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `petshop`.`orders` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `status` INT NOT NULL,
-  `cart_id` INT NOT NULL,
+  `cart_id_orders` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `cart_id_idx` (`cart_id` ASC) VISIBLE,
-  CONSTRAINT `cart_id`
-    FOREIGN KEY (`cart_id`)
+  CONSTRAINT `cart_id_orders`
+    FOREIGN KEY (`cart_id_orders`)
     REFERENCES `petshop`.`cart` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -188,11 +184,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `petshop`.`product_images` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(45) NULL,
-  `product_id` INT NULL,
+  `product_id_images` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`product_id` ASC) VISIBLE,
-  CONSTRAINT `product_id`
-    FOREIGN KEY (`product_id`)
+  CONSTRAINT `product_id_images`
+    FOREIGN KEY (`product_id_images`)
     REFERENCES `petshop`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
