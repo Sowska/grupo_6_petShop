@@ -2,7 +2,7 @@ module.exports = (sequelize,dataType) =>{
     const alias = 'Product'; // Este nombre tiene que ser igual al nombre del archivo
     const cols = {
         id: {
-            type: dataType.BIGINT(10).UNSIGNED,
+            type: dataType.INTEGER(10).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -33,17 +33,32 @@ module.exports = (sequelize,dataType) =>{
         size: {
             type: dataType.CHAR(1),
             allowNull: false,
+        },
+        image_url: {
+            type: dataType.STRING()
+        },
+        discount_id: {
+            type: dataType.INTERGER()
+        },
+        material: {
+            type: dataType.STRING()
+        },
+        category_id: {
+            type: dataType.INTERGER()
+        },
+        color_id: {
+            type: dataType.INTERGER()
         }
     }
     const config = {
-        tableName: 'users',
+        tableName: 'products',
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: false
     }
-     const User = sequelize.define (cols, config, alias)
+     const Product = sequelize.define (cols, config, alias)
 
-     return User;
+     return Product;
 
 }

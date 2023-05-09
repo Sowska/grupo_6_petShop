@@ -2,7 +2,7 @@ module.exports = (sequelize,dataType) =>{
     const alias = 'User'; // Este nombre tiene que ser igual al nombre del archivo
     const cols = {
         id: {
-            type: dataType.BIGINT(10).UNSIGNED,
+            type: dataType.INTEGER(10).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -21,7 +21,14 @@ module.exports = (sequelize,dataType) =>{
         password:{
             type: dataType.STRING(45),
             allowNull: false,
+        },
+        avatar_url: {
+          type: dataType.STRING(45),
+        },
+        id_role: {
+          type: dataType.INTERGER(),
         }
+        
     }
     const config = {
         tableName: 'users',
