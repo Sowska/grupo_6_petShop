@@ -4,13 +4,19 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
+let db = require("../database/models");
 
-const User = require('../models/User');
+/* const usersFilePath = path.join(__dirname, '../data/users.json');
+
+const User = require('../models/User'); */
 
 
 function getUsers() {
-	return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+	db.Users.findAll()
+	.then(function(usuarios){
+		return usuarios
+	}
+	)
 }
 
 const controller = {
@@ -23,10 +29,12 @@ const controller = {
 	},
 
 	allUsers: (req, res) => {
-		const users = getUsers();
-		const admin = users.filter((user) => user.admin);
-		const costumer = users.filter((user) => !user.admin);
+		db.Users.findAll()
+		.then(users => {
+		const admin = users.filter(user => user.admin);
+		const costumer = users.filter(user => !user.admin);
 		res.render('users', { admin, costumer });
+		})
 	},
 
 	detail: (req, res) => {
@@ -37,39 +45,46 @@ const controller = {
 
 	},
 
-	store: (req, res) => {
-
-		const users = getUsers();
+	store: async (req, res) => {  //Listo el crud en database
 		const errors = validationResult(req);
-
+	
 		if (errors.isEmpty()) {
-			const existingUser = users.find(user => user.email === req.body.email);
-			if (existingUser) {
-				return res.render('register', {
+			try {
+				const existingUser = await db.Users.findOne({
+					where: {
+						email: req.body.email
+					}
+				});
+				if (existingUser) {
+					return res.render('register', {
+						errors: {
+							email: {
+								msg: "El email ya se encuentra registrado"
+							}
+						}, oldData: req.body
+					});
+				} else {
+					const hashedPassword = bcryptjs.hashSync(req.body.password, 10); // Hasheamos la contraseña
+					db.Users.create({
+						first_name: req.body.firstName,
+						last_name: req.body.lastName,
+						email: req.body.email,
+						password: hashedPassword,
+						avatar_url: "default-user.jpg",
+						id_role: 1
+					});
+					
+					res.redirect('/user/login');
+				}
+			} catch (error) {
+				console.log(error);
+				res.render('register', {
 					errors: {
-						email: {
-							msg: "El email ya se encuentra registrado"
+						global: {
+							msg: "Hubo un error al crear el usuario"
 						}
 					}, oldData: req.body
-				})
-			} else {
-				var ulimg = new String();
-				ulimg = "default-user.jpg"
-				const newUser = {
-					id: users[users.length - 1].id + 1,
-					firstName: req.body.firstName,
-					lastName: req.body.lastName,
-					email: req.body.email,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					admin: false,
-					avatar: ulimg
-				}
-
-
-				users.push(newUser);
-				fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-				res.redirect('/user/login');
-
+				});
 			}
 		} else {
 			res.render('register', {
@@ -80,89 +95,99 @@ const controller = {
 	},
 
 	edit: (req, res) => {
-		const users = getUsers();
+		db.Users.findByPk(req.params.id)
+		.then(function(user) {
+			res.render('edit-user', { userToEdit: user });
+		})
+		/* const users = getUsers();
 		const user = users.find(element => element.id == req.params.id);
-		res.render('edit-user', { userToEdit: user });
+		res.render('edit-user', { userToEdit: user }); */
 	},
 
 	update: (req, res) => {
-		const users = getUsers();
-		const userIndex = users.findIndex(element => element.id == req.params.id);
-		const boolValue = req.body.adminValue === "true" ? true : false;
 		var ulimg = new String();
-		if (!req.file) {
-			ulimg = users[userIndex].avatar
-		} else {
+		var boolValue = req.body.adminValue === "true" ? 2 : 1;
+		var ulimg = new String();
+		if (req.file) {
 			ulimg = req.file.filename
-		}
-		users[userIndex] = {
-			...users[userIndex],
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
-			email: req.body.email,
-			password: req.body.password,
-			admin: boolValue,
-			avatar: ulimg,
-		};
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/user');
-	},
-
-	destroy: (req, res) => {
-		const users = getUsers();
-		const userIndex = users.findIndex(element => element.id == req.params.id);
-		users.splice(userIndex, 1);
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-		res.redirect('/user');
-
-	},
-
-	processLogin: (req, res) => {
-
-		const users = getUsers();
-		const errors = validationResult(req);
-
-		if (errors.isEmpty()) {
-			let userToLogin = users.find((visitor) => visitor.email == req.body.email)
-
-			if (userToLogin) {
-				let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-				if (isOkThePassword) {
-					delete userToLogin.password;
-					req.session.userLogged = userToLogin;
-
-					if(req.body.remember_me){
-						res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
-					}
-
-					return res.redirect('/');
-				} else {
-					return res.render('login', {
-						errors: {
-							password: {
-								msg: "Contraseña incorrecta"
-							}
-						}, oldData: req.body
-					})
-
-				}
-			} else {
-				return res.render('login', {
-					errors: {
-						email: {
-							msg: "Usuario no registrado"
-						}
-					}, oldData: req.body
-
-				})
-			}
 		} else {
-			res.render('login', {
-				errors: errors.mapped(),
-				oldData: req.body,
-			});
+			ulimg 
+		}
+		db.Users.update({
+			first_name: req.body.firstName,
+			last_name: req.body.lastName,
+			email: req.body.email,
+			password: bcryptjs.hashSync(req.body.password, 10),
+			avatar_url: ulimg,
+			id_role: boolValue
+		}, {
+			where: {
+				id: req.params.id
+			}
+		})
+
+		res.redirect('/user');
+	},
+
+	destroy: async (req, res) => {
+		try {
+			const user = await db.Users.findByPk(req.params.id);
+			if (!user) {
+				return res.status(404).send('Usuario no encontrado');
+			}
+			await user.destroy();
+			return res.redirect('/user');
+		} catch (error) {
+			return res.status(500).send('Internal server error');
 		}
 	},
+
+	processLogin: async (req, res) => {
+        const errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+				var userToLogin = await db.Users.findOne({ where: { email: req.body.email } });
+                if (userToLogin) {
+					var compare = userToLogin.dataValues.password;
+					console.log(userToLogin)
+					console.log(req.body.password)
+                    let isOkThePassword = bcryptjs.compareSync(req.body.password, compare);
+					console.log(isOkThePassword)
+                    if (isOkThePassword) {
+                        delete userToLogin.password;
+                        req.session.userLogged = userToLogin;
+
+                        if (req.body.remember_me) {
+                            res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
+                        }
+
+                        return res.redirect('/');
+                    } else {
+						delete userToLogin;
+                        return res.render('login', {
+                            errors: {
+                                password: {
+                                    msg: "Contraseña incorrecta"
+                                }
+                            }, oldData: req.body
+                        })
+                    }
+                } else {
+                    return res.render('login', {
+                        errors: {
+                            email: {
+                                msg: "Usuario no registrado"
+                            }
+                        }, oldData: req.body
+                    })
+                }
+			} else {
+            res.render('login', {
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
+        }
+    },
 
 
 profile: (req, res) => {

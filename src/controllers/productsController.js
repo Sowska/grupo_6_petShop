@@ -1,4 +1,4 @@
-const fs = require('fs');
+/* const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
@@ -6,13 +6,19 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 function getProducts(){
 	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 } //esta funcion permite actualizar la lista de products para cada accion del CRUD.
+ */
 
+let db = require("../database/models");
 
 const controller = {
 	// 1.Listado de productos
 	allProducts: (req, res) => {
-        const products = getProducts();
-        res.render('products', { products });  
+		db.Products.findAll()
+		.then(function(productos){
+			res.render('products', { productos });  
+		})
+/*         const products = getProducts();
+        res.render('products', { products });   */
 	
 	},
 
@@ -31,7 +37,16 @@ const controller = {
 	
 	//4. Acción de creación (se usara en products.js con POST)
 	store: (req, res) => {
-        const products = getProducts();
+		db.Products.create({
+			name: req.body.product,
+			material: req.body.material,
+			pet: req.body.pet,
+			size: req.body.size,
+			price: req.body.price,
+			image: ulimg
+		});
+		res.redirect('/products');
+        /* const products = getProducts();
 		var ulimg = new String(); 
 		if (!req.file) {
 		ulimg = "default.jpg"
@@ -49,7 +64,7 @@ const controller = {
 		}
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
+		res.redirect('/products'); */
 
 	},
 
