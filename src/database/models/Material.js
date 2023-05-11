@@ -1,23 +1,30 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Materials";
-    let cols = {
+module.exports = (sequelize,dataType) =>{
+    const alias = 'Material';
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },
         value: {
-            type: dataTypes.STRING,
+            type: dataType.STRING(45),
             allowNull: false
         }
-    };
 
-    let config = {
-        tableName: "materials",
-        timestamps: false,
-    };
-    const Material = sequelize.define(alias, cols, config)
+    }
+    const config = {
+        tableName: 'materials',
+        timestamps: false
+    }
+    const Material = sequelize.define (cols, config, alias)
+
+    Material.associate = (models) => {
+        Material.hasMany(models.Product, { //listo
+            as: 'product',
+            foreignKey: 'material_id'
+        });
+    }
 
     return Material;
+
 }

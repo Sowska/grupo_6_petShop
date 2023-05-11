@@ -1,23 +1,31 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Discounts";
-    let cols = {
+module.exports = (sequelize,dataType) =>{
+    const alias = 'Discount';
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },
         percentage: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTERGER(2),
             allowNull: false
         }
-    };
 
-    let config = {
-        tableName: "discounts",
+    }
+    const config = {
+        tableName: 'discounts',
         timestamps: false,
-    };
-    const Discount = sequelize.define(alias, cols, config)
+        deletedAt: false
+    }
+    const Discount = sequelize.define (cols, config, alias)
+
+    Discount.associate = (models) => {
+        Discount.hasMany(models.Product, { //listo
+            as: 'product',
+            foreignKey: 'discount_id'
+        });
+    }
 
     return Discount;
+
 }

@@ -1,47 +1,53 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Users";
-    let cols = {
+module.exports = (sequelize,dataType) =>{
+    const alias = 'User'; 
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },
-        first_name: {
-            type: dataTypes.STRING,
-            allowNull: false
-        } ,
+        firs_name: {
+            type: dataType.STRING(45),
+            allowNull: false,
+        },
         last_name:{
-            type: dataTypes.STRING,
-            allowNull: false
-        } ,
-        email: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataType.STRING(45),
+            allowNull: false,
         },
-        password: {
-            type: dataTypes.TEXT,
-            allowNull: false
+        email:{
+            type: dataType.STRING(45),
+            allowNull: false,
+        },
+        password:{
+            type: dataType.TEXT,
+            allowNull: false,
         },
         avatar_url: {
-            type: dataTypes.STRING,
-            allowNull: true
-        } ,
+        type: dataType.STRING(45),
+        },
         id_role: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-            model: 'Roles',
-            key: 'id'
-            }
+        type: dataType.INTERGER(11),
         }
-    };
-
-    let config = {
-        tableName: "users",
+        
+    }
+    const config = {
+        tableName: 'users',
         timestamps: false
-    };
-    const User = sequelize.define(alias, cols, config)
+    }
+    const User = sequelize.define (cols, config, alias)
+
+    User.associate = (models) => {
+        User.hasMany(models.Cart, {
+            as: 'carts',
+            foreignKey: 'user_id'
+        });
+    
+        User.belongsTo(models.Role, {
+            as: 'role',
+            foreignKey: 'id_role'
+        });
+    }
 
     return User;
+
 }

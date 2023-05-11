@@ -1,83 +1,92 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Products";
-    let cols = {
+module.exports = (sequelize,dataType) =>{
+    const alias = 'Product';
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING,
-            allowNull: false
-
-        },
-        description: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        price: {
-            type: dataTypes.DECIMAL(10, 2), // 10 dígitos totales, 2 decimales
-            allowNull: false
-        },
-        inStock: {
-            type: dataTypes.TINYINT,
+            type: dataType.STRING(45),
             allowNull: false,
-            defaultValue: 1
+        },
+        description:{
+            type: dataType.STRING(45),
+            allowNull: false,
+        },
+        price:{
+            type: dataType.DECIMAL(10,2),
+            allowNull: false,
+        },
+        inStock:{
+            type: dataType.TINYINT(4),
+            allowNull: false,
         },
         flavor: {
-            type: dataTypes.STRING,
-            allowNull: true
+            type: dataType.STRING(45),
+            allowNull: false,
         },
-
         fragrance: {
-            type: dataTypes.STRING,
-            allowNull: true
+            type: dataType.STRING(45),
+            allowNull: false,
         },
         size: {
-            type: dataTypes.CHAR(1),
-            allowNull: true,
-
-        }, 
-        material_id: {
-            type: dataTypes.INTEGER,
+            type: dataType.CHAR(1),
             allowNull: false,
-            references: {
-            model: 'materials',
-            key: 'id'
-            }
         },
         discount_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-            model: 'discounts',
-            key: 'id'
-            }
+            type: dataType.INTERGER(11)
+        },
+        material: {
+            type: dataType.STRING(11),
+            allowNull: false
         },
         category_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-            model: 'categories',
-            key: 'id'
-            }
+            type: dataType.INTERGER(11),
+            allowNull: false
         },
         color_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-            model: 'colors',
-            key: 'id'
-            }
-        },
-    };
-
-    let config = {
-        tableName: "products",
+            type: dataType.INTERGER(11),
+            allowNull: false
+        }
+    }
+    const config = {
+        tableName: 'products',
         timestamps: false
-    };
-    const Product = sequelize.define(alias, cols, config)
+    }
+    const Product = sequelize.define (cols, config, alias)
+
+    Product.associate = (models) => {
+        Product.belongsTo(models.Material, { //listo
+            as: 'material',
+            foreignKey: 'material_id'
+        });
+    
+        Product.belongsTo(models.Category, { //listo
+            as: 'category',
+            foreignKey: 'category_id'
+        });
+    
+        Product.belongsTo(models.Discount, { //listo
+            as: 'discount',
+            foreignKey: 'discount_id'
+        });
+    
+        Product.belongsTo(models.Color, { //listo
+            as: 'color',
+            foreignKey: 'color_id'
+        });
+    
+        Product.hasMany(models.Product_image, { //listo
+            as: 'product_image',
+            foreignKey: 'product_id_images'
+        });
+    
+        Product.hasMany(models.Cart_item, { //listo
+            as: 'cart_item',
+            foreignKey: 'product_id'
+        });
+    }
 
     return Product;
 }

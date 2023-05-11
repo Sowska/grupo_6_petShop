@@ -1,32 +1,34 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Orders";
-    let cols = {
+module.exports = (sequelize,dataType) =>{
+    const alias = 'Order';
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },
         status: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 1 // 1:pendiente, 2:comprado
+            type: dataType.INTERGER(11),
+            allowNull: false
         },
         cart_id_orders: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-            model: 'carts',
-            key: 'id'
-            }
-        },
-    };
+            type: dataType.INTERGER(11),
+            allowNull: false
+        }
 
-    let config = {
-        tableName: "orders",
-        timestamps: false,
-    };
-    const Order = sequelize.define(alias, cols, config)
+    }
+    const config = {
+        tableName: 'orders',
+        timestamps:false
+    }
+    const Order = sequelize.define (cols, config, alias)
+
+    Order.associate = (models) => { 
+        Order.hasMany(models.Cart, { //listo
+            as: 'cart',
+            foreignKey: 'cart_id_orders'
+        });
+    }
 
     return Order;
+
 }
