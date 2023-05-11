@@ -6,11 +6,6 @@ const bcryptjs = require('bcryptjs');
 
 let db = require("../database/models");
 
-/* const usersFilePath = path.join(__dirname, '../data/users.json');
-
-const User = require('../models/User'); */
-
-
 function getUsers() {
 	db.Users.findAll()
 	.then(function(usuarios){
@@ -31,18 +26,19 @@ const controller = {
 	allUsers: (req, res) => {
 		db.Users.findAll()
 		.then(users => {
-		const admin = users.filter(user => user.admin);
-		const costumer = users.filter(user => !user.admin);
+		const admin = users.filter(user => user.id_role==2);
+		const costumer = users.filter(user => user.id_role==1);
 		res.render('users', { admin, costumer });
 		})
 	},
 
 	detail: (req, res) => {
-		const users = getUsers();
-		const { id } = req.params;
-		const user = users.find((element) => element.id === +id);
-		res.render('profile', { user });
-
+		db.Users.findByPk(req.params.id, {
+			
+		})
+		.then(function(user) {
+			res.render('profile', { user });
+		})
 	},
 
 	store: async (req, res) => {  //Listo el crud en database
@@ -99,19 +95,28 @@ const controller = {
 		.then(function(user) {
 			res.render('edit-user', { userToEdit: user });
 		})
-		/* const users = getUsers();
-		const user = users.find(element => element.id == req.params.id);
-		res.render('edit-user', { userToEdit: user }); */
 	},
 
 	update: (req, res) => {
+
+		let request = db.Users.findAll(req.params.id);
+
+
+
+
+
 		var ulimg = new String();
+		
 		var boolValue = req.body.adminValue === "true" ? 2 : 1;
-		var ulimg = new String();
+
 		if (req.file) {
 			ulimg = req.file.filename
 		} else {
-			ulimg 
+			db.Users.findByPk(req.params.id)
+		.then(user =>{
+			ulimg = user.avatar_url
+		}
+			)
 		}
 		db.Users.update({
 			first_name: req.body.firstName,
@@ -126,7 +131,7 @@ const controller = {
 			}
 		})
 
-		res.redirect('/user');
+		res.redirect('/');
 	},
 
 	destroy: async (req, res) => {
@@ -192,7 +197,7 @@ const controller = {
 
 profile: (req, res) => {
 
-		return res.render('userProfile', {
+		return res.render('profile', {
 			user: req.session.userLogged
 		});
 
