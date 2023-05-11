@@ -20,12 +20,12 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'product_images',
         timestamps:false
     }
-    const Product_image = sequelize.define (cols, config, alias)
+    const Product_image = sequelize.define(alias, cols, config)
 
     Product_image.associate = (models) => {
         Product_image.belongsTo(models.Product, { //listo
             as: 'product',
-            foreigKey: 'product_id_images'
+            foreignKey: 'product_id_images'
         });
     }
 

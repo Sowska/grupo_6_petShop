@@ -7,11 +7,11 @@ const bcryptjs = require('bcryptjs');
 let db = require("../database/models");
 
 function getUsers() {
-	db.Users.findAll()
-	.then(function(usuarios){
-		return usuarios
-	}
-	)
+	db.User.findAll()
+		.then(function (usuarios) {
+			return usuarios
+		}
+		)
 }
 
 const controller = {
@@ -24,29 +24,29 @@ const controller = {
 	},
 
 	allUsers: (req, res) => {
-		db.Users.findAll()
-		.then(users => {
-		const admin = users.filter(user => user.id_role==2);
-		const costumer = users.filter(user => user.id_role==1);
-		res.render('users', { admin, costumer });
-		})
+		db.User.findAll()
+			.then(users => {
+				const admin = users.filter(user => user.id_role == 2);
+				const costumer = users.filter(user => user.id_role == 1);
+				res.render('users', { admin, costumer });
+			})
 	},
 
 	detail: (req, res) => {
-		db.Users.findByPk(req.params.id, {
-			
+		db.User.findByPk(req.params.id, {
+
 		})
-		.then(function(user) {
-			res.render('profile', { user });
-		})
+			.then(function (user) {
+				res.render('profile', { user });
+			})
 	},
 
 	store: async (req, res) => {  //Listo el crud en database
 		const errors = validationResult(req);
-	
+
 		if (errors.isEmpty()) {
 			try {
-				const existingUser = await db.Users.findOne({
+				const existingUser = await db.User.findOne({
 					where: {
 						email: req.body.email
 					}
@@ -61,7 +61,7 @@ const controller = {
 					});
 				} else {
 					const hashedPassword = bcryptjs.hashSync(req.body.password, 10); // Hasheamos la contraseña
-					db.Users.create({
+					db.User.create({
 						first_name: req.body.firstName,
 						last_name: req.body.lastName,
 						email: req.body.email,
@@ -69,7 +69,7 @@ const controller = {
 						avatar_url: "default-user.jpg",
 						id_role: 1
 					});
-					
+
 					res.redirect('/user/login');
 				}
 			} catch (error) {
@@ -91,34 +91,34 @@ const controller = {
 	},
 
 	edit: (req, res) => {
-		db.Users.findByPk(req.params.id)
-		.then(function(user) {
-			res.render('edit-user', { userToEdit: user });
-		})
+		db.User.findByPk(req.params.id)
+			.then(function (user) {
+				res.render('edit-user', { userToEdit: user });
+			})
 	},
 
 	update: (req, res) => {
 
-		let request = db.Users.findAll(req.params.id);
+		let request = db.User.findAll(req.params.id);
 
 
 
 
 
 		var ulimg = new String();
-		
+
 		var boolValue = req.body.adminValue === "true" ? 2 : 1;
 
 		if (req.file) {
 			ulimg = req.file.filename
 		} else {
-			db.Users.findByPk(req.params.id)
-		.then(user =>{
-			ulimg = user.avatar_url
+			db.User.findByPk(req.params.id)
+				.then(user => {
+					ulimg = user.avatar_url
+				}
+				)
 		}
-			)
-		}
-		db.Users.update({
+		db.User.update({
 			first_name: req.body.firstName,
 			last_name: req.body.lastName,
 			email: req.body.email,
@@ -136,7 +136,7 @@ const controller = {
 
 	destroy: async (req, res) => {
 		try {
-			const user = await db.Users.findByPk(req.params.id);
+			const user = await db.User.findByPk(req.params.id);
 			if (!user) {
 				return res.status(404).send('Usuario no encontrado');
 			}
@@ -148,54 +148,54 @@ const controller = {
 	},
 
 	processLogin: async (req, res) => {
-        const errors = validationResult(req);
+		const errors = validationResult(req);
 
-        if (errors.isEmpty()) {
-				var userToLogin = await db.Users.findOne({ where: { email: req.body.email } });
-                if (userToLogin) {
-					var compare = userToLogin.dataValues.password;
-					console.log(userToLogin)
-					console.log(req.body.password)
-                    let isOkThePassword = bcryptjs.compareSync(req.body.password, compare);
-					console.log(isOkThePassword)
-                    if (isOkThePassword) {
-                        delete userToLogin.password;
-                        req.session.userLogged = userToLogin;
+		if (errors.isEmpty()) {
+			var userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+			if (userToLogin) {
+				var compare = userToLogin.dataValues.password;
+				console.log(userToLogin)
+				console.log(req.body.password)
+				let isOkThePassword = bcryptjs.compareSync(req.body.password, compare);
+				console.log(isOkThePassword)
+				if (isOkThePassword) {
+					delete userToLogin.password;
+					req.session.userLogged = userToLogin;
 
-                        if (req.body.remember_me) {
-                            res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
-                        }
+					if (req.body.remember_me) {
+						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					}
 
-                        return res.redirect('/');
-                    } else {
-						delete userToLogin;
-                        return res.render('login', {
-                            errors: {
-                                password: {
-                                    msg: "Contraseña incorrecta"
-                                }
-                            }, oldData: req.body
-                        })
-                    }
-                } else {
-                    return res.render('login', {
-                        errors: {
-                            email: {
-                                msg: "Usuario no registrado"
-                            }
-                        }, oldData: req.body
-                    })
-                }
+					return res.redirect('/');
+				} else {
+					delete userToLogin;
+					return res.render('login', {
+						errors: {
+							password: {
+								msg: "Contraseña incorrecta"
+							}
+						}, oldData: req.body
+					})
+				}
 			} else {
-            res.render('login', {
-                errors: errors.mapped(),
-                oldData: req.body,
-            });
-        }
-    },
+				return res.render('login', {
+					errors: {
+						email: {
+							msg: "Usuario no registrado"
+						}
+					}, oldData: req.body
+				})
+			}
+		} else {
+			res.render('login', {
+				errors: errors.mapped(),
+				oldData: req.body,
+			});
+		}
+	},
 
 
-profile: (req, res) => {
+	profile: (req, res) => {
 
 		return res.render('profile', {
 			user: req.session.userLogged
@@ -211,4 +211,4 @@ profile: (req, res) => {
 
 };
 
-	module.exports = controller;
+module.exports = controller;

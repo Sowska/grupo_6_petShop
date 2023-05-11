@@ -7,7 +7,7 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         percentage: {
-            type: dataType.INTERGER(2),
+            type: dataType.INTEGER(2),
             allowNull: false
         }
 
@@ -17,7 +17,7 @@ module.exports = (sequelize,dataType) =>{
         timestamps: false,
         deletedAt: false
     }
-    const Discount = sequelize.define (cols, config, alias)
+    const Discount = sequelize.define(alias, cols, config)
 
     Discount.associate = (models) => {
         Discount.hasMany(models.Product, { //listo

@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataType) => {
     let alias = "Cart";
     let cols = {
         id: {
@@ -8,15 +8,15 @@ module.exports = (sequelize, dataTypes) => {
 
         },
         created_at: {
-            type: dataTypes.DATE,
+            type: dataType.DATE,
             allowNull: false
         },
         user_id: {
-            type: dataTypes.INTEGER,
+            type: dataType.INTEGER,
             allowNull: false,
         },
         total: {
-            type: dataTypes.DECIMAL(10,2),
+            type: dataType.DECIMAL(10,2),
             allowNull: false,
         }
     };
@@ -38,8 +38,8 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'cart_id_orders'
         });
     
-        Cart.hasMany(models.Cart_item, { //listo
-            as: 'cart_item',
+        Cart.hasMany(models.CartItem, { //listo
+            as: 'cartItem',
             foreignKey: 'cart_id'
         });
     }

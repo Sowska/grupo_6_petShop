@@ -16,7 +16,7 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'colors',
         timestamps: false,
     }
-    const Color = sequelize.define (cols, config, alias)
+    const Color = sequelize.define(alias, cols, config)
 
     Color.associate = (models) => {
         Color.hasMany(models.Product, { //listo

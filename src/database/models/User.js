@@ -26,7 +26,7 @@ module.exports = (sequelize,dataType) =>{
         type: dataType.STRING(45),
         },
         id_role: {
-        type: dataType.INTERGER(11),
+        type: dataType.INTEGER(11),
         }
         
     }
@@ -34,11 +34,11 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'users',
         timestamps: false
     }
-    const User = sequelize.define (cols, config, alias)
+    const User = sequelize.define(alias, cols, config)
 
     User.associate = (models) => {
         User.hasMany(models.Cart, {
-            as: 'carts',
+            as: 'cart',
             foreignKey: 'user_id'
         });
     

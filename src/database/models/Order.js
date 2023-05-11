@@ -7,11 +7,11 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         status: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
             allowNull: false
         },
         cart_id_orders: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
             allowNull: false
         }
 
@@ -20,7 +20,7 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'orders',
         timestamps:false
     }
-    const Order = sequelize.define (cols, config, alias)
+    const Order = sequelize.define(alias, cols, config)
 
     Order.associate = (models) => { 
         Order.hasMany(models.Cart, { //listo

@@ -35,18 +35,18 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         discount_id: {
-            type: dataType.INTERGER(11)
+            type: dataType.INTEGER(11)
         },
         material: {
             type: dataType.STRING(11),
             allowNull: false
         },
         category_id: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
             allowNull: false
         },
         color_id: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
             allowNull: false
         }
     }
@@ -54,11 +54,11 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'products',
         timestamps: false
     }
-    const Product = sequelize.define (cols, config, alias)
+    const Product = sequelize.define(alias, cols, config)
 
     Product.associate = (models) => {
         Product.belongsTo(models.Material, { //listo
-            as: 'material',
+            as: 'kind', //se cambio el nombre de la asociacion por 'Error: Naming collision between attribute 'material' and association 'material' on model Product.'
             foreignKey: 'material_id'
         });
     
@@ -82,8 +82,8 @@ module.exports = (sequelize,dataType) =>{
             foreignKey: 'product_id_images'
         });
     
-        Product.hasMany(models.Cart_item, { //listo
-            as: 'cart_item',
+        Product.hasMany(models.CartItem, { //listo
+            as: 'cartItem',
             foreignKey: 'product_id'
         });
     }

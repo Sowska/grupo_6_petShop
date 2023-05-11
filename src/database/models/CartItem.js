@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Cart_item';
+    const alias = 'CartItem';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -7,7 +7,7 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         quantity: {
-            type: dataType.INTERGER(2),
+            type: dataType.INTEGER(2),
         },
         cart_id: {
             type: dataType.INTEGER(11)
@@ -18,27 +18,24 @@ module.exports = (sequelize,dataType) =>{
 
     }
     const config = {
-        tableName: 'cart_item',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        tableName: 'cartItem',
+        timestamps: false
     }
-    const Cart_item = sequelize.define (cols, config, alias)
+    const CartItem = sequelize.define(alias, cols, config)
 
     
-    Cart_item.associate = (models) => {
-        Cart_item.belongsTo(models.Cart, { //listo
+    CartItem.associate = (models) => {
+        CartItem.belongsTo(models.Cart, { //listo
             as: 'cart',
             foreignKey: 'cart_id'
         });
 
-        Cart_item.belongsTo(models.Product, { //listo
+        CartItem.belongsTo(models.Product, { //listo
             as: 'product',
             foreignKey: 'product_id'
         });
     }
 
-    return Cart_item;
+    return CartItem;
 
 }

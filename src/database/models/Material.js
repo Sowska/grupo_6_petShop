@@ -16,7 +16,7 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'materials',
         timestamps: false
     }
-    const Material = sequelize.define (cols, config, alias)
+    const Material = sequelize.define(alias, cols, config)
 
     Material.associate = (models) => {
         Material.hasMany(models.Product, { //listo

@@ -15,7 +15,7 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'categories',
         timestamps: false
     }
-    const Category = sequelize.define (cols, config, alias)
+    const Category = sequelize.define(alias, cols, config)
 
     Category.associate = (models) => {
         Category.hasMany(models.Product, { //listo

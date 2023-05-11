@@ -7,7 +7,7 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         role: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
         }
 
     }
@@ -15,13 +15,13 @@ module.exports = (sequelize,dataType) =>{
         tableName: 'roles',
         timestamps:false
     }
-    const Role = sequelize.define (cols, config, alias)
+    const Role = sequelize.define(alias, cols, config)
 
     Role.associate = (models) => {
     
         Role.hasMany(models.User, {
             as: 'user',
-            foreigKey: 'id_role'
+            foreignKey: 'id_role'
         });
     }
 
