@@ -31,7 +31,7 @@ saveUninitialized: false}));
 
 app.use(cookies());
 
-app.use(userLoggedMiddleware);
+/* app.use(userLoggedMiddleware); */
 
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));

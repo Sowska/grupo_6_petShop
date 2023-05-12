@@ -11,7 +11,7 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false
         },
         cart_id_orders: {
-            type: dataType.INTEGER(11),
+            type: dataType.INTEGER(11).UNSIGNED,
             allowNull: false
         }
 

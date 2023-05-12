@@ -6,7 +6,7 @@ module.exports = (sequelize,dataType) =>{
             primaryKey: true,
             autoIncrement: true
         },
-        firs_name: {
+        first_name: {
             type: dataType.STRING(45),
             allowNull: false,
         },
@@ -23,10 +23,10 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         avatar_url: {
-        type: dataType.STRING(45),
+        type: dataType.TEXT,
         },
         id_role: {
-        type: dataType.INTEGER(11),
+        type: dataType.INTEGER(11).UNSIGNED
         }
         
     }

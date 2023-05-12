@@ -19,7 +19,7 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         inStock:{
-            type: dataType.TINYINT(4),
+            type: dataType.BOOLEAN,
             allowNull: false,
         },
         flavor: {
@@ -35,19 +35,19 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         discount_id: {
-            type: dataType.INTEGER(11)
+            type: dataType.INTEGER(11).UNSIGNED
         },
-        material: {
-            type: dataType.STRING(11),
-            allowNull: false
+        material_id: {
+            type: dataType.INTEGER(11).UNSIGNED
+
         },
         category_id: {
-            type: dataType.INTEGER(11),
-            allowNull: false
+            type: dataType.INTEGER(11).UNSIGNED
+
         },
         color_id: {
-            type: dataType.INTEGER(11),
-            allowNull: false
+            type: dataType.INTEGER(11).UNSIGNED
+
         }
     }
     const config = {
@@ -72,9 +72,11 @@ module.exports = (sequelize,dataType) =>{
             foreignKey: 'discount_id'
         });
     
-        Product.belongsTo(models.Color, { //listo
+        Product.belongsToMany(models.Color, { //listo
             as: 'color',
-            foreignKey: 'color_id'
+            through: 'product_colors',
+            foreignKey: 'product_id',
+            otherKey: 'color_id'
         });
     
         Product.hasMany(models.Product_image, { //listo
@@ -82,8 +84,8 @@ module.exports = (sequelize,dataType) =>{
             foreignKey: 'product_id_images'
         });
     
-        Product.hasMany(models.CartItem, { //listo
-            as: 'cartItem',
+        Product.hasMany(models.Item, { //listo
+            as: 'item',
             foreignKey: 'product_id'
         });
     }

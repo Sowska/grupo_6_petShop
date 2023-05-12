@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Product_image'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Product_image';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -7,12 +7,11 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         url: {
-            type: dataType.STRING(45),
+            type: dataType.TEXT,
             allowNull: false
         },
         product_id_images: {
-            type: dataType.INTEGER(11),
-            allowNull: false
+            type: dataType.INTEGER(11).UNSIGNED,
         }
 
     }

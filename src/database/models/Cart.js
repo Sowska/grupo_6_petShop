@@ -38,8 +38,8 @@ module.exports = (sequelize, dataType) => {
             foreignKey: 'cart_id_orders'
         });
     
-        Cart.hasMany(models.CartItem, { //listo
-            as: 'cartItem',
+        Cart.hasMany(models.Item, { //listo
+            as: 'item',
             foreignKey: 'cart_id'
         });
     }

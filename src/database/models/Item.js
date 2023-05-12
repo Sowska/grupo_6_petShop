@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'CartItem';
+    const alias = 'Item';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -10,32 +10,32 @@ module.exports = (sequelize,dataType) =>{
             type: dataType.INTEGER(2),
         },
         cart_id: {
-            type: dataType.INTEGER(11)
+            type: dataType.INTEGER(11).UNSIGNED
         },
         product_id: {
-            type: dataType.INTEGER(11)
+            type: dataType.INTEGER(11).UNSIGNED
         }
 
     }
     const config = {
-        tableName: 'cartItem',
+        tableName: 'items',
         timestamps: false
     }
-    const CartItem = sequelize.define(alias, cols, config)
+    const Item = sequelize.define(alias, cols, config)
 
     
-    CartItem.associate = (models) => {
-        CartItem.belongsTo(models.Cart, { //listo
+    Item.associate = (models) => {
+        Item.belongsTo(models.Cart, { //listo
             as: 'cart',
             foreignKey: 'cart_id'
         });
 
-        CartItem.belongsTo(models.Product, { //listo
+        Item.belongsTo(models.Product, { //listo
             as: 'product',
             foreignKey: 'product_id'
         });
     }
 
-    return CartItem;
+    return Item;
 
 }

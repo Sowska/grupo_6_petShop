@@ -6,8 +6,8 @@ module.exports = (sequelize,dataType) =>{
             primaryKey: true,
             autoIncrement: true
         },
-        role: {
-            type: dataType.INTEGER(11),
+        name: {
+            type: dataType.BOOLEAN,
         }
 
     }
