@@ -53,7 +53,7 @@ const controller = {
 					}, oldData: req.body
 				})
 			} else {
-				var ulimg = new String();
+				var ulimg =req.body.file;
 				ulimg = "default-user.jpg"
 				const newUser = {
 					id: users[users.length - 1].id + 1,
