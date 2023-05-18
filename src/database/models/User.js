@@ -46,6 +46,11 @@ module.exports = (sequelize,dataType) =>{
             as: 'role',
             foreignKey: 'id_role'
         });
+
+        User.hasMany(models.Product, { //listo
+            as: 'product',
+            foreignKey: 'creator'
+        });
     }
 
     return User;

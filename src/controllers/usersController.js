@@ -154,18 +154,17 @@ const controller = {
 			var userToLogin = await db.User.findOne({ where: { email: req.body.email } });
 			if (userToLogin) {
 				var compare = userToLogin.dataValues.password;
-				console.log(userToLogin)
-				console.log(req.body.password)
 				let isOkThePassword = bcryptjs.compareSync(req.body.password, compare);
-				console.log(isOkThePassword)
 				if (isOkThePassword) {
 					delete userToLogin.password;
+					
 					req.session.userLogged = userToLogin;
+					res.locals.userLogged = true;
 
 					if (req.body.remember_me) {
-						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 })
 					}
-
+					console.log(req.cookies);
 					return res.redirect('/');
 				} else {
 					delete userToLogin;
@@ -196,7 +195,7 @@ const controller = {
 
 
 	profile: (req, res) => {
-
+		
 		return res.render('profile', {
 			user: req.session.userLogged
 		});

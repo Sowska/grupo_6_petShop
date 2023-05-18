@@ -42,14 +42,13 @@
             </div>
     
             <div class="navigation-icons-container">
-
-                <% if (locals.isLogged) { %>
+                <% if (!locals.isLogged) { %>
+                    <button><a href="/user/register"><i class="fa fa-sign-in"></a></i></button>
+                <% } else { %>
                     <button><a href="/cart"><i class="fa fa-shopping-cart"></a></i></button>
                     <button><a href="/user/profile"><i class="fa fa-user"></a></i></button>
                     <button><i class="fa fa-heart"></i></button>
                     <button><a href="/user/logout"><i class="fa fa-sign-out"></a></i></button>
-                <% } else { %>
-                <button><a href="/user/register"><i class="fa fa-sign-in"></a></i></button>
                 <% } %>
             </div>
     

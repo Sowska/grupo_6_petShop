@@ -1,30 +1,28 @@
-/* const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-
-function getProducts(){
-	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-} //esta funcion permite actualizar la lista de products para cada accion del CRUD.
- */
-
 let db = require("../database/models");
+
+function getProducts() {
+	db.Product.findAll()
+		.then(function (products) {
+			return products
+		}
+		)
+}
 
 const controller = {
 	// 1.Listado de productos
-	allProducts: (req, res) => {
-		db.Products.findAll()
-		.then(function(productos){
-			res.render('products', { productos });  
-		})
-/*         const products = getProducts();
-        res.render('products', { products });   */
+	allProducts: async (req, res) => {
+		let products = await db.Product.findAll();
+		res.render('products', { products });
 	
 	},
 
     // 2.Formulario de creación de productos
-	create: (req, res) => {
-		res.render('createProduct');
+	createForm: async (req, res) => {
+		let categories = await db.Category.findAll();
+		let materials = await db.Material.findAll();
+		let colors = await db.Color.findAll();
+		let discounts = await db.Discount.findAll();
+		res.render('createProduct', {categories, materials, colors, discounts });
 	},
 
 	// 3. Detalle de un producto particular
@@ -35,37 +33,32 @@ const controller = {
 		res.render('ProductDetail', { product });
 	},
 	
-	//4. Acción de creación (se usara en products.js con POST)
-	store: (req, res) => {
-		db.Products.create({
-			name: req.body.product,
-			material: req.body.material,
-			pet: req.body.pet,
-			size: req.body.size,
-			price: req.body.price,
-			image: ulimg
-		});
-		res.redirect('/products');
-        /* const products = getProducts();
+	//4. Acción de creación
+	create: (req, res) => {
 		var ulimg = new String(); 
 		if (!req.file) {
 		ulimg = "default.jpg"
 		} else {
 			ulimg = req.file.filename
 		}
-		const newProduct = {
-			id: products[products.length -1].id +1,
-			product: req.body.product,
-			material: req.body.material,
-			pet: req.body.pet,
-			size: req.body.size,
+		db.Product.create({		
+			name: req.body.product,
+			description: req.body.measure,
 			price: req.body.price,
-			image: ulimg
-		}
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products'); */
-
+			inStock: true,
+			flavor: req.body.flavor,
+			fragrance: req.body.fragrance,
+			size: req.body.size,
+			discount_id: req.body.discount,
+			material_id: req.body.material,
+			category_id: req.body.categoryValue,
+			color_id: req.body.color,
+			pet: req.body.pet,
+			mainImage: ulimg,
+			creator:1,
+		}).then( () => {
+			res.redirect('/products');
+		});
 	},
 
 	// 5. Formulario de edición de productos
@@ -76,7 +69,7 @@ const controller = {
 
 	},
 
-	// 6.Acción de edición (se usara en products.js con PUT):
+	// 6.Acción de edición
 	update: (req, res) => {
 
         const products = getProducts();

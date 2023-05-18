@@ -4,14 +4,15 @@ const router = express.Router(); //ruta en comun
 
 const productsController = require('../controllers/productsController');
 const uploadFile = require('../middlewares/multer');
+const authMiddleware = require ('../middlewares/authMiddleware');
 
 
 /*** Ver todos los productos ***/
 router.get('/', productsController.allProducts); 
 
 /*** Crear un producto***/
-router.get('/create', productsController.create);
-router.post('/', uploadFile.single('new-product'), productsController.store); 
+router.get('/create',authMiddleware, productsController.createForm);
+router.post('/', uploadFile.single('new-product-img'), productsController.create); 
 
 /*** Ver el detalle de un producto ***/
 router.get('/:id', productsController.detail);

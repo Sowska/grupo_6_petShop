@@ -34,6 +34,12 @@ module.exports = (sequelize,dataType) =>{
             type: dataType.CHAR(1),
             allowNull: false,
         },
+        pet:{
+            type: dataType.STRING(45)
+        },
+        mainImage: {
+            type: dataType.TEXT
+        },
         discount_id: {
             type: dataType.INTEGER(11).UNSIGNED
         },
@@ -48,7 +54,11 @@ module.exports = (sequelize,dataType) =>{
         color_id: {
             type: dataType.INTEGER(11).UNSIGNED
 
+        },
+        creator:{
+            type: dataType.INTEGER(11).UNSIGNED
         }
+
     }
     const config = {
         tableName: 'products',
@@ -87,6 +97,11 @@ module.exports = (sequelize,dataType) =>{
         Product.hasMany(models.Item, { //listo
             as: 'item',
             foreignKey: 'product_id'
+        });
+
+        Product.belongsTo(models.User, { //listo
+            as: 'user',
+            foreignKey: 'creator'
         });
     }
 
