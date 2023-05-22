@@ -8,16 +8,13 @@ module.exports = (sequelize, dataType) => {
     {}
   );
   ProductColor.associate = function (models) {
-    // Relación N:M entre Product y Color
     models.Product.belongsToMany(models.Color, {
       through: ProductColor,
-      foreignKey: 'productId',
-      otherKey: 'colorId',
+      foreignKey: 'productId'
     });
     models.Color.belongsToMany(models.Product, {
       through: ProductColor,
-      foreignKey: 'colorId',
-      otherKey: 'productId',
+      foreignKey: 'colorId'
     });
   };
   return ProductColor;

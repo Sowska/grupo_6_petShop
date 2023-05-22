@@ -14,61 +14,61 @@ module.exports = {
     */
     await queryInterface.bulkInsert('discounts', [
       {
-        percentage: 10
-      },
-      {
-        percentage: 20
-      },
-      {
-        percentage: 30
-      },
-      {
-        percentage: 40
-      },
-      {
-        percentage: 50
-      },
-      {
-        percentage: 60
-      },
-      {
-        percentage: 70
-      },
-      {
-        percentage: 80
-      },
-      {
-        percentage: 90
-      },
-      {
-        percentage: 100
+        percentage: 0
       },
       {
         percentage: 5
       },
       {
+        percentage: 10
+      },
+      {
         percentage: 15
+      },
+      {
+        percentage: 20
       },
       {
         percentage: 25
       },
       {
+        percentage: 30
+      },
+      {
         percentage: 35
+      },
+      {
+        percentage: 40
       },
       {
         percentage: 45
       },
       {
+        percentage: 50
+      },
+      {
         percentage: 55
+      },
+      {
+        percentage: 60
       },
       {
         percentage: 65
       },
       {
+        percentage: 70
+      },
+      {
         percentage: 75
       },
       {
+        percentage: 80
+      },
+      {
         percentage: 85
+      },
+      {
+        percentage: 90
       },
       {
         percentage: 95

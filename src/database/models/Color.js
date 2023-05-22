@@ -8,7 +8,7 @@ module.exports = (sequelize,dataType) =>{
         },
         name: {
             type: dataType.STRING(45),
-            allowNull: false
+            allowNull: true
         }
 
     }
@@ -21,9 +21,8 @@ module.exports = (sequelize,dataType) =>{
     Color.associate = (models) => {
         Color.belongsToMany(models.Product, { //listo
             as: 'product',
-            through: 'product_colors',
-            foreignKey: 'color_id',
-            otherKey: 'product_id'
+            through: 'productcolors',
+            foreignKey: 'productId',
         });
     }
 

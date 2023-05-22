@@ -16,7 +16,7 @@ module.exports = {
         autoIncrement: true
     },
     name: {
-        type: Sequelize.INTEGER(11),
+        type: Sequelize.BOOLEAN,
     }
     });
   },

@@ -18,7 +18,7 @@ router.post('/', uploadFile.single('new-product-img'), productsController.create
 router.get('/:id', productsController.detail);
 
 /*** Editar un producto ***/
-router.get('/:id/edit', productsController.edit); 
+router.get('/:id/edit', authMiddleware, productsController.edit); 
 router.put('/:id', uploadFile.single('new-product'), productsController.update);
 
 /*** Eliminar un producto***/

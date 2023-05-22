@@ -764,7 +764,6 @@ footer {
 
 
 .content-wrapper-edit {
-    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -931,4 +930,9 @@ button.primary.ghost {
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+.detail-row2{
+    height: 300px;
+    display:block;
 }

@@ -15,7 +15,7 @@
               <div class="form-div">
                 <h2 class="titulo2">Selecciona una categoria para tu producto:</h2>
                   <% for( let i=0; i<categories.length; i++) { %>
-                    <input type="radio" name="categoryValue" value="<%= categories[i].id %>"><%= categories[i].name%></input>
+                    <input type="radio" id="categoryValue<%= categories[i].id %>" name="categoryValue" value="<%= categories[i].id %>" onclick="showFields()"><%= categories[i].name%></input>
                     <% } %>
               </div>
             </div>
@@ -29,9 +29,10 @@
                 <label for="description" class="form-label">Descripcion:</label>
                 <input type="text" id="description" name="description" placeholder="Puede incluir detalles como altura, diametro, piezas, condiciones de uso, etc. " class="form-input">
               </div>
-              <div class="form-div">
+              <div class="form-div" id="material" style="display: none;">
                 <label for="material" class="form-label">Material:</label>
                 <select name="material">
+                  <option value="">Seleccione</option>
                   <% for (let i = 0; i<materials.length; i++)  { %>
                     <option value="<%= materials[i].id %>">
                         <%= materials[i].name%>
@@ -39,20 +40,22 @@
                     <%} %>
                 </select>
               </div>
-              <div class="form-div">
+              <div class="form-div" id ="size" style="display: none;">
                 <label for="size" class="form-label">Talle:</label>
                 <select name="size">
-                  <option value="Y">XXS</option>
-                  <option value="X">XS</option>
+                  <option value="">Seleccione</option>
+                  <option value="XXS">XXS</option>
+                  <option value="XS">XS</option>
                   <option value="S">S</option>
                   <option value="M">M</option>
                   <option value="L">L</option>
-                  <option value="G">XL</option>
+                  <option value="XL">XL</option>
                 </select>
               </div>
-              <div class="form-div">
+              <div class="form-div" id= "measure" style="display: none;">
                 <label for="measure" class="form-label">Presentación:</label>
                 <select name="measure">
+                  <option value="">Seleccione</option>
                   <option value="250ml">250ml</option>
                   <option value="500ml">500ml</option>
                   <option value="750ml">750ml</option>
@@ -63,9 +66,10 @@
                   <option value="1kg">1kg</option>
                 </select>
               </div>
-              <div class="form-div">
+              <div class="form-div" id= "fragrance" style="display: none;">
                 <label for="fragrance" class="form-label">Fragancia:</label>
                 <select name="fragrance">
+                  <option value="">Seleccione</option>
                   <option value="Coco">Coco</option>
                   <option value="Vainilla">Vainilla</option>
                   <option value="Lavanda">Lavanda</option>
@@ -74,9 +78,10 @@
                   <option value="Neutro">Neutro</option>
                 </select>
               </div>
-              <div class="form-div">
-                <label for="flavor" class="form-label">Sabor:</label>
-                <select name="flavor">
+              <div class="form-div" id="flavor" style="display: none;">
+                <label for="flavor"  class="form-label">Sabor:</label>
+                <select  name="flavor">
+                  <option value="">Seleccione</option>
                   <option value="Carne">Carne</option>
                   <option value="Pescado">Pescado</option>
                   <option value="Pollo">Pollo</option>
@@ -85,21 +90,18 @@
                   <option value="Salmon">Salmon</option>
                 </select>
               </div>
-              <div class="form-div">
+              <div class="form-div" id= "color" style="display: none;">
                 <label for="color" class="form-label">Color:</label>
-                <select name="color">
                   <% for (let i = 0; i<colors.length; i++)  { %>
-                    <option value="<%= colors[i].id %>">
-                        <%= colors[i].name%>
-                    </option>
+                    <input type="checkbox" id="<%= colors[i].name %>" name="color" value="<%= colors[i].id %>">
+                    <label for="<%= colors[i].name %>"><%= colors[i].name %></label>
                     <%} %>
-                </select>
               </div>
 
               <div class="centered-row">
                 <label for="pet" class="form-label">Tipo de mascota:</label>
                 <select name="pet" id="pet" class="form-input">
-                  <option value="">Elegí</option>
+                  <option value="">Seleccione</option>
                   <option value="gato">Gato</option>
                   <option value="perro">Perro</option>
                 </select>
@@ -111,11 +113,13 @@
               <label for="price" class="form-label">Precio del producto:</label>
                 <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
                 <label for="discountValue" class="form-label">¿Tiene descuento?:</label>
-                    <input type="radio" name="discountValue" value="true">Si</input>
-                    <input type="radio" name="discountValue" value="false">No</input>
+                <input type="radio" id="hasDiscountTrue" name="percentage" value="" onclick="selectDiscount(true)">
+                <label for="hasDiscountTrue">Sí</label>
+                <input type="radio" id="hasDiscountFalse" name="percentage" value="" onclick="selectDiscount(false)">
+                <label for="hasDiscountFalse">No</label>
               <div class="form-div">
                 <label for="discount" class="form-label">Porcentaje de descuento:</label>
-                <select name="discount">
+                <select name="discount" id="discount" disabled>
                   <% for (let i = 0; i<discounts.length; i++)  { %>
                     <option value="<%= discounts[i].id %>">
                         <%= discounts[i].percentage%>
@@ -132,39 +136,57 @@
 
         </div>
       </section>
-      
-<!--       <script>
-        // Obtener los campos relacionados con cada categoría
-        var campos_comida = document.querySelector('.comida_campos');
-        var campos_juguete = document.querySelector('.juguete_campos');
-        var campos_accesorio = document.querySelector('.accesorio_campos');
-        var campos_salud = document.querySelector('.salud_campos');
-        var campos_higiene = document.querySelector('.higiene_campos');
 
+<script>
+  function showFields() {
+    var category = document.querySelector('input[name="categoryValue"]:checked').value;
+    switch (category) {
+  case '1': 
+    document.getElementById('color').style.display = 'block';
+    document.getElementById('material').style.display = 'block';
+    document.getElementById('fragrance').style.display = 'none';
+    document.getElementById('flavor').style.display = 'none';
+    document.getElementById('size').style.display = 'none';
+    document.getElementById('measure').style.display = 'none';
+    break;
+  case '2':
+    document.getElementById('measure').style.display = 'block';
+    document.getElementById('flavor').style.display = 'block';
+    document.getElementById('color').style.display = 'none';
+    document.getElementById('material').style.display = 'none';
+    document.getElementById('size').style.display = 'none';
+    document.getElementById('fragrance').style.display = 'none';
+    break;
+  case '3':
+    document.getElementById('measure').style.display = 'block';
+    document.getElementById('fragrance').style.display = 'block';
+    document.getElementById('color').style.display = 'none';
+    document.getElementById('material').style.display = 'none';
+    document.getElementById('size').style.display = 'none';
+    document.getElementById('flavor').style.display = 'none';
+    break;
+    case '4':
 
-        // Escuchar el evento de cambio de opción en el campo "Categoría"
-        document.getElementById('categoria').addEventListener('change', function () {
-          // Ocultar todos los campos
-          campos_comida.style.display = 'none';
-          campos_juguete.style.display = 'none';
-          campos_accesorio.style.display = 'none';
-          campos_salud.style.display = 'none';
-          campos_higiene.style.display = 'none';
+    document.getElementById('color').style.display = 'block';
+    document.getElementById('material').style.display = 'block';
+    document.getElementById('size').style.display = 'block';
+    document.getElementById('flavor').style.display = 'none';
+    document.getElementById('fragrance').style.display = 'none';
+    document.getElementById('measure').style.display = 'none';
+    break;
+}
+  }
 
-          // Mostrar los campos correspondientes a la opción seleccionada
-          if (this.value === 'salud') {
-            campos_salud.style.display = 'block';
-          } else if (this.value === 'higiene') {
-            campos_higiene.style.display = 'block';
-          } else if (this.value === 'comida') {
-            campos_comida.style.display = 'block';
-          } else if (this.value === 'juguetes') {
-            campos_juguete.style.display = 'block';
-          } else if (this.value === 'accesorios') {
-            campos_accesorio.style.display = 'block';
-          }
-        });
-      </script> -->
+  function selectDiscount(hasDiscount) {
+    var discountSelect = document.getElementById('discount');
+    
+    if (hasDiscount) {
+      discount.disabled = false;
+    } else {
+      discount.disabled = true;
+    }
+  }
+</script>
 
       <%-include('partials/footer') %>
 

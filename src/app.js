@@ -7,6 +7,7 @@ const session = require ('express-session');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const headerButtonsMiddleware = require ('./middlewares/headerButtonsMiddleware');
+const db = require('../src/database/models');
 
 
 const app = express();
@@ -41,6 +42,8 @@ app.use(methodOverride('_method'));
 app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
+
+
 
 const port = process.env.PORT || 3030;
 

@@ -22,17 +22,21 @@ module.exports = (sequelize,dataType) =>{
             type: dataType.BOOLEAN,
             allowNull: false,
         },
+        measure: {
+            type: dataType.STRING(45),
+            allowNull: true
+        },
         flavor: {
             type: dataType.STRING(45),
-            allowNull: false,
+            allowNull: true,
         },
         fragrance: {
             type: dataType.STRING(45),
-            allowNull: false,
+            allowNull: true,
         },
         size: {
-            type: dataType.CHAR(1),
-            allowNull: false,
+            type: dataType.CHAR(3),
+            allowNull: true,
         },
         pet:{
             type: dataType.STRING(45)
@@ -41,18 +45,17 @@ module.exports = (sequelize,dataType) =>{
             type: dataType.TEXT
         },
         discount_id: {
-            type: dataType.INTEGER(11).UNSIGNED
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
         },
         material_id: {
-            type: dataType.INTEGER(11).UNSIGNED
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
 
         },
         category_id: {
-            type: dataType.INTEGER(11).UNSIGNED
-
-        },
-        color_id: {
-            type: dataType.INTEGER(11).UNSIGNED
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
 
         },
         creator:{
@@ -84,9 +87,8 @@ module.exports = (sequelize,dataType) =>{
     
         Product.belongsToMany(models.Color, { //listo
             as: 'color',
-            through: 'product_colors',
-            foreignKey: 'product_id',
-            otherKey: 'color_id'
+            through: 'productcolors',
+            foreignKey: 'colorId',
         });
     
         Product.hasMany(models.Product_image, { //listo
