@@ -1,50 +1,48 @@
-module.exports = (sequelize,dataType) =>{
-    const alias = 'Cart'; // Este nombre tiene que ser igual al nombre del archivo
-    const cols = {
+module.exports = (sequelize, dataType) => {
+    let alias = "Cart";
+    let cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+
+        },
+        created_at: {
+            type: dataType.DATE,
+            allowNull: false
         },
         user_id: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER,
+            allowNull: false,
         },
         total: {
-            type: dataType.DECIMAL(10,2)
+            type: dataType.DECIMAL(10,2),
+            allowNull: false,
         }
- 
-    }
-    const config = {
-        tableName: 'cart',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
-    }
-     const Cart = sequelize.define (cols, config, alias)
+    };
 
+    let config = {
+        tableName: "carts",
+        timestamps: false,
+    };
+    const Cart = sequelize.define(alias, cols, config)
 
-     Cart.associate = (models) => {
-        Cart.HasMany(models.User, {
+    Cart.associate = (models) => {
+        Cart.belongsTo(models.User, { //listo
             as: 'user',
-            foreigKey: 'user_id'
+            foreignKey: 'user_id'
         });
-     }
-
-     Cart.associate = (models) => {
-        Cart.BelongsTo(models.Order, {
+    
+        Cart.belongsTo(models.Order, { //listo
             as: 'order',
-            foreigKey: 'cart_id_orders'
+            foreignKey: 'cart_id_orders'
         });
-     }
-
-     Cart.associate = (models) => {
-        Cart.BelongsTo(models.Cart_item, {
-            as: 'cart_item',
-            foreigKey: 'cart_id'
+    
+        Cart.hasMany(models.Item, { //listo
+            as: 'item',
+            foreignKey: 'cart_id'
         });
-     }
+    }
 
-     return Cart;
-
+    return Cart;
 }

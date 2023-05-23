@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Product'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Product';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -19,88 +19,96 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         inStock:{
-            type: dataType.TINYINT(4),
+            type: dataType.BOOLEAN,
             allowNull: false,
+        },
+        measure: {
+            type: dataType.STRING(45),
+            allowNull: true
         },
         flavor: {
             type: dataType.STRING(45),
-            allowNull: false,
+            allowNull: true,
         },
         fragrance: {
             type: dataType.STRING(45),
-            allowNull: false,
+            allowNull: true,
         },
         size: {
-            type: dataType.CHAR(1),
-            allowNull: false,
+            type: dataType.CHAR(3),
+            allowNull: true,
+        },
+        pet:{
+            type: dataType.STRING(45)
+        },
+        mainImage: {
+            type: dataType.TEXT
         },
         discount_id: {
-            type: dataType.INTERGER(11)
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
         },
-        material: {
-            type: dataType.STRING(11),
-            allowNull: false
+        material_id: {
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
+
         },
         category_id: {
-            type: dataType.INTERGER(11),
-            allowNull: false
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: true
+
         },
-        color_id: {
-            type: dataType.INTERGER(11),
-            allowNull: false
+        creator:{
+            type: dataType.INTEGER(11).UNSIGNED
         }
+
     }
     const config = {
         tableName: 'products',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false
     }
-     const Product = sequelize.define (cols, config, alias)
+    const Product = sequelize.define(alias, cols, config)
 
-     Product.associate = (models) => {
-        Product.HasMany(models.Material, {
-            as: 'material',
-            foreigKey: 'material_id'
+    Product.associate = (models) => {
+        Product.belongsTo(models.Material, { //listo
+            as: 'kind', //se cambio el nombre de la asociacion por 'Error: Naming collision between attribute 'material' and association 'material' on model Product.'
+            foreignKey: 'material_id'
         });
-     }
-
-     Product.associate = (models) => {
-        Product.HasMany(models.Categorie, {
-            as: 'categorie',
-            foreigKey: 'category_id'
+    
+        Product.belongsTo(models.Category, { //listo
+            as: 'category',
+            foreignKey: 'category_id'
         });
-     }
-
-     Product.associate = (models) => {
-        Product.HasMany(models.Discount, {
+    
+        Product.belongsTo(models.Discount, { //listo
             as: 'discount',
-            foreigKey: 'discount_id'
+            foreignKey: 'discount_id'
         });
-     }
-
-     Product.associate = (models) => {
-        Product.HasMany(models.Color, {
+    
+        Product.belongsToMany(models.Color, { //listo
             as: 'color',
-            foreigKey: 'color_id'
+            through: 'productcolors',
+            foreignKey: 'colorId',
+            onDelete: 'CASCADE'
         });
-     }
-
-     Product.associate = (models) => {
-        Product.BelongsTo(models.Product_image, {
+    
+        Product.hasMany(models.Product_image, { //listo
             as: 'product_image',
-            foreigKey: 'product_images'
+            foreignKey: 'product_id_images',
+            onDelete: 'CASCADE'
         });
-     }
-
-     Product.associate = (models) => {
-        Product.BelongsTo(models.Cart_item, {
-            as: 'cart_item',
-            foreigKey: 'product_id'
+    
+        Product.hasMany(models.Item, { //listo
+            as: 'item',
+            foreignKey: 'product_id',
+            onDelete: 'CASCADE'
         });
-     }
 
-     return Product;
+        Product.belongsTo(models.User, { //listo
+            as: 'user',
+            foreignKey: 'creator'
+        });
+    }
 
+    return Product;
 }

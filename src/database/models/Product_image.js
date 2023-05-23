@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Product_image'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Product_image';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -7,29 +7,27 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         url: {
-            type: dataType.STRING(45),
+            type: dataType.TEXT,
+            allowNull: false
         },
         product_id_images: {
-            type: dataType.INTEGER(11)
+            type: dataType.INTEGER(11).UNSIGNED,
         }
- 
+
     }
     const config = {
         tableName: 'product_images',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps:false
     }
-     const Product_image = sequelize.define (cols, config, alias)
+    const Product_image = sequelize.define(alias, cols, config)
 
-     Product_image.associate = (models) => {
-        Product_image.HasMany(models.Product, {
+    Product_image.associate = (models) => {
+        Product_image.belongsTo(models.Product, { //listo
             as: 'product',
-            foreigKey: 'product_images'
+            foreignKey: 'product_id_images'
         });
-     }
+    }
 
-     return Product_image;
+    return Product_image;
 
 }

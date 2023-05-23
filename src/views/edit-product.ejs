@@ -6,20 +6,30 @@
         <!-- HEADER DINAMICO -->
         <%-include('partials/header') %>
 
-<main>
+<main class="main-edit">
             <div class="content-wrapper-edit">
                 <div class="col-12">
                     <h2 class="products-title">Estás editando: <i>
-                            <%= productToEdit.product%>
+                            <%= productToEdit.name%>
                         </i></h2>
+                        <% for (let i = 0; i<categories.length; i++)  { %>
+                            <% if (categories[i].id == productToEdit.category_id) { %>
+                        <h4>Categoría del producto: <%= categories[i].name %></h4>
+                        <% } %>
+                        <% } %>
                 </div>
 
                 <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <div class="row product-detail">
                         <div>
                             <label for="name" class="form-label">Nombre del producto:</label>
-                            <input type="text" id="product" name="product" placeholder="Ej: Collar de cascabel"
-                                class="form-input" value="<%= productToEdit.product %>">
+                            <input type="text" id="name" name="name" placeholder="Ej: Collar de cascabel"
+                                class="form-input" value="<%= productToEdit.name %>">
+                        </div>
+                        <div>
+                            <label for="description" class="form-label">Descripcion:</label>
+                            <input type="text" id="description" name="description" placeholder="Ej: Collar de cascabel"
+                                class="form-input" value="<%= productToEdit.description %>">
                         </div>
                         <div>
                             <label for="price" class="form-label">Precio del producto:</label>
@@ -27,23 +37,96 @@
                                 value="<%= productToEdit.price %>">
                         </div>
                         <div>
-                            <label for="material" class="form-label">Material:</label>
-                            <input type="text" id="material" name="material" placeholder="Ej: algodón"
-                                class="form-input" value="<%= productToEdit.material %>">
+                            <label for="discount" class="form-label">Descuento vigente:</label>
+                            <select name="discount">
+                            <% for (let i = 0; i<discounts.length; i++)  { %>
+                                <% if (discounts[i].id == productToEdit.discount_id) { %>
+                            <option value="<%= discounts[i].id %>" selected>
+                                <%= discounts[i].percentage%>
+                            </option>
+
+                            <% }else { %> 
+                                <option value="<%= discounts[i].id %>">
+                                    <%= discounts[i].percentage%>
+                                </option>
+                                <% } %>
+                            <%} %>
+                        </select>
                         </div>
                         <div>
-                            <label for="size" class="form-label">Tamaño:</label>
-                            <input type="text" id="size" name="size" placeholder="Ej: M" class="form-input"
-                                value="<%= productToEdit.size %>">
+                            <label for="material" class="form-label">Material:</label>
+                            <select name="material">
+                                <% for (let i = 0; i<materials.length; i++)  { %>
+                                    <% if (materials[i].id == productToEdit.material_id) { %>
+                                <option value="<%= materials[i].id %>" selected>
+                                    <%= materials[i].name%>
+                                </option>
+
+                                <% }else { %> 
+                                    <option value="<%= materials[i].id %>">
+                                        <%= materials[i].name%>
+                                    </option>
+                                    <% } %>
+                                <%} %>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="size" class="form-label">Talle:</label>
+                            <select name="size">
+                                <option value="XXS" <%=productToEdit.size=='XXS' ? "selected" : "" %>>XXS</option>
+                                <option value="XS"<%=productToEdit.size=='XS' ? "selected" : "" %>>XS</option>
+                                <option value="S"<%=productToEdit.size=='S' ? "selected" : "" %>>S</option>
+                                <option value="M"<%=productToEdit.size=='M' ? "selected" : "" %>>M</option>
+                                <option value="L"<%=productToEdit.size=='L' ? "selected" : "" %>>L</option>
+                                <option value="XL"<%=productToEdit.size=='XL' ? "selected" : "" %>>XL</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="size" class="form-label">Sabor:</label>
+                            <select name="flavor">
+                                <option value="Carne"<%=productToEdit.flavor=='Carne' ? "selected" : "" %>>Carne</option>
+                                <option value="Pescado"<%=productToEdit.flavor=='Pescado' ? "selected" : "" %>>Pescado</option>
+                                <option value="Pollo"<%=productToEdit.flavor=='Pollo' ? "selected" : "" %>>Pollo</option>
+                                <option value="Mix"<%=productToEdit.flavor=='Mix' ? "selected" : "" %>>Mix</option>
+                                <option value="Sardina"<%=productToEdit.flavor=='Sardina' ? "selected" : "" %>>Sardina</option>
+                                <option value="Salmon"<%=productToEdit.flavor=='Salmon' ? "selected" : "" %>>Salmon</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="color" class="form-label">Color:</label>
+
+                                <% colors.forEach((color) => { %>
+                                    <% const isChecked = productColor.some((productColor) => productColor.colorId === color.id); %>
+                                    <input type="checkbox" name="color" value="<%= color.id %>" <%= isChecked ? 'checked' : '' %>>
+                                    <label><%= color.name %></label>
+                                <% }) %>
+                        </div>
+
+                        <div>
+                            <label for="fragrance" class="form-label">Fragancia:</label>
+                            <select name="fragrance">
+                            <option value="Coco"<%=productToEdit.fragrance=='Coco' ? "selected" : "" %>>Coco</option>
+                            <option value="Vainilla"<%=productToEdit.fragrance=='Vainilla' ? "selected" : "" %>>Vainilla</option>
+                            <option value="Lavanda"<%=productToEdit.fragrance=='Lavanda' ? "selected" : "" %>>Lavanda</option>
+                            <option value="Chicle"<%=productToEdit.fragrance=='Chicle' ? "selected" : "" %>>Chicle</option>
+                            <option value="Menta"<%=productToEdit.fragrance=='Menta' ? "selected" : "" %>>Menta</option>
+                            <option value="Neutro"<%=productToEdit.fragrance=='Neutro' ? "selected" : "" %>>Neutro</option>
+                            </select>
                         </div>
 
                         <div class="centered-row">
                             <label for="category" class="form-label">Categoría:</label>
                             <select name="pet" id="pet" class="form-input">
-                                <option value="">Elegí</option>
-                                <option value="gato" <%=productToEdit.pet==='gato' && 'selected' %>>Gato</option>
-                                <option value="perro" <%=productToEdit.pet==='perro' && 'selected' %>>Perro</option>
+                                <option value="gato" <%=productToEdit.pet=='gato' ? "selected" : "" %>>Gato</option>
+                                <option value="perro" <%=productToEdit.pet=='perro' ? "selected" : "" %>>Perro</option>
                             </select>
+                            <div>
+                                <label for="name" class="form-label">¿Este producto se encuentra en stock?:</label>
+                                <input type="radio" name="stockValue" value="true"<%= productToEdit.inStock ? "checked" : "" %>>Si</input>
+                                <input type="radio" name="stockValue" value="false"<%= productToEdit.inStock ?  "":"checked" %>>No</input>
+                            </div>
                         </div>
                         <div class="centered-row">
                             <label for="image" class="new-product">Imagen:</label>

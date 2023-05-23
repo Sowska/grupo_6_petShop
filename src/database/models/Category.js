@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Material';
+    const alias = 'Category';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -8,23 +8,22 @@ module.exports = (sequelize,dataType) =>{
         },
         name: {
             type: dataType.STRING(45),
-            allowNull: true
         }
 
     }
     const config = {
-        tableName: 'materials',
+        tableName: 'categories',
         timestamps: false
     }
-    const Material = sequelize.define(alias, cols, config)
+    const Category = sequelize.define(alias, cols, config)
 
-    Material.associate = (models) => {
-        Material.hasMany(models.Product, { //listo
+    Category.associate = (models) => {
+        Category.hasMany(models.Product, { //listo
             as: 'product',
-            foreignKey: 'material_id'
+            foreignKey: 'category_id'
         });
     }
 
-    return Material;
+    return Category;
 
 }

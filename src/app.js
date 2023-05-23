@@ -6,6 +6,8 @@ const cookies = require('cookie-parser');
 const session = require ('express-session');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const headerButtonsMiddleware = require ('./middlewares/headerButtonsMiddleware');
+const db = require('../src/database/models');
 
 
 const app = express();
@@ -32,6 +34,7 @@ saveUninitialized: false}));
 app.use(cookies());
 
 app.use(userLoggedMiddleware);
+app.use(headerButtonsMiddleware);
 
 const methodOverride =  require('method-override');
 app.use(methodOverride('_method'));
@@ -39,6 +42,8 @@ app.use(methodOverride('_method'));
 app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
+
+
 
 const port = process.env.PORT || 3030;
 
