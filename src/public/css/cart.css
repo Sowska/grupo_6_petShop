@@ -194,6 +194,11 @@ header {
     border: transparent;
 }
 
+.navigation-icons-container a, a:visited {
+    text-decoration: none; 
+    color: var(--verde);
+}
+
 .logo {
     max-width: 200px;
 }
@@ -955,3 +960,37 @@ button.primary.ghost {
     display:block;
 }
 
+/* ===============HOME============== */
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    width: 500%;
+    transition: transform 0.5s ease;
+}
+.slide {
+    flex: 0 0 20%;
+    text-align: center;
+    padding: 20px;
+}
+
+#prevBtn,
+#nextBtn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+margin-top: 10px;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
