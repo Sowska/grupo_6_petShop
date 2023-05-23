@@ -385,5 +385,14 @@
     "password": "$2a$10$xTS5s3bYt7GGRa7E2IVCy.Dv4odz5zdOmVQ1IJau6XXN44ieeWNs.",
     "admin": false,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 44,
+    "firstName": "francisco pepe",
+    "lastName": "pepeee",
+    "email": "pepaa@gmail.com",
+    "password": "$2a$10$hU8JHtLEjO2Dsv.ttKZ9luK85S6QKYkgj84jIfkjNzj4jkaF6CavG",
+    "admin": false,
+    "avatar": "default-user.jpg"
   }
 ]
