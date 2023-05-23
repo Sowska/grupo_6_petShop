@@ -2,7 +2,7 @@ let db = require("../database/models");
 
 const controller = {
 	allProducts: async (req, res) => {
-		let products = await db.Product.findAll();
+		let products = await db.Product.findAll({include: [{association: "discount"}, {association: "kind"}, {association: "category"}, {association: "user"} ]});
 		res.render('products', { products });
 	
 	},
@@ -26,7 +26,7 @@ const controller = {
 		var ulimg = req.file ? req.file.filename : "default.jpg";
 		let creatorId = 0;
 		db.User.findOne({ where: { email: req.cookies.userEmail } }).then((user) => {
-			let creatorId = user.id;
+			let creatorId = user.getDataValue('id');
 			let category = req.body.categoryValue
 
 			let newProduct = {
