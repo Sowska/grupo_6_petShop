@@ -26,8 +26,8 @@ const controller = {
 	allUsers: (req, res) => {
 		db.User.findAll()
 			.then(users => {
-				const admin = users.filter(user => user.id_role == 2);
-				const costumer = users.filter(user => user.id_role == 1);
+				let admin = users.filter(user => user.id_role == 1);
+				let costumer = users.filter(user => user.id_role == 2);
 				res.render('users', { admin, costumer });
 			})
 	},
@@ -97,54 +97,44 @@ const controller = {
 			})
 	},
 
-	update: (req, res) => {
-
-		let request = db.User.findAll(req.params.id);
-
-
-
-
-
-		var ulimg = new String();
-
-		var boolValue = req.body.adminValue === "true" ? 2 : 1;
-
+	update: async (req, res) => {
+		let boolValue = req.body.adminValue == "true" ? 1 : 2;
+		let user = await db.User.findByPk(req.params.id)
+		let ulimg = user.getDataValue('avatar_url');
+		let password = user.getDataValue('password')
 		if (req.file) {
 			ulimg = req.file.filename
-		} else {
-			db.User.findByPk(req.params.id)
-				.then(user => {
-					ulimg = user.avatar_url
-				}
-				)
+		}
+		if(req.body.pswValue =="true"){
+			password=bcryptjs.hashSync(req.body.password, 10)
 		}
 		db.User.update({
 			first_name: req.body.firstName,
 			last_name: req.body.lastName,
 			email: req.body.email,
-			password: bcryptjs.hashSync(req.body.password, 10),
+			password: password,
 			avatar_url: ulimg,
 			id_role: boolValue
 		}, {
 			where: {
 				id: req.params.id
 			}
-		})
-
+		}).then(() => {
 		res.redirect('/');
+		});
 	},
 
-	destroy: async (req, res) => {
-		try {
-			const user = await db.User.findByPk(req.params.id);
-			if (!user) {
-				return res.status(404).send('Usuario no encontrado');
-			}
-			await user.destroy();
-			return res.redirect('/user');
-		} catch (error) {
-			return res.status(500).send('Internal server error');
+	destroy: (req, res) => {
+		db.User.destroy({
+			where: {
+				id: req.params.id
+			},
+			force: true
 		}
+		).then(() => {
+			res.redirect('/');
+		})
+		
 	},
 
 	processLogin: async (req, res) => {

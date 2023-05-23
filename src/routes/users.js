@@ -20,15 +20,14 @@ router.post('/processLogin', validator.login, usersController.processLogin);
 
 router.get('/profile', authMiddleware, usersController.profile);
 
-/*** Editar un usuario ***/
 router.get('/:id/edit', usersController.edit); 
 router.put('/:id', uploadFile.single('new-avatar'), usersController.update);
 
-/*** Eliminar un usuario***/
 router.delete('/:id', usersController.destroy); 
 
-//logout
 router.get('/logout', usersController.logout);
+
+router.get('/all', authMiddleware, usersController.allUsers);
 
 module.exports = router;
 

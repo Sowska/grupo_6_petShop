@@ -8,19 +8,11 @@
             <main class="container">
                 <section class="user-container">
                     <div class="top-buttons">
-                        <% if (user.id_role==1) { %>
                             <a href="<%= user.id %>/edit" class="action-button edit">Editar</a>
-                            <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
-                                style="display: inline-flex">
-                                
-                                <button type="submit" class="action-button delete">Eliminar</button>
-                            </form>
-                        <% } %>
-
                     </div>
 
                     <div class="left-column">
-                        <% if(user.admin) { %>
+                        <% if(user.role_id != 2) { %>
                         <h2>Admin</h2>
                             <% } else { %>
                         <h2>Usuario</h2>  
@@ -33,7 +25,9 @@
                             <h3>Apellido: <%= user.last_name %></h3>
                             <h3>Email: <%= user.email %></h3>
                         </div>
-
+                        <% if(user.role_id != 2) { %>
+                        <a href="/user/all">Ver todos los usuarios...</a>
+                        <% } %>
                     </div>
 
                     <div class="user-content">
