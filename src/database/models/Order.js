@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Order'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Order';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -7,29 +7,28 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         status: {
-            type: dataType.INTERGER(11),
+            type: dataType.INTEGER(11),
+            allowNull: false
         },
         cart_id_orders: {
-            type: dataType.INTERGER(11)
+            type: dataType.INTEGER(11).UNSIGNED,
+            allowNull: false
         }
- 
+
     }
     const config = {
         tableName: 'orders',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps:false
     }
-     const Order = sequelize.define (cols, config, alias)
+    const Order = sequelize.define(alias, cols, config)
 
-     Order.associate = (models) => {
-        Order.HasMany(models.Cart, {
+    Order.associate = (models) => { 
+        Order.hasMany(models.Cart, { //listo
             as: 'cart',
-            foreigKey: 'cart_id_orders'
+            foreignKey: 'cart_id_orders'
         });
-     }
+    }
 
-     return Order;
+    return Order;
 
 }

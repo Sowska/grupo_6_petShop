@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Discount'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Discount';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
@@ -7,26 +7,25 @@ module.exports = (sequelize,dataType) =>{
             autoIncrement: true
         },
         percentage: {
-            type: dataType.INTERGER(2),
+            type: dataType.INTEGER(2),
+            allowNull: false
         }
- 
+
     }
     const config = {
         tableName: 'discounts',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        timestamps: false,
         deletedAt: false
     }
-     const Discount = sequelize.define (cols, config, alias)
+    const Discount = sequelize.define(alias, cols, config)
 
-     Discount.associate = (models) => {
-        Discount.BelongsTo(models.Product, {
-            as: 'Product',
-            foreigKey: 'discount_id'
+    Discount.associate = (models) => {
+        Discount.hasMany(models.Product, { //listo
+            as: 'product',
+            foreignKey: 'discount_id'
         });
-     }
+    }
 
-     return Discount;
+    return Discount;
 
 }

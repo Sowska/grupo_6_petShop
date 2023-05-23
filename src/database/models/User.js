@@ -1,12 +1,12 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'User'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'User'; 
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
-        firs_name: {
+        first_name: {
             type: dataType.STRING(45),
             allowNull: false,
         },
@@ -19,40 +19,42 @@ module.exports = (sequelize,dataType) =>{
             allowNull: false,
         },
         password:{
-            type: dataType.STRING(45),
+            type: dataType.TEXT,
             allowNull: false,
         },
         avatar_url: {
-          type: dataType.STRING(45),
+        type: dataType.TEXT,
         },
         id_role: {
-          type: dataType.INTERGER(11),
+        type: dataType.INTEGER(11).UNSIGNED
         }
         
     }
     const config = {
         tableName: 'users',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false
     }
-     const User = sequelize.define (cols, config, alias)
+    const User = sequelize.define(alias, cols, config)
 
-     User.associate = (models) => {
-        User.BelongsTo(models.Cart, {
-            as: 'carts',
-            foreigKey: 'user_id'
+    User.associate = (models) => {
+        User.hasMany(models.Cart, {
+            as: 'cart',
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE'
         });
-     }
-
-     User.associate = (models) => {
-        User.HasMany(models.Role, {
+    
+        User.belongsTo(models.Role, {
             as: 'role',
-            foreigKey: 'id_role'
+            foreignKey: 'id_role'
         });
-     }
 
-     return User;
+        User.hasMany(models.Product, { //listo
+            as: 'product',
+            foreignKey: 'creator',
+            onDelete: 'CASCADE'
+        });
+    }
+
+    return User;
 
 }

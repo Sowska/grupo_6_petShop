@@ -5,7 +5,7 @@ const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		var folder = new String();
 		if (file.fieldname === "new-product") {
-			folder = path.join(__dirname, '../public/images/products');
+			folder = path.join(__dirname, '');
 		} else {
 			folder = path.join(__dirname, '../public/images/users');
 		}

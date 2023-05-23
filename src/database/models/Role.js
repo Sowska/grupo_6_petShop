@@ -1,25 +1,30 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Role'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Role'; 
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
-        role: {
-            type: dataType.INTERGER(11),
+        name: {
+            type: dataType.BOOLEAN,
         }
- 
+
     }
     const config = {
         tableName: 'roles',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps:false
     }
-     const Role = sequelize.define (cols, config, alias)
+    const Role = sequelize.define(alias, cols, config)
 
-     return Role;
+    Role.associate = (models) => {
+    
+        Role.hasMany(models.User, {
+            as: 'user',
+            foreignKey: 'id_role'
+        });
+    }
+
+    return Role;
 
 }
