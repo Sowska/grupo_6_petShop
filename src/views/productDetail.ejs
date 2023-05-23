@@ -8,27 +8,78 @@
             <div class="content-wrapper">
 
                 <figure>
-                    <img src="/images/<%= product.image %>" alt="product image" class="product-detail-img">
+                    <img src="/images/products/<%= product.mainImage %>" alt="product image" class="product-detail-img">
                 </figure>
 
                 <div>
+                    <h4><%=product.category.name %></h4>
 
                     <h2 class="product-title">
-                        <%= product.product %>
+                        <%= product.name %>
                     </h2>
+                    <div class="detail-row">
+                        <div>Descripcion:</div>
+                        <div>
+                            <%=product.description %>
+                        </div>
+                    </div>
+                    <% if(product.material) { %>
                     <div class="detail-row">
                         <div>Material:</div>
                         <div>
-                            <%=product.material %>
+                            <%=product.kind.name %>
                         </div>
                     </div>
-
+                    <% } %>
+                    <% if(product.size) { %>
                     <div class="detail-row">
                         <div>Tamaño:</div>
                         <div>
                             <%=product.size %>
                         </div>
                     </div>
+                    <% } %>
+                    <% if(productColor.length>0) { %>
+                    <div class="detail-row2">
+                        <div>Color: </div>
+                        <ul>
+                            <% productColor.forEach((productColor) => { %>
+                            <% const color = colors.find((color) => color.id === productColor.colorId); %>
+                            <% if (color) { %>
+                                <li><%= color.name %></li>
+                            <% } %>
+                            <% }) %>
+                        </ul>
+                    </div>
+                    <% } %>
+                    <% if(product.flavor) { %>
+                        <div>Sabor:</div>
+                        <div>
+                            <%=product.flavor %>
+                        </div>
+                        <% } %>
+
+                    <% if(product.fragrance) { %>
+                        <div>Fragancia:</div>
+                        <div>
+                            <%=product.fragrance %>
+                        </div>
+                        <% } %>
+
+                    <div class="detail-row">
+                        <div>Apto para:</div>
+                        <div>
+                            <%=product.pet %>
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div>Precio:</div>
+                        <div>
+                            <%=product.price %>
+                        </div>
+                    </div>
+                    
 
                     <div class="detail-row2">
                         <button class="add add-detail"> Agregar al carrito </button>

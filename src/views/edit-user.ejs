@@ -8,7 +8,7 @@
     <div class="user-wrapper-edit">
         <div class="col-12">
             <h2 class="products-title">Estás editando: <i>
-                    <%= userToEdit.firstName%> <%= userToEdit.lastName%>
+                    <%= userToEdit.first_name%> <%= userToEdit.last_name%>
                 </i></h2>
         </div>
 
@@ -17,12 +17,12 @@
                 <div>
                     <label for="firstName" class="form-label">Nombre:</label>
                     <input type="text" id="firstName" name="firstName" placeholder="Ej: Jane"
-                        class="form-input" value="<%= userToEdit.firstName %>">
+                        class="form-input" value="<%= userToEdit.first_name %>">
                 </div>
                 <div>
                     <label for="lastName" class="form-label">Apellido:</label>
                     <input type="text" id="lastName" name="lastName" placeholder="Ej: Doe" class="form-input"
-                        value="<%= userToEdit.lastName %>">
+                        value="<%= userToEdit.last_name %>">
                 </div>
                 <div>
                     <label for="email" class="form-label">Email:</label>
@@ -30,15 +30,19 @@
                         class="form-input" value="<%= userToEdit.email %>">
                 </div>
                 <div>
+                    <label for="password" class="form-label">¿Desea editar su contraseña?</label>
+                    <input type="radio" name="pswValue" value="true" onclick="selectPassword(true)">Si</input>
+                    <input type="radio" name="pswValue" value= "false" onclick="selectPassword(false)" checked>No</input>
                     <label for="password" class="form-label">Nueva contraseña:</label>
-                    <input type="password" id="password" name="password" placeholder="Debe tener al menos 6 caracteres" class="form-input">
+                    <input type="password" id="password" name="password" placeholder="Debe tener al menos 6 caracteres" class="form-input" disabled>
                 </div>
-
+                <% if (userToEdit.id_role==1) { %>
                 <div class="centered-row">
                     <label for="category" class="form-label">Este usuario es administrador:</label>
-                    <input type="radio" id="adminValue" name="adminValue" value="true" <%= userToEdit.admin ? "checked" : "" %> >Si</input>
-                    <input type="radio" name="adminValue" value="false" <%= userToEdit.admin ? "" : "checked" %>>No</input>
+                    <input type="radio" id="adminValue" name="adminValue" value="true" <%= userToEdit.role_id != 2  ? "checked" : "" %> >Si</input>
+                    <input type="radio" name="adminValue" value="false" <%= userToEdit.role_id == 2 ? "checked" : "" %>>No</input>
                 </div>
+                <% } %>
                 <div class="centered-row">
                     <label for="image" class="new-avatar">Imagen:</label>
                     <input type="file" id="new-avatar" name="new-avatar" class="img-input">
@@ -46,12 +50,29 @@
                 <div class="centered-row">
                     <button type="submit" class="save-button">Guardar información</button>
                 </div>
-            </div>
         </form>
+        <div>                            
+            <form action="/user/<%= userToEdit.id %>?_method=DELETE" method="POST"
+            style="display: inline-flex">
+            <button type="submit" class="action-button delete">Eliminar</button>
+        </form></div>
+    </div>
 
     </div>
 
 </main>
+<script>
+    function selectPassword(editPassword) {
+    var discountSelect = document.getElementById('password');
+    
+    if (editPassword) {
+    password.disabled = false;
+    } else {
+    password.disabled = true;
+    }
+}
+</script>
+
 <%-include('partials/footer') %>
 </body>
 

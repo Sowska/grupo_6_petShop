@@ -1,32 +1,31 @@
 module.exports = (sequelize,dataType) =>{
-    const alias = 'Color'; // Este nombre tiene que ser igual al nombre del archivo
+    const alias = 'Color';
     const cols = {
         id: {
             type: dataType.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
-        value: {
+        name: {
             type: dataType.STRING(45),
+            allowNull: true
         }
- 
+
     }
     const config = {
         tableName: 'colors',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false,
     }
-     const Color = sequelize.define (cols, config, alias)
+    const Color = sequelize.define(alias, cols, config)
 
-     Color.associate = (models) => {
-        Color.BelongsTo(models.Product, {
-            as: 'Product',
-            foreigKey: 'color_id'
+    Color.associate = (models) => {
+        Color.belongsToMany(models.Product, { //listo
+            as: 'product',
+            through: 'productcolors',
+            foreignKey: 'productId',
         });
-     }
+    }
 
-     return Color;
+    return Color;
 
 }

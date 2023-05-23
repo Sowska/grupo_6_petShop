@@ -10,10 +10,10 @@
                 <div class="admin-row">
                     <% admin.forEach((user) => { %>
                     <div class="card-container">
-                        <img class="round" src="/images/users/<%= user.avatar %>" alt="user" />
-                        <h3><%= user.firstName %> <%= user.lastName %> </h3>
+                        <img class="round" src="/images/users/<%= user.mainImage %>" alt="user" />
+                        <h3><%= user.first_name %> <%= user.last_name %> </h3>
                         <div class="buttons">
-                            <a href="user/<%= user.id%>" class="primary"> Ver</a>
+                            <a href="/user/<%= user.id%>/edit" class="primary"> Ver</a>
                             <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex">
                                 
@@ -27,10 +27,10 @@
                 <div class="users-row">
                     <% costumer.forEach((user) => { %>
                     <div class="card-container">
-                        <img class="round" src="/images/users/<%= user.avatar %>" alt="user" />
-                        <h3><%= user.firstName %> <%= user.lastName %> </h3>
+                        <img class="round" src="/images/users/<%= user.mainImage %>" alt="user" />
+                        <h3><%= user.first_name %> <%= user.last_name %> </h3>
                         <div class="buttons">
-                            <a href="user/<%= user.id%>" class="primary"> Ver</a>
+                            <a href="/user/<%= user.id%>/edit" class="primary"> Ver</a>
                             <form action="/user/<%= user.id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex">
                                 

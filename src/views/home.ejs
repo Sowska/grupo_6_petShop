@@ -4,24 +4,25 @@
 
 <!-- HEAD DINAMICO -->
 <%-include('partials/head') %>
-<!-- HEADER DINAMICO -->
-<body>
-<%-include('partials/header') %>
+  <!-- HEADER DINAMICO -->
+
+  <body>
+    <%-include('partials/header') %>
 
 
-    <div class="secciones">
+      <div class="secciones">
         <div class="section-selector">
-            <img src="./images/perros.png" alt="perros" width="300">
-            <a href="" class="link">PERROS</a>
+          <img src="./images/perros.png" alt="perros" width="300">
+          <a href="" class="link">PERROS</a>
         </div>
         <div class="section-selector">
-            <img src="./images/gatos.png" alt="gatos" width="300" class="">
-            <a href="" class="link">GATOS</a>
+          <img src="./images/gatos.png" alt="gatos" width="300" class="">
+          <a href="" class="link">GATOS</a>
         </div>
-    </div>
-<div class="line"></div>
+      </div>
+      <div class="line"></div>
 
-<div id="myCarousel">
+      <!-- <div id="myCarousel">
     <div class="slides-container">
       <div class="slide">
         <img src="./images/products/collar.png" alt="item 1">
@@ -51,11 +52,73 @@
     </div>
     <button class="ant-btn">Anterior</button>
     <button class="sig-btn">Siguiente</button>
-  </div>
-  <script>
-   
-  </script>
-</body>
-<%-include('partials/footer') %>
+  </div> -->
+      <div class="carousel-container">
+        <button class="carousel-btns" id="prevBtn">Anterior</button>
+        <div class="carousel">
+          <div class="slide">
+            <img src="../public/images/products/collar3.png" alt="producto 1">
+          </div>
+          <div class="slide">
+            <img src="../public/images/products/pretal.jpg" alt="producto 2">
+          </div>
+          <div class="slide">
+            <img src="../public/images/products/bandana.png" alt="producto 3">
+          </div>
+          <div class="slide">
+            <img src="../public/images/products/correa1.jpg" alt="producto 4">
+          </div>
+          <div class="slide">
+            <img src="../public/images/products/morral2.jpg" alt="producto 5">
+          </div>
+        </div>
+        <button class="carousel-btns" id="nextBtn">Siguiente</button>
+      </div>
 
-</html>
+
+      <script>
+        const carousel = document.querySelector('.carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+          autoScrollInterval = setInterval(() => {
+            if (currentIndex < 4) {
+              currentIndex++;
+              carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+            } else {
+              currentIndex = 0;
+              carousel.style.transform = `translateX(0)`;
+            }
+          }, 2000);
+        }
+
+        function stopAutoScroll() {
+          clearInterval(autoScrollInterval);
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < 4) {
+            currentIndex++;
+            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+          }
+        });
+
+        carousel.addEventListener('mouseover', stopAutoScroll);
+        carousel.addEventListener('mouseout', startAutoScroll);
+
+        startAutoScroll();
+      </script>
+  </body>
+  <%-include('partials/footer') %>
+
+    </html>
