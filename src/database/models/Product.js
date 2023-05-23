@@ -89,16 +89,19 @@ module.exports = (sequelize,dataType) =>{
             as: 'color',
             through: 'productcolors',
             foreignKey: 'colorId',
+            onDelete: 'CASCADE'
         });
     
         Product.hasMany(models.Product_image, { //listo
             as: 'product_image',
-            foreignKey: 'product_id_images'
+            foreignKey: 'product_id_images',
+            onDelete: 'CASCADE'
         });
     
         Product.hasMany(models.Item, { //listo
             as: 'item',
-            foreignKey: 'product_id'
+            foreignKey: 'product_id',
+            onDelete: 'CASCADE'
         });
 
         Product.belongsTo(models.User, { //listo

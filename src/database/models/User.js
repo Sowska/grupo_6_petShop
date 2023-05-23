@@ -39,7 +39,8 @@ module.exports = (sequelize,dataType) =>{
     User.associate = (models) => {
         User.hasMany(models.Cart, {
             as: 'cart',
-            foreignKey: 'user_id'
+            foreignKey: 'user_id',
+            onDelete: 'CASCADE'
         });
     
         User.belongsTo(models.Role, {
@@ -49,7 +50,8 @@ module.exports = (sequelize,dataType) =>{
 
         User.hasMany(models.Product, { //listo
             as: 'product',
-            foreignKey: 'creator'
+            foreignKey: 'creator',
+            onDelete: 'CASCADE'
         });
     }
 
