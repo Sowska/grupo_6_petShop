@@ -947,6 +947,11 @@ button.primary.ghost {
     color:red;
     font-size: 12px;
     font-weight: bold;
+    display: block;
+}
+
+.field-error{
+    border-color: red;
 }
 
 .loginlink{

@@ -30,7 +30,7 @@ const controller = {
 			let category = req.body.categoryValue
 
 			let newProduct = {
-				name: req.body.product,
+				name: req.body.name,
 				description: req.body.description,
 				price: req.body.price,
 				inStock: true,
@@ -104,8 +104,7 @@ const controller = {
             size: req.body.size,
             discount_id: req.body.discount,
             material_id: req.body.material,
-            pet: req.body.pet,
-            creator: 1
+            pet: req.body.pet
         }).then(() => {
             product.setColors(selectedColors).then(() => {
                 res.redirect('/products');
