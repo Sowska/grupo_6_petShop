@@ -11,18 +11,15 @@ const setErrors = (message, field, isError) => {
         field.nextElementSibling.classList.add("text-danger")
         field.nextElementSibling.innerText = message;
         errors.push(message)
-        console.log(errors)
     } else {
         field.classList.remove("is-invalid")
         field.nextElementSibling.classList.remove("text-danger")
         field.nextElementSibling.innerText = "";
         errors = errors.filter(function(msg){ return msg !== message})
-        console.log(errors)
     }
 }
 
 const validateEmptyField = (message, charlim, e) => {
-    console.log("Sali del campo")
         const field = e.target
         const fieldValue = e.target.value;
         if(fieldValue.trim().length < charlim){
@@ -47,13 +44,11 @@ imgField.addEventListener("change", (e) => {
         field.nextElementSibling.classList.add("text-danger")
         field.nextElementSibling.innerText = `Las extensiones de archivo válidas son ${allowedExtensions.join(", ")}`;
         errors.push("Extensiones invalidas")
-        console.log(errors)
     }else {
         field.classList.remove("is-invalid")
         field.nextElementSibling.classList.remove("text-danger")
         field.nextElementSibling.innerText = "";
         errors = errors.filter(function(msg){ return msg !== "Extensiones invalidas"})
-        console.log(errors)
     }
 })
 
