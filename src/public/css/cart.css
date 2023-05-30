@@ -999,3 +999,9 @@ margin-top: 10px;
 #nextBtn {
     right: 10px;
 }
+
+/* =================CONTACTUS=============== */
+
+.contact-body{
+    display: grid;
+}
