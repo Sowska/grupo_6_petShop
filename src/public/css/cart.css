@@ -765,7 +765,7 @@ footer {
 
 .form-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     padding: 10px;
 }
@@ -947,6 +947,11 @@ button.primary.ghost {
     color:red;
     font-size: 12px;
     font-weight: bold;
+    display: block;
+}
+
+.field-error{
+    border-color: red;
 }
 
 .loginlink{
@@ -993,4 +998,10 @@ margin-top: 10px;
 
 #nextBtn {
     right: 10px;
+}
+
+/* =================CONTACTUS=============== */
+
+.contact-body{
+    display: grid;
 }

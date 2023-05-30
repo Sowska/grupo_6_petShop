@@ -9,28 +9,45 @@
       <section class="green-container">  
         <h2 class="titulo">Agregar Producto</h2>
         <div class="white-container">
-          
-          <form action="/products" method="POST" enctype="multipart/form-data">
+          <div>
+            <% if (locals.errors) { %>
+              <ul>
+                <% for (let i =0; i<errors.length; i++) { %>
+                <li><%= errors[i].msg%></li> 
+                <% } %>
+              </ul>
+              <% } %>
+          </div>
+          <form class="create-form" action="/products" method="POST" enctype="multipart/form-data">
             <div class="form-div">
               <div class="form-div">
                 <h2 class="titulo2">Selecciona una categoria para tu producto:</h2>
                   <% for( let i=0; i<categories.length; i++) { %>
-                    <input type="radio" id="categoryValue<%= categories[i].id %>" name="categoryValue" value="<%= categories[i].id %>" onclick="showFields()"><%= categories[i].name%></input>
+          
+                    <label for="">
+                      <input type="radio" id="categoryValue<%= categories[i].id %>" name="categoryValue" value="<%= categories[i].id %>" onclick="showFields()" <%= locals.oldData && oldData.categoryValue== categories[i].id ? "checked" : " " %>>
+                      <%= categories[i].name%>
+                    </label>
                     <% } %>
               </div>
             </div>
 
             <div>
               <div class="form-div">
-                <label for="name" class="form-label">Nombre del producto:</label>
-                <input type="text" id="product" name="product" placeholder="Ej: Collar de cascabel" class="form-input">
+                <label for="name" class="form-label">Nombre del producto:
+                  <input type="text" id="name" name="name" placeholder="Ej: Collar de cascabel" class="form-input" value="<%= locals.oldData && oldData.name ? oldData.name : null %>">
+                <span></span>
+                </label>
+                
               </div>
               <div class="form-div">
-                <label for="description" class="form-label">Descripcion:</label>
-                <input type="text" id="description" name="description" placeholder="Puede incluir detalles como altura, diametro, piezas, condiciones de uso, etc. " class="form-input">
+                <label for="description" class="form-label">Descripcion:
+                <input type="text" id="description" name="description" placeholder="Puede incluir detalles como altura, diametro, piezas, condiciones de uso, etc. " class="form-input" value="<%= locals.oldData && oldData.description ? oldData.description : null %>">
+                <span></span>
+              </label>
               </div>
               <div class="form-div" id="material" style="display: none;">
-                <label for="material" class="form-label">Material:</label>
+                <label for="material" class="form-label">Material:
                 <select name="material">
                   <option value="">Seleccione</option>
                   <% for (let i = 0; i<materials.length; i++)  { %>
@@ -39,6 +56,7 @@
                     </option>
                     <%} %>
                 </select>
+              </label>
               </div>
               <div class="form-div" id ="size" style="display: none;">
                 <label for="size" class="form-label">Talle:</label>
@@ -99,26 +117,30 @@
               </div>
 
               <div class="centered-row">
-                <label for="pet" class="form-label">Tipo de mascota:</label>
+                <label for="pet" class="form-label">Tipo de mascota:
                 <select name="pet" id="pet" class="form-input">
                   <option value="">Seleccione</option>
                   <option value="gato">Gato</option>
                   <option value="perro">Perro</option>
                 </select>
+              </label>
               </div>
               <div class="centered-row">
                 <label for="new-product" class="img-label">Imagen:</label>
                 <input type="file" id="new-product-img" name="new-product-img" class="img-input">
+                <span></span>
               </div>
-              <label for="price" class="form-label">Precio del producto:</label>
-                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+              <label for="price" class="form-label">Precio del producto:
+                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= locals.oldData && oldData.price ? oldData.price : null %>">
+                <span></span>
+              </label>
                 <label for="discountValue" class="form-label">¿Tiene descuento?:</label>
                 <input type="radio" id="hasDiscountTrue" name="percentage" value="" onclick="selectDiscount(true)">
                 <label for="hasDiscountTrue">Sí</label>
-                <input type="radio" id="hasDiscountFalse" name="percentage" value="" onclick="selectDiscount(false)">
+                <input type="radio" id="hasDiscountFalse" name="percentage" value="" onclick="selectDiscount(false)" checked>
                 <label for="hasDiscountFalse">No</label>
               <div class="form-div">
-                <label for="discount" class="form-label">Porcentaje de descuento:</label>
+                <label for="discount" class="form-label">Porcentaje de descuento:
                 <select name="discount" id="discount" disabled>
                   <% for (let i = 0; i<discounts.length; i++)  { %>
                     <option value="<%= discounts[i].id %>">
@@ -126,6 +148,7 @@
                     </option>
                     <%} %>
                 </select>
+              </label>
               </div>
               <div class="centered-row">
                 <button type="submit" class="save save-button">Crear producto</button>
@@ -178,7 +201,7 @@
   }
 
   function selectDiscount(hasDiscount) {
-    var discountSelect = document.getElementById('discount');
+    var discount = document.getElementById('discount');
     
     if (hasDiscount) {
       discount.disabled = false;
@@ -187,7 +210,7 @@
     }
   }
 </script>
-
+<script src="/js/newProductValidation.js"></script>
       <%-include('partials/footer') %>
 
   </body>

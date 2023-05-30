@@ -73,7 +73,6 @@ const controller = {
 					res.redirect('/user/login');
 				}
 			} catch (error) {
-				console.log(error);
 				res.render('register', {
 					errors: {
 						global: {
@@ -154,7 +153,6 @@ const controller = {
 					if (req.body.remember_me) {
 						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 })
 					}
-					console.log(req.cookies);
 					return res.redirect('/');
 				} else {
 					delete userToLogin;

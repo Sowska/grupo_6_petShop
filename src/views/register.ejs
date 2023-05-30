@@ -12,8 +12,9 @@
             <div class="form-card-container">
                 <form action="/user/register" class= "register-form" method="POST">
                 <div class="form-control">
-                <label for="txtName">Nombre</label>
-                <input type="text" name="firstName" value="<%= locals.oldData ? oldData.firstName : null%>">
+                <label for="name">Nombre</label>
+                <input type="text" name="firstName" id="name" value="<%= locals.oldData ? oldData.firstName : null%>">
+                <p class="error-message" id="error-name"></p>
                         <% if (locals.errors && errors.firstName) { %>
                             <div class="text-danger">
                                 <%= errors.firstName.msg %>
@@ -21,8 +22,9 @@
                         <% } %>
                     </div>
                     <div class="form-control">
-                        <label for="txtLastname">Apellido</label>
-                        <input type="text" name="lastName" value="<%= locals.oldData ? oldData.lastName : null%>">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" name="lastName" id="lastName" value="<%= locals.oldData ? oldData.lastName : null%>">
+                        <p class="error-message" id="error-lastName"></p>
                         <% if (locals.errors && errors.lastName) { %>
                             <div class="text-danger">
                                 <%= errors.lastName.msg %>
@@ -30,8 +32,9 @@
                         <% } %>
                     </div>
                     <div class="form-control">
-                        <label for="txtEmail">Correo electronico</label>
-                        <input type="email" name="email" value="<%= locals.oldData ? oldData.email : null%>">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null%>">
+                        <p class="error-message" id="error-email"></p>
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%= errors.email.msg %>
@@ -39,16 +42,25 @@
                         <% } %>
                     </div>
                     <div class="form-control">
-                        <label for="txtPass">Contraseña</label>
-                        <input type="password" name="password">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password">
+                        <p class="error-message" id="error-password"></p>
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
                                 <%= errors.password.msg %>
                             </div>
                         <% } %>
                     </div>
+                    <div class="form-control">
+                        <label for="profile_pic">Imagen</label>
+                        <input type="file" name="profile_pic" id="profile_pic" >
+                        <p class="error-message" id="error-profile_pic"></p>
+                    </div>
+                    <div>
+                        <p class="error-msg"></p>
+                    </div>
                     <div class="action">
-                        <button type="submit" class="btn-submit">
+                        <button type="submit" id="btn-submit" class="text-danger">
                             Finalizar
                         </button>
                     </div>
@@ -61,6 +73,7 @@
     </section>
 </main>
 <%-include('partials/footer') %>
+<script src="../js/register.js"></script> 
 </body>
 
 </html>
