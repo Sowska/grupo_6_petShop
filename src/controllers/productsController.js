@@ -1,4 +1,6 @@
+const { lte } = require("semver");
 let db = require("../database/models");
+const { validationResult } = require('express-validator');
 
 const controller = {
 	allProducts: async (req, res) => {
@@ -22,12 +24,22 @@ const controller = {
 		res.render('ProductDetail', { product, productColor, colors});
 		},
 	
-	create: (req, res) => {
+	create: async (req, res) => {
+		const errors = validationResult(req);
 		var ulimg = req.file ? req.file.filename : "default.jpg";
-		let creatorId = 0;
-		db.User.findOne({ where: { email: req.cookies.userEmail } }).then((user) => {
+		if (!errors.isEmpty()) {
+			let categories = await db.Category.findAll();
+			let materials = await db.Material.findAll();
+			let colors = await db.Color.findAll();
+			let discounts = await db.Discount.findAll();
+			console.log(req.body)
+			res.render('createProduct', {errors: errors.array(), oldData: req.body, categories, materials, colors, discounts});
+
+		}else{
+		db.User.findOne({ where: { email: req.session.userLogged.email } }).then((user) => {
 			let creatorId = user.getDataValue('id');
 			let category = req.body.categoryValue
+			let kind = req.body.material ? req.body.material : null;
 
 			let newProduct = {
 				name: req.body.name,
@@ -37,6 +49,7 @@ const controller = {
 				pet: req.body.pet,
 				mainImage: ulimg,
 				discount_id: req.body.discount,
+				material_id: kind,
 				category_id: category,
 				creator: creatorId
 			};
@@ -72,6 +85,7 @@ const controller = {
 		}
 			})
 		})
+	}
 	},
 
 	edit: (req, res) => {
