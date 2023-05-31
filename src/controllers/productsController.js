@@ -24,7 +24,6 @@ const controller = {
 	
 	create: (req, res) => {
 		var ulimg = req.file ? req.file.filename : "default.jpg";
-		let creatorId = 0;
 		db.User.findOne({ where: { email: req.cookies.userEmail } }).then((user) => {
 			let creatorId = user.getDataValue('id');
 			let category = req.body.categoryValue
