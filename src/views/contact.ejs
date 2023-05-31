@@ -1,0 +1,34 @@
+<!-- HEAD DINAMICO -->
+<%-include('partials/head') %>
+    <!-- HEADER DINAMICO -->
+
+    <body class="contact-body">
+        <%-include('partials/header') %>
+
+            <h1>Contactanos</h1>
+            <div>
+                <% if (locals.errors) { %>
+                  <ul>
+                    <% for (let i =0; i<errors.length; i++) { %>
+                    <li><%= errors[i].msg%></li> 
+                    <% } %>
+                  </ul>
+                  <% } %>
+              </div>
+            <form class="create-form" action="/processContactForm" method="POST" enctype="multipart/form-data">
+
+                <label for="name">Nombre
+                    <input type="text" name="name" id="name" value="">
+                </label>
+
+                <label for="contact-img">Imagen
+                    <input type="file" name="contact-img" id="contact-img"></label>
+
+                <button type="submit" class="save save-button">Enviar</button>
+                <button type="reset" class="clear">Cancelar</button>
+
+            </form>
+            <%-include('partials/footer') %>
+    </body>
+
+    </html>
