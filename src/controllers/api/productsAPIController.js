@@ -1,7 +1,6 @@
-const path = require('path');
 const db = require('../../database/models');
-const Products = db.Product;
-const { validationResult } = require('express-validator');
+const Op = db.Sequelize.Op;
+
 
 const productsAPIController = {
     'list': async (req, res) => {
@@ -100,6 +99,18 @@ const productsAPIController = {
         };
 
         res.json(result);
+    },
+
+    'search': (req, res) => {
+        db.Product
+            .findAll({
+                where: {
+                    name: {[Op.like]: '%' + req.query.keyword + '%'}
+                }
+            })
+            .then(products => {
+                return res.status(200).json(products);
+            })
     }
 }
 

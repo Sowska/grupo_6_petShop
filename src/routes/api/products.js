@@ -8,5 +8,7 @@ router.get('/products', productsAPIController.list);
 
 router.get('/products/:id', productsAPIController.detail);
 
+router.get('/search', productsAPIController.search);
+
 
 module.exports = router;
