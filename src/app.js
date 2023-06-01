@@ -23,6 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
+const productsAPIRoutes = require('./routes/api/products');
 
 
 app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
@@ -42,6 +43,7 @@ app.use(methodOverride('_method'));
 app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
+app.use('/api', productsAPIRoutes);
 
 
 
