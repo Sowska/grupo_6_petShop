@@ -80,17 +80,14 @@
                         </div>
                     </div>
                     
-
-                    <div class="detail-row2">
-                        <button class="add add-detail"> Agregar al carrito </button>
-                        <div class="counter">
-                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                            <input type="text" value="1">
-                            <span class="up" onClick='increaseCount(event, this)'>+</span>
-                            
-                        </div>
-
+                    <div>
+                    <div class="counter">
+                        <input type="number" value="1" min="1" max="5">
                     </div>
+                    <form action="/cart/addProduct" class= "register-form" method="POST">
+                        <button class="add add-detail"> Agregar al carrito </button>
+                    </form>
+                </div>
 
                     <div class="detail-row2">
                         <a href="/products/<%= product.id %>/edit"  class="action-button edit">Editar</a>
