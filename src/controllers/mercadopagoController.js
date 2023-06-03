@@ -9,7 +9,7 @@ const controllerMercadopago = {
 
     createOrder: async (req, res) => {
 		// let product = await db.Product.findByPk(req.params.id, {include: [{association: "discount"}, {association: "kind"}, {association: "category"}, {association: "user"} ]})
-
+        
         mercadopago.configure({
             access_token: process.env.Mercado_API_KEY
         });
