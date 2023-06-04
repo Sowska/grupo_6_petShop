@@ -14,10 +14,11 @@
                     <h2 class="form-card-title">Mi Cuenta</h2>
 
                     <div class="form-card-container">
-                        <form action= "/user/processLogin" method= "POST" class="inicio-secion-form">
+                        <form action= "/user/processLogin" method= "POST" class="inicio-sesion-form">
                             <div class="form-control">
-                                <h4 for="titulo-mail">Dirección de correo electronico</h4>
-                                <input type="email" name="email" id="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>" required>
+                                <h4 for="email">Dirección de correo electronico</h4>
+                                <input type="email" name="email" id="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>" >
+                                <p class="error-message" id="error-email"></p>
                             </div>
                                 <% if (locals.errors && errors.email) { %>
                                 <div class="text-danger">
@@ -26,8 +27,9 @@
                                 <%  }  %>
                             <br>
                             <div class="form-control">
-                                <h4 for="titulo-contraseña">Contraseña</h4>
-                                <input type="password" name="password" id="password" required>
+                                <h4 for="password">Contraseña</h4>
+                                <input type="password" name="password" id="password" >
+                                <p class="error-message" id="error-password"></p>
                                 <% if (locals.errors && errors.password) { %>
                                     <div class="text-danger">
                                         <%= errors.password.msg %>
@@ -84,7 +86,7 @@
         <br>
 
         <%-include('partials/footer') %>
-
+<script src="../js/login.js"></script>
 
 </body>
 

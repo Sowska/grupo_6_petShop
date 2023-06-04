@@ -1,98 +1,138 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-
-function getProducts(){
-	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-} //esta funcion permite actualizar la lista de products para cada accion del CRUD.
-
+const { lte } = require("semver");
+let db = require("../database/models");
+const { validationResult } = require('express-validator');
 
 const controller = {
-	// 1.Listado de productos
-	allProducts: (req, res) => {
-        const products = getProducts();
-        res.render('products', { products });  
+	allProducts: async (req, res) => {
+		let products = await db.Product.findAll({include: [{association: "discount"}, {association: "kind"}, {association: "category"}, {association: "user"} ]});
+		res.render('products', { products });
 	
 	},
 
-    // 2.Formulario de creación de productos
-	create: (req, res) => {
-		res.render('createProduct');
+	createForm: async (req, res) => {
+		let categories = await db.Category.findAll();
+		let materials = await db.Material.findAll();
+		let colors = await db.Color.findAll();
+		let discounts = await db.Discount.findAll();
+		res.render('createProduct', {categories, materials, colors, discounts });
 	},
 
-	// 3. Detalle de un producto particular
-	detail: (req, res) => {
-		const products = getProducts();
-		const { id } = req.params;
-		const product = products.find((element) => element.id === +id);
-		res.render('ProductDetail', { product });
-	},
+	detail: async (req, res) => {
+		let colors =  await db.Color.findAll()
+		let productColor = await db.ProductColor.findAll({where: { productId: req.params.id } })
+		let product = await db.Product.findByPk(req.params.id, {include: [{association: "discount"}, {association: "kind"}, {association: "category"}, {association: "user"} ]})
+		res.render('ProductDetail', { product, productColor, colors});
+		},
 	
-	//4. Acción de creación (se usara en products.js con POST)
-	store: (req, res) => {
-        const products = getProducts();
-		var ulimg = new String(); 
-		if (!req.file) {
-		ulimg = "default.jpg"
-		} else {
-			ulimg = req.file.filename
-		}
-		const newProduct = {
-			id: products[products.length -1].id +1,
-			product: req.body.product,
-			material: req.body.material,
-			pet: req.body.pet,
-			size: req.body.size,
-			price: req.body.price,
-			image: ulimg
-		}
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
+	create: async (req, res) => {
+		const errors = validationResult(req);
+		var ulimg = req.file ? req.file.filename : "default.jpg";
+		if (!errors.isEmpty()) {
+			let categories = await db.Category.findAll();
+			let materials = await db.Material.findAll();
+			let colors = await db.Color.findAll();
+			let discounts = await db.Discount.findAll();
+			console.log(req.body)
+			res.render('createProduct', {errors: errors.array(), oldData: req.body, categories, materials, colors, discounts});
 
-	},
+		}else{
+		db.User.findOne({ where: { email: req.session.userLogged.email } }).then((user) => {
+			let creatorId = user.getDataValue('id');
+			let category = req.body.categoryValue
+			let kind = req.body.material ? req.body.material : null;
 
-	// 5. Formulario de edición de productos
-	edit: (req, res) => {
-        const products = getProducts();
-		const product = products.find(element => element.id == req.params.id);
-		res.render('edit-product', { productToEdit: product });
+			let newProduct = {
+				name: req.body.name,
+				description: req.body.description,
+				price: req.body.price,
+				inStock: true,
+				pet: req.body.pet,
+				mainImage: ulimg,
+				discount_id: req.body.discount,
+				material_id: kind,
+				category_id: category,
+				creator: creatorId
+			};
 
-	},
+			switch (category) {
+				case '1':
+				newProduct.material_id = req.body.material;
+				break;
+				case '2':
+				newProduct.measure = req.body.measure;
+				newProduct.flavor = req.body.flavor;
+				break;
+				case '3':
+				newProduct.measure = req.body.measure;
+				newProduct.fragrance = req.body.fragrance;
+				break;
+				case '4':
+				newProduct.material_id = req.body.material;
+				newProduct.size = req.body.size;
+				break;
 
-	// 6.Acción de edición (se usara en products.js con PUT):
-	update: (req, res) => {
+			}
 
-        const products = getProducts();
-		const productIndex = products.findIndex(element => element.id == req.params.id);
-		var ulimg = new String(); 
-		if (!req.file) {
-		ulimg = products[productIndex].image
-		} else {
-			ulimg = req.file.filename
-		}
-		products[productIndex] = {
-			...products[productIndex], //express operator: como el id de ese producto no sera sobreescrito, mantiene esos valores, sobreescribe los campos especificos.
-			product: req.body.product,
-			material: req.body.material,
-			pet: req.body.pet,
-			size: req.body.size,
-			price: req.body.price, 
-			image: ulimg
-
-		};
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
+			db.Product.create(newProduct).then((product) => {
+				try {
+				product.setColors(selectedColors).then(() => {
+				res.redirect('/products');
 		
+			});
+		}catch (error) {
+			console.error('Error al establecer los colores del producto atrapado', error);
+			res.redirect('/products');
+		}
+			})
+		})
+	}
 	},
 
-	// 7.Accion de borrado
+	edit: (req, res) => {
+		let productToEdit = db.Product.findByPk(req.params.id)
+        let categories = db.Category.findAll();
+		let materials = db.Material.findAll();
+		let colors = db.Color.findAll();
+		let discounts = db.Discount.findAll();
+		let productColor = db.ProductColor.findAll({
+			where: {
+			productId: req.params.id
+			}
+		});
+		Promise.all([productToEdit, categories, materials, colors, discounts, productColor])
+		.then(function([productToEdit, categories, materials, colors, discounts, productColor]) {
+			res.render('edit-product', {productToEdit, categories, materials, colors, discounts, productColor});
+		})
+	},
+
+	update: (req, res) => {
+    var selectedColors = req.body.color
+	db.Product.findByPk(req.params.id).then((product) => {
+		product.update({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            inStock: req.body.stockValue,
+            flavor: req.body.flavor,
+            fragrance: req.body.fragrance,
+            size: req.body.size,
+            discount_id: req.body.discount,
+            material_id: req.body.material,
+            pet: req.body.pet
+        }).then(() => {
+            product.setColors(selectedColors).then(() => {
+                res.redirect('/products');
+            });
+        });
+    });
+	},
+
 	destroy : (req, res) => {
-        const products = getProducts();
-		const productIndex = products.findIndex(element => element.id == req.params.id);
-		products.splice(productIndex, 1);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        db.Product.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
 		res.redirect('/products');
 
 	}

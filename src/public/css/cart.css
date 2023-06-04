@@ -194,6 +194,11 @@ header {
     border: transparent;
 }
 
+.navigation-icons-container a, a:visited {
+    text-decoration: none; 
+    color: var(--verde);
+}
+
 .logo {
     max-width: 200px;
 }
@@ -528,6 +533,24 @@ footer {
     color: var(--naranja);
 }
 
+.product-data-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.discount-tag{
+    color: var(--verde);
+}
+
+.productName{
+    font-size: 1.5em;
+}
+
+.productName.small{
+    font-size: 1.2em;
+}
+
 /* ==================/CREATE PRODUCT=========================== */
 
 .products-title {
@@ -742,7 +765,7 @@ footer {
 
 .form-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     padding: 10px;
 }
@@ -764,7 +787,6 @@ footer {
 
 
 .content-wrapper-edit {
-    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -925,10 +947,61 @@ button.primary.ghost {
     color:red;
     font-size: 12px;
     font-weight: bold;
+    display: block;
+}
+
+.field-error{
+    border-color: red;
 }
 
 .loginlink{
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+.detail-row2{
+    height: 300px;
+    display:block;
+}
+
+/* ===============HOME============== */
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    width: 500%;
+    transition: transform 0.5s ease;
+}
+.slide {
+    flex: 0 0 20%;
+    text-align: center;
+    padding: 20px;
+}
+
+#prevBtn,
+#nextBtn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+margin-top: 10px;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+/* =================CONTACTUS=============== */
+
+.contact-body{
+    display: grid;
 }

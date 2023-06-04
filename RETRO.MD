@@ -45,4 +45,7 @@ Durante el desarrollo de la restrospectiva #5, evaluamos el estado de cada respo
 ![image](https://user-images.githubusercontent.com/113376793/225181187-74022ea0-8c86-4c93-af95-3b91da5b596b.png)
 
 
+RETROSPECTIVA #6
 
+Durante el desarrollo de la restrospectiva #6, concluimos que quedan a repasar  el concepto de migraciones, y queda el crud de productos incompleto por falta de ajustes en la vista, necesarios para corroborar el funcionamiento correcto del crud. 
+Se acordó concluirla en la semana del 09/05 a mas tardar.
