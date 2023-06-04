@@ -24,6 +24,7 @@ const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 const productsAPIRoutes = require('./routes/api/products');
+const usersAPIRoutes = require('./routes/api/users');
 
 
 app.use(express.urlencoded({ extended: false})); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
@@ -44,7 +45,7 @@ app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
-
+app.use('/api', usersAPIRoutes);
 
 
 const port = process.env.PORT || 3030;
