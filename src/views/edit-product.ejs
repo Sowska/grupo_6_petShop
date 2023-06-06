@@ -25,16 +25,19 @@
                             <label for="name" class="form-label">Nombre del producto:</label>
                             <input type="text" id="name" name="name" placeholder="Ej: Collar de cascabel"
                                 class="form-input" value="<%= productToEdit.name %>">
+                                <p class="error-message" id="error-name"></p>
                         </div>
                         <div>
                             <label for="description" class="form-label">Descripcion:</label>
                             <input type="text" id="description" name="description" placeholder="Ej: Collar de cascabel"
                                 class="form-input" value="<%= productToEdit.description %>">
+                                <p class="error-message" id="error-description"></p>
                         </div>
                         <div>
                             <label for="price" class="form-label">Precio del producto:</label>
                             <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input"
                                 value="<%= productToEdit.price %>">
+                                <p class="error-message" id="error-price"></p>
                         </div>
                         <div>
                             <label for="discount" class="form-label">Descuento vigente:</label>
@@ -69,6 +72,7 @@
                                     <% } %>
                                 <%} %>
                             </select>
+                            <p class="error-message" id="error-material"></p>
                         </div>
                         <div>
                             <label for="size" class="form-label">Talle:</label>
@@ -80,10 +84,11 @@
                                 <option value="L"<%=productToEdit.size=='L' ? "selected" : "" %>>L</option>
                                 <option value="XL"<%=productToEdit.size=='XL' ? "selected" : "" %>>XL</option>
                             </select>
+                            <p class="error-message" id="error-size"></p>
                         </div>
 
                         <div>
-                            <label for="size" class="form-label">Sabor:</label>
+                            <label for="flavor" class="form-label">Sabor:</label>
                             <select name="flavor">
                                 <option value="Carne"<%=productToEdit.flavor=='Carne' ? "selected" : "" %>>Carne</option>
                                 <option value="Pescado"<%=productToEdit.flavor=='Pescado' ? "selected" : "" %>>Pescado</option>
@@ -122,15 +127,18 @@
                                 <option value="gato" <%=productToEdit.pet=='gato' ? "selected" : "" %>>Gato</option>
                                 <option value="perro" <%=productToEdit.pet=='perro' ? "selected" : "" %>>Perro</option>
                             </select>
+                            <p class="error-message" id="error-category"></p>
                             <div>
-                                <label for="name" class="form-label">¿Este producto se encuentra en stock?:</label>
+                                <label for="stockValue" class="form-label">¿Este producto se encuentra en stock?:</label>
                                 <input type="radio" name="stockValue" value="true"<%= productToEdit.inStock ? "checked" : "" %>>Si</input>
                                 <input type="radio" name="stockValue" value="false"<%= productToEdit.inStock ?  "":"checked" %>>No</input>
+                                <p class="error-message" id="error-stock"></p>
                             </div>
                         </div>
                         <div class="centered-row">
-                            <label for="image" class="new-product">Imagen:</label>
+                            <label for="new-product" class="new-product">Imagen:</label>
                             <input type="file" id="new-product" name="new-product" class="img-input">
+                            <p class="error-message" id="error-image"></p>
                         </div>
                         <div class="centered-row">
                             <button type="submit" class="save-button">Guardar producto</button>
@@ -141,6 +149,7 @@
             </div>
         </main>
             <%-include('partials/footer') %>
+            <script src="../js"></script>
 
     </body>
 
