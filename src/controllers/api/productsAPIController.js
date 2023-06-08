@@ -78,7 +78,7 @@ const productsAPIController = {
             .filter(image => image.productId === req.params.id)
             .map(image => image.url);
 
-        let material = product.kind.name != null ? product.kind.name : "No aplica"
+        const material = product.material_id == null ? product.material_id : product.kind.name;
 
         const result = {
             id: product.id,
