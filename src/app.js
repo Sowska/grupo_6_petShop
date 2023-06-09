@@ -24,6 +24,7 @@ const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 const productsAPIRoutes = require('./routes/api/products');
+const usersAPIRoutes = require('./routes/api/users');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false })); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
@@ -46,7 +47,7 @@ app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
-
+app.use('/api', usersAPIRoutes);
 
 /* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
 sequelize.sync()
