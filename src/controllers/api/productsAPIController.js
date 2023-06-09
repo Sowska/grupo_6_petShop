@@ -9,9 +9,10 @@ const productsAPIController = {
 
         const countByCategory = {};
         for (const category of categories) {
+            const categoryName = category.name;
             const categoryId = category.id;
             const categoryCount = await db.Product.count({ where: { category_id: categoryId } });
-            countByCategory[categoryId] = categoryCount;
+            countByCategory[categoryName] = categoryCount;
         }
 
         const products = await db.Product.findAll({
