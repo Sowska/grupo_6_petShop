@@ -44,9 +44,10 @@
             <div class="navigation-icons-container">
                 <% if (!locals.isLogged) { %>
                     <button><a href="/user/register"><i class="fa fa-sign-in"></a></i></button>
+                    <button><a href="/user/login"><i class="fas fa-user-circle"></a></i></button>
                 <% } else { %>
                     <button><a href="/cart"><i class="fa fa-shopping-cart"></a></i></button>
-                    <button><a href="/user/profile"><i class="fa fa-user"></a></i></button>
+                    <button><a href="/user/profile"><i class="fas fa-user-check"></a></i></button>
                     <button><a href=""><i class="fa fa-heart"></a></i></button>
                     <button><a href="/user/logout"><i class="fa fa-sign-out"></a></i></button>
                 <% } %>
@@ -63,7 +64,7 @@
                     <li class="navbar-list-item"><a href="/products">Productos</a></li>
                     <li class="navbar-list-item">NOSOTROS</li>
                     <li class="navbar-list-item">PROMOS</li>
-                    <li class="navbar-list-item">CONTACTO</li>
+                    <li class="navbar-list-item"><a href="/contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
