@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const cookies = require('cookie-parser');
+const cors = require('cors')
 
 const session = require('express-session');
 
@@ -24,7 +25,7 @@ const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 const productsAPIRoutes = require('./routes/api/products');
 
-
+app.use(cors());
 app.use(express.urlencoded({ extended: false })); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
 app.use(express.json());
 app.use(session({
@@ -45,6 +46,7 @@ app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
+
 
 /* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
 sequelize.sync()
