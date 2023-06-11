@@ -47,6 +47,12 @@ app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
 
+// Config error 404
+
+
+
+
+
 
 /* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
 sequelize.sync()
