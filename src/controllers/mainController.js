@@ -13,11 +13,6 @@ const controller = {
     index: (req, res) => {
         res.render('home');
     },
-    
-    cart: (req, res) => {
-        res.render('cart');
-    },
-
     contact: (req, res) => {
         res.render('contact');
     },

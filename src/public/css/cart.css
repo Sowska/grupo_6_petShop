@@ -517,10 +517,8 @@ footer {
     pointer-events: auto;
     text-align: center;
     user-select: none;
-    user-select: none;
     vertical-align: top;
     white-space: nowrap;
-    width: 80%;
     z-index: 9;
     border: 0;
     transition: box-shadow .2s;
@@ -695,15 +693,12 @@ footer {
 }
 
 .add-detail {
-    width: 60%;
-    margin: 5%;
-    font-size: 1.2em;
+    font-size: 1em;
+    margin:10px
 }
 
 .counter {
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 30% 30% 30%;
+
     row-gap: 5%;
     align-items: center;
     justify-content: center;
@@ -715,11 +710,13 @@ footer {
     grid-row: 2;
     height: auto;
     border: 1px;
+    cursor: pointer;
 }
 
 .up {
     grid-column: 3;
     grid-row: 2;
+    cursor: pointer;
 }
 
 .action-button {

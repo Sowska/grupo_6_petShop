@@ -14,21 +14,26 @@
         <div class="white-container">
             <div class="products">
 
+                <% for(let i=0; i<items.length; i++) {%>
                 <div class="detail">
-                    <img src="./images/collar.jpg" alt="collar" class="producto" width="100">
-                    <p class="description">Collar para perro</p>
+                    <img src="./images/products/<%= items[i].product.mainImage %>" alt="producto" class="producto" width="100">
+                    <p><a href="/products/<%=items[i].product.id%>"><%= items[i].product.name %></a></p>
 
                     <div class="price-container">
-                        <p class="price">$3000</p>
+                            <p class="discount-tag"><%= items[i].product.discount !=null ? items[i].product.discount.percentage + "% OFF": null  %></p>
+                        <p class="price"><%= items[i].product.price %></p>
                         <div class="counter">
                             <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                            <input type="text" value="1">
+                            <input type="text" value=<%= items[i].quantity %>>
                             <span class="up" onClick='increaseCount(event, this)'>+</span>
                         </div>
                     </div>
 
                 </div>
                 <a href="" class="delete-tag">Eliminar producto</a>
+                <% } %>
+
+                
             </div>
 
             <div class="white-container-bottom">
@@ -37,19 +42,19 @@
 
                         <div class="bill-row">
                             <p class="subtotal-label">Subtotal:</p>
-                            <p class="pricing-label">$1500</p>
+                            <p class="pricing-label">$<%= subtotal %></p>
                         </div>
 
                         <div class="bill-row">
-                            <p class="shipping-label">envio:</p>
-                            <p class="pricing-label">$1500</p>
+                            <p class="shipping-label">Descuentos:</p>
+                            <p class="pricing-label">-$<%= totalDiscounts %></p>
                         </div>
                         <input type="text" placeholder="Ingrese codigo promocional...">
                     </div>
 
                     <div class="bill-row-bottom">                
                         <p class="total-label">Total:</p>
-                        <p class="total-price">$3000</p>
+                        <p class="total-price">$<%= total %></p>
                     </div>
                     
                 </div>

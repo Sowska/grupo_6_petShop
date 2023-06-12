@@ -88,6 +88,24 @@
                     </div>
 
             </section>
+                    
+                    <form action="/cart/add-product/<%=product.id%>" class= "register-form" method="POST">
+                        <div>
+                        <input type="number" name="quantity" value="1" min="1" max="10">
+                    </div>
+                        <button type="submit" class="add add-detail"> Agregar al carrito </button>
+                    </form>
+                </div>
+
+                    <div class="detail-row2">
+                        <a href="/products/<%= product.id %>/edit"  class="action-button edit">Editar</a>
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                            <button type="submit" class="action-button delete">Eliminar</button>
+                        </form>
+                    </div>
+
+
+                </div>
 
             <div class="banner" colspan="2">
                 <img src="/images/banner.jpg" alt="">
