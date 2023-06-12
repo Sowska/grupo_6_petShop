@@ -5,25 +5,39 @@
     <body>
         <%-include('partials/header') %>
 
-            <div class="content-wrapper">
+            <section class="detalle-producto">
 
-                <figure>
+                <div class="imagen-producto">
                     <img src="/images/products/<%= product.mainImage %>" alt="product image" class="product-detail-img">
-                </figure>
 
-                <div>
-                    <h4><%=product.category.name %></h4>
+                </div>
 
-                    <h2 class="product-title">
-                        <%= product.name %>
-                    </h2>
-                    <div class="detail-row">
-                        <div>Descripcion:</div>
-                        <div>
-                            <%=product.description %>
+                <div class="info-producto">
+                    <h2><%=product.category.name %></h2>
+                    <h1 class="product-title"><%= product.name %></h1>
+                    <h3><%=product.price %></h3>
+                    <p><%=product.description %></p>
+                    
+
+                    
+                    <button class="add add-detail"> Agregar al carrito </button>
+
+                        <div class="counter">
+                            <button id="down">-</button>
+                            <input type="number" id="cantidad" min="1" max="10" value="1">
+                            <button id="up">+</button>
                         </div>
-                    </div>
-                    <% if(product.material) { %>
+
+                </div>
+
+                <div class="detail-row2">
+                    <a href="/products/<%= product.id %>/edit"  class="action-button edit">Editar</a>
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                        <button type="submit" class="action-button delete">Eliminar</button>
+                    </form>
+                </div>
+
+                <% if(product.material) { %>
                     <div class="detail-row">
                         <div>Material:</div>
                         <div>
@@ -73,14 +87,7 @@
                         </div>
                     </div>
 
-                    <div class="detail-row">
-                        <div>Precio:</div>
-                        <div>
-                            <%=product.price %>
-                        </div>
-                    </div>
-                    
-                    <div>
+            </section>
                     
                     <form action="/cart/add-product/<%=product.id%>" class= "register-form" method="POST">
                         <div>
@@ -100,9 +107,13 @@
 
                 </div>
 
+            <div class="banner" colspan="2">
+                <img src="/images/banner.jpg" alt="">
             </div>
 
             <%-include('partials/footer') %>
+
+    <script src="/js/productQuantityCounter.js"></script>
     </body>
 
     </html>
