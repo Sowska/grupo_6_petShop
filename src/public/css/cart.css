@@ -194,8 +194,9 @@ header {
     border: transparent;
 }
 
-.navigation-icons-container a, a:visited {
-    text-decoration: none; 
+.navigation-icons-container a,
+a:visited {
+    text-decoration: none;
     color: var(--verde);
 }
 
@@ -239,37 +240,65 @@ main {
     display: contents;
 }
 
+.titulo2 {
+    color: var(--gris);
+    margin: 10px 0;
+}
+
 .green-container {
-    width: 80%;
-    background-color: var(--verde);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
     border-radius: 15px;
-    padding: 8px;
-    margin: 10%;
+    padding: 20px;
+    margin: 10% auto;
+    box-shadow: 2px 6px 20px 2px rgba(31, 114, 15, 0.692);
+}
+
+.form-div,
+.form-label {
+    margin: 10px 0;
+}
+
+.color-title {
+    grid-column: 1 / -1;
+    /* Ocupa todas las columnas disponibles */
+}
+
+.errors-display li {
+    color: red;
+    font-style: italic;
+}
+
+.create-form label {
+    display: block;
+}
+
+.create-form input[type="text"],
+.create-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
 .titulo {
-    color: white;
-    font-size: 1em;
+    color: var(--verde);
+    font-size: 2em;
     font-family: 'sugarSnow';
     text-align: center;
+    margin: 10px;
 }
 
 .white-container {
     width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 15px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 20px;
     overflow: hidden;
 }
+
+
 
 .products {
     width: 100%;
@@ -332,8 +361,17 @@ main {
 }
 
 .counter {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.counter input[type="number"] {
+        text-align: center;
+        width: 40px;
 }
 
 .detail {
@@ -365,12 +403,6 @@ main {
     border: 1px;
     padding: 5px;
     border-radius: 4px;
-}
-
-
-.counter input {
-    max-width: 50px;
-    text-align: center;
 }
 
 .collar {
@@ -533,21 +565,21 @@ footer {
     color: var(--naranja);
 }
 
-.product-data-right{
+.product-data-right {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.discount-tag{
+.discount-tag {
     color: var(--verde);
 }
 
-.productName{
+.productName {
     font-size: 1.5em;
 }
 
-.productName.small{
+.productName.small {
     font-size: 1.2em;
 }
 
@@ -608,13 +640,28 @@ footer {
 
 /* ====================PRODUCT DETAIL========================= */
 
-.content-wrapper {
+.detalle-producto {
     display: grid;
-    margin: 5%;
-    grid-template-columns: 25% 25%;
-    justify-content: center;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    width: 100%;
+    gap: 20px;
 }
+
+.info-producto {
+    display: grid;
+    align-items: center;
+    padding: 20px;
+}
+
+.info-producto p, h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+.banner {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
 
 .content-wrapper figure {
     text-align: center;
@@ -661,12 +708,6 @@ footer {
     align-items: center;
     justify-content: center;
 
-}
-
-.counter input {
-    grid-column: 2;
-    grid-row: 2;
-    height: 100%;
 }
 
 .down {
@@ -763,11 +804,10 @@ footer {
     padding: 5px;
 }
 
-.form-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
+.color-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 
 .delete {
@@ -812,24 +852,81 @@ footer {
 
 .centered-row {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+  }
+
+.category-div{
+    display: block;
 }
 
-.save-button {
-    background-image: linear-gradient(#51A9EE, #147BCD);
-    border-color: #1482D0;
-    text-decoration: none;
+.horizontal-alignment{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+  .drag-drop-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    position: relative;
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .filename {
+    text-align: center;
+    color: #aaa;
+  }
+  
+  .drag-drop-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .or-text {
+    margin-right: 10px;
+  }
+  
+  .file-label {
+    cursor: pointer;
+  }
+
+.save-button,
+.clear {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    color: #ffffff;
-    width: 50%;
-    padding: 10px;
     cursor: pointer;
 }
+
+.save-button:hover,
+.clear:hover {
+    background-color: #555;
+}
+
+.img-label {
+    margin-right: 10px;
+}
+
+.img-input {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .create-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 
 /* =============== USER DETAIL ====================== */
 
@@ -877,12 +974,12 @@ footer {
     display: flex;
     flex-direction: column;
     padding-bottom: 5%;
-    
+
 }
 
-.users-container h1{
- margin: auto;
- padding: 10px;
+.users-container h1 {
+    margin: auto;
+    padding: 10px;
 }
 
 .admin-row {
@@ -914,7 +1011,7 @@ footer {
     margin: 5%;
 }
 
-.card-container h3{
+.card-container h3 {
     color: black;
 }
 
@@ -922,7 +1019,7 @@ footer {
     border: 1px solid var(--verde);
     border-radius: 50%;
     padding: 7px;
-    width:100px;
+    width: 100px;
     height: 100px;
 }
 
@@ -943,26 +1040,26 @@ button.primary.ghost {
 
 /* =================REGISTER==================== */
 
-.text-danger{
-    color:red;
+.text-danger {
+    color: red;
     font-size: 12px;
     font-weight: bold;
     display: block;
 }
 
-.field-error{
+.field-error {
     border-color: red;
 }
 
-.loginlink{
+.loginlink {
     display: flex;
     justify-content: center;
     padding: 20px;
 }
 
-.detail-row2{
+.detail-row2 {
     height: 300px;
-    display:block;
+    display: block;
 }
 
 /* ===============HOME============== */
@@ -978,6 +1075,7 @@ button.primary.ghost {
     width: 500%;
     transition: transform 0.5s ease;
 }
+
 .slide {
     flex: 0 0 20%;
     text-align: center;
@@ -986,10 +1084,10 @@ button.primary.ghost {
 
 #prevBtn,
 #nextBtn {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-margin-top: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 10px;
 }
 
 #prevBtn {
@@ -1002,6 +1100,6 @@ margin-top: 10px;
 
 /* =================CONTACTUS=============== */
 
-.contact-body{
+.contact-body {
     display: grid;
 }
