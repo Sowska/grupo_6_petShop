@@ -18,6 +18,11 @@ const controller = {
         res.render('cart');
     },
 
+    aboutUs:(req,res)=>{
+        res.render('aboutUs');
+    }
+    ,
+
     contact: (req, res) => {
         res.render('contact');
     },
