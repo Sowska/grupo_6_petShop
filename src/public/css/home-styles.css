@@ -164,9 +164,9 @@
     justify-content: center;
   }
   
-  .slide>img {
-    width: 30%;
-    height: 50%;
+  .slide img {
+    max-width: 60%;
+    height: 80%;
   }
   
   .slide>.description {
