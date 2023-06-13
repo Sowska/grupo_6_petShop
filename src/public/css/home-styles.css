@@ -50,6 +50,14 @@
     position: relative;
 }
 
+.destacados {
+  text-align: center; /* Centrar el texto horizontalmente */
+  font-size: 30px; 
+  color: var(--verde);
+  margin-top: 10px; 
+  margin-bottom: 40px; 
+  }
+
 .shopping-cart::before {
     content: "5";
     height: 14px;
