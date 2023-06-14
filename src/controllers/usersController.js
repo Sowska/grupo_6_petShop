@@ -151,7 +151,7 @@ const controller = {
 					res.locals.userLogged = true;
 
 					if (req.body.remember_me) {
-						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 })
+						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 120 })
 					}
 					return res.redirect('/');
 				} else {

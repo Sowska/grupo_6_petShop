@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookies = require('cookie-parser');
 const cors = require('cors')
+/*const { sequelize } = require('./database/models');*/
 
 const session = require('express-session');
 
@@ -24,6 +25,7 @@ const mainRoutes = require('./routes/main');
 const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 const productsAPIRoutes = require('./routes/api/products');
+const cartRoutes = require('./routes/cart');
 const usersAPIRoutes = require('./routes/api/users');
 
 app.use(cors());
@@ -47,11 +49,11 @@ app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
+app.use('/cart', cartRoutes);
 app.use('/api', usersAPIRoutes);
 
 
-/* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
-sequelize.sync()
+/* sequelize.sync()
     .then(() => {
         console.log('Tablas sincronizadas');
     })

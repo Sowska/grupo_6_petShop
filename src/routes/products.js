@@ -15,7 +15,7 @@ router.post('/', uploadFile.single('new-product-img'), newProductValidation, res
 router.get('/:id', productsController.detail);
 
 router.get('/:id/edit', authMiddleware, productsController.edit); 
-router.put('/:id', uploadFile.single('new-product'), productsController.update);
+router.put('/:id', uploadFile.single('edit-product-img'), productsController.update);
 
 router.delete('/:id', productsController.destroy); 
 

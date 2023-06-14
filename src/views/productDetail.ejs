@@ -5,106 +5,162 @@
     <body>
         <%-include('partials/header') %>
 
-            <div class="content-wrapper">
+            <section class="detalle-producto">
 
-                <figure>
+                <div class="imagen-producto">
                     <img src="/images/products/<%= product.mainImage %>" alt="product image" class="product-detail-img">
-                </figure>
+                </div>
 
-                <div>
-                    <h4><%=product.category.name %></h4>
+                <div class="carrousel-product">
+                    <img src="/images/products/<%= product.mainImage %>" alt="additional images" class="additional-img">
+                </div>
 
-                    <h2 class="product-title">
-                        <%= product.name %>
-                    </h2>
-                    <div class="detail-row">
-                        <div>Descripcion:</div>
-                        <div>
-                            <%=product.description %>
-                        </div>
-                    </div>
-                    <% if(product.material) { %>
-                    <div class="detail-row">
-                        <div>Material:</div>
-                        <div>
-                            <%=product.kind.name %>
-                        </div>
-                    </div>
-                    <% } %>
-                    <% if(product.size) { %>
-                    <div class="detail-row">
-                        <div>Tamaño:</div>
-                        <div>
-                            <%=product.size %>
-                        </div>
-                    </div>
-                    <% } %>
-                    <% if(productColor.length>0) { %>
-                    <div class="detail-row2">
-                        <div>Color: </div>
-                        <ul>
-                            <% productColor.forEach((productColor) => { %>
-                            <% const color = colors.find((color) => color.id === productColor.colorId); %>
-                            <% if (color) { %>
-                                <li><%= color.name %></li>
-                            <% } %>
-                            <% }) %>
-                        </ul>
-                    </div>
-                    <% } %>
-                    <% if(product.flavor) { %>
-                        <div>Sabor:</div>
-                        <div>
-                            <%=product.flavor %>
-                        </div>
-                        <% } %>
+                <div class="info-producto">
 
-                    <% if(product.fragrance) { %>
-                        <div>Fragancia:</div>
-                        <div>
-                            <%=product.fragrance %>
-                        </div>
-                        <% } %>
-
-                    <div class="detail-row">
-                        <div>Apto para:</div>
-                        <div>
-                            <%=product.pet %>
-                        </div>
-                    </div>
-
-                    <div class="detail-row">
-                        <div>Precio:</div>
-                        <div>
-                            <%=product.price %>
-                        </div>
-                    </div>
-                    
-
-                    <div class="detail-row2">
-                        <button class="add add-detail"> Agregar al carrito </button>
-                        <div class="counter">
-                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                            <input type="text" value="1">
-                            <span class="up" onClick='increaseCount(event, this)'>+</span>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="detail-row2">
-                        <a href="/products/<%= product.id %>/edit"  class="action-button edit">Editar</a>
-                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                            <button type="submit" class="action-button delete">Eliminar</button>
+                    <div class="admin-options">
+                        <a href="/products/<%= product.id %>/edit" class="small-button"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST"
+                            style="display: inline-flex">
+                            <button type="submit" class="small-button"><i class="fa-solid fa-trash"></i></button>
                         </form>
                     </div>
 
+                    <h4>
+                        <%=product.category.name %>
+                    </h4>
+                    <h1 class="product-title">
+                        <%= product.name %>
+                    </h1>
+
+                    <div class="detail-row">
+                        <h3>
+                            <%=product.price %>
+                            <% if(product.discount_id) { %>
+                                <h4 class="discount-tag"><%=product.discount.percentage %>%OFF</h4>
+                                <% } %>
+                        </h3>
+                    </div>
+
+                    <p>
+                        <%=product.description %>
+                    </p>
 
                 </div>
 
+                <form action="/cart/add-product/<%=product.id%>" class="add-cart-form" method="POST">
+                    <div class="counter">
+                        <button type="button" id="down" class="counter-button"><i class="fa-solid fa-minus"></i></button>
+                        <input type="number" id="quantity" min="1" max="10" value="1">
+                        <button type="button" id="up" class="counter-button"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <button type="submit" class="add add-detail"> Agregar al carrito </button>
+                </form>
+                
+                <section class="featured-products">
+                    <h2 class="main-text">PRODUCTOS QUE DEBERIAS PROBAR:</h2>
+                        <div class="slider">
+                          <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo1"/>
+                            </div>
+                          <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1619266465172-02a857c3556d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80" alt="Photo3"/>
+                            </div> 
+                          <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo2"/>
+                            </div>
+                          <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo3"/>
+                            </div> 
+                    
+                            <button class="btn-slide prev"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button class="btn-slide next"><i class="fa-solid fa-arrow-right"></i></button>
+                          
+                        </div>
+                        <div class="dots-container">
+                                <span class="dot active" data-slide="0"></span>
+                                <span class="dot" data-slide="1"></span>
+                                <span class="dot" data-slide="2"></span>
+                          <span class="dot" data-slide="3"></span>
+                        </div>
+                        
+                        </section>
+
+            </section>
+
+            <section class="additional-description">
+
+                <h1>Descripcion General</h1>
+
+                <% if(product.material_id) { %>
+                        <span for="product">Material de fabricación: 
+                        <p>
+                            <%=product.kind.name %>
+                        </p>
+                    </span>
+
+                <% } %>
+                
+                <% if(product.size) { %>
+                        <span>Tamaño:   
+                        <p>
+                            <%=product.size %>
+                        </p>
+                    </span>
+                    <% } %>
+                                
+                <% if(productColor.length>0) { %>
+                
+                        <span>Color: 
+                        <ul>
+                            <% productColor.forEach((productColor)=> { %>
+                                <% const color=colors.find((color)=> color.id === productColor.colorId);
+                                    %>
+                                    <% if (color) { %>
+                                        <li>
+                                            <%= color.name %>
+                                        </li>
+                                        <% } %>
+                                            <% }) %>
+                        </ul>
+                    </span>
+                
+                <% } %>
+                                        
+                <% if(product.flavor) { %>
+                <span>Sabor:
+                <p>
+                    <%=product.flavor %>
+                </p>
+                </span>
+                <% } %>
+
+                <% if(product.fragrance) { %>
+                    <span>Fragancia:
+                    <p>
+                        <%=product.fragrance %>
+                    </p>
+                </span>
+                    <% } %>
+
+                
+                    <span>Apto para:
+                    <p>
+                        <%=product.pet %>
+                    </p>
+                    </span>   
+
+            </section>
+
+            <%-include('partials/section') %>
+
+            <div class="banner" colspan="2">
+                <img src="/images/banner.jpg" alt="">
             </div>
 
             <%-include('partials/footer') %>
+
+                <script src="/js/productQuantityCounter.js"></script>
+                <script src="/js/slider.js"></script>
     </body>
 
     </html>
