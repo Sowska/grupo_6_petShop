@@ -78,6 +78,8 @@ const productsAPIController = {
             .filter(image => image.productId === req.params.id)
             .map(image => image.url);
 
+        const material = product.material_id == null ? product.material_id : product.kind.name;
+
         const result = {
             id: product.id,
             name: product.name,
@@ -92,7 +94,7 @@ const productsAPIController = {
             mainImage: `/images/products/${mainImage}`,
             secondaryImages: secondaryImages,
             discount: product.discount,
-            material: product.kind.name,
+            material: material,
             category: product.category.name,
             color: availableColors,
             user: product.user
