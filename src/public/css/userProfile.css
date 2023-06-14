@@ -1,3 +1,27 @@
+.compras{
+  color: var(--verde);
+  font-size: 30px;
+}
+
+
+.edit-user{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    display: inline-flex;
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.edit-user:hover{
+     background-color: #c6ffc6;
+  }
+
 .profile {
   border: 1px solid #ccc;
   padding: 20px;

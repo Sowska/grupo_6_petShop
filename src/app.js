@@ -3,6 +3,9 @@ const express = require("express");
 const path = require("path");
 const cookies = require('cookie-parser');
 const cors = require('cors')
+const { sequelize } = require('./database/models');
+
+
 
 const session = require('express-session');
 
@@ -49,19 +52,14 @@ app.use('/api', productsAPIRoutes);
 
 // Config error 404
 
-
-
-
-
-
-/* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
-sequelize.sync()
-    .then(() => {
-        console.log('Tablas sincronizadas');
-    })
-    .catch(err => {
-        console.error('Error al sincronizar las tablas:', err);
-    }); */
+// (async () => {
+//     try {
+//       await sequelize.sync();
+//       console.log('Tablas sincronizadas correctamente');
+//     } catch (error) {
+//       console.error('Error al sincronizar las tablas:', error);
+//     }
+//   })();
 
 const port = process.env.PORT || 3030;
 
