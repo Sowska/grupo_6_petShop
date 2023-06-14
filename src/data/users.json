@@ -1,0 +1,398 @@
+[
+  {
+    "id": 1,
+    "firstName": "vel lectus",
+    "lastName": "ac nulla",
+    "email": "abrodeau0@vistaprint.com",
+    "password": "Lau6VH20MU5",
+    "admin": true,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "quisque",
+    "lastName": "mattis egestas",
+    "email": "wdoreward1@zdnet.com",
+    "password": "uTtjlKV",
+    "admin": false,
+    "avatar": "/images/avatars/tostada.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "mauris",
+    "lastName": "sociis",
+    "email": "sgroombridge2@msu.edu",
+    "password": "oS9Xv3mHwt1",
+    "admin": false,
+    "avatar": "/images/avatars/kipa.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "in",
+    "lastName": "id consequat",
+    "email": "nchesman3@meetup.com",
+    "password": "cB4Y83",
+    "admin": false,
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "lacinia",
+    "lastName": "magnis",
+    "email": "gcaudrey4@cam.ac.uk",
+    "password": "6YhYGy84OZB",
+    "admin": false,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 6,
+    "firstName": "etiam",
+    "lastName": "maecenas tincidunt",
+    "email": "rskerratt5@addthis.com",
+    "password": "Tsk9Ts5IW",
+    "admin": false,
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "sem mauris",
+    "lastName": "id justo",
+    "email": "tmaestro6@last.fm",
+    "password": "GnObr9JuiyP",
+    "admin": false,
+    "avatar": "/images/avatars/kipa.jpg"
+  },
+  {
+    "id": 8,
+    "firstName": "consequat morbi",
+    "lastName": "dolor quis",
+    "email": "agoldhawk7@creativecommons.org",
+    "password": "rBaKmC",
+    "admin": false,
+    "avatar": ""
+  },
+  {
+    "id": 9,
+    "firstName": "ipsum primis",
+    "lastName": "ut",
+    "email": "pemer8@furl.net",
+    "password": "R9cUfXpNOqkE",
+    "admin": false,
+    "avatar": "/images/avatars/kipa.jpg"
+  },
+  {
+    "id": 10,
+    "firstName": "adipiscing",
+    "lastName": "posuere",
+    "email": "dfrazer9@opensource.org",
+    "password": "yzVLaISkRHV",
+    "admin": false,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 11,
+    "firstName": "vel",
+    "lastName": "ipsum dolor",
+    "email": "iattlea@about.com",
+    "password": "6xosrV",
+    "admin": false,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 12,
+    "firstName": "tempus vel",
+    "lastName": "id consequat",
+    "email": "weveredb@artisteer.com",
+    "password": "oKkbVK",
+    "admin": true,
+    "avatar": "/images/avatars/tostada.jpg"
+  },
+  {
+    "id": 13,
+    "firstName": "magna",
+    "lastName": "integer",
+    "email": "naxelbeyc@accuweather.com",
+    "password": "hCyTZgF",
+    "admin": false,
+    "avatar": ""
+  },
+  {
+    "id": 14,
+    "firstName": "tempus",
+    "lastName": "ac consequat",
+    "email": "abarribald@umn.edu",
+    "password": "5EoQHCcFrR",
+    "admin": false,
+    "avatar": "/images/avatars/tostada.jpg"
+  },
+  {
+    "id": 15,
+    "firstName": "dolor",
+    "lastName": "consequat lectus",
+    "email": "rfeatherstonhalghe@goo.gl",
+    "password": "LM4A3Fnred",
+    "admin": true,
+    "avatar": "/images/avatars/kipa.jpg"
+  },
+  {
+    "id": 16,
+    "firstName": "et",
+    "lastName": "vel augue",
+    "email": "tfarthinf@parallels.com",
+    "password": "nuVNGYslKEVy",
+    "admin": false,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 17,
+    "firstName": "in",
+    "lastName": "at velit",
+    "email": "ccutcheeg@bluehost.com",
+    "password": "ssMbBDe09a",
+    "admin": false,
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 18,
+    "firstName": "sapien",
+    "lastName": "volutpat",
+    "email": "jbeadeh@newyorker.com",
+    "password": "bU90c47i4y",
+    "admin": false,
+    "avatar": ""
+  },
+  {
+    "id": 19,
+    "firstName": "sapien",
+    "lastName": "justo",
+    "email": "oheavisidei@craigslist.org",
+    "password": "X728zcP",
+    "admin": false,
+    "avatar": ""
+  },
+  {
+    "id": 20,
+    "firstName": "dignissim",
+    "lastName": "congue",
+    "email": "rleefej@aboutads.info",
+    "password": "yUIh9VfH1ec",
+    "admin": false,
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 21,
+    "firstName": "quam",
+    "lastName": "vivamus",
+    "email": "schasmark@apple.com",
+    "password": "6c8XvJ",
+    "admin": true,
+    "avatar": "/images/avatars/jala.jpg"
+  },
+  {
+    "id": 22,
+    "firstName": "etiam faucibus",
+    "lastName": "sapien iaculis",
+    "email": "etollfreel@shop-pro.jp",
+    "password": "uJb2qAZICHJ",
+    "admin": false,
+    "avatar": "/images/avatars/polloCorazon.jpg"
+  },
+  {
+    "id": 23,
+    "firstName": "sem",
+    "lastName": "turpis",
+    "email": "nbeddoesm@youtube.com",
+    "password": "t3sVqM",
+    "admin": true,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 24,
+    "firstName": "purus",
+    "lastName": "sed",
+    "email": "jbutlandn@github.io",
+    "password": "IeHPs2FAyP",
+    "admin": true,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 25,
+    "firstName": "lacus",
+    "lastName": "etiam faucibus",
+    "email": "bridgewello@twitpic.com",
+    "password": "A2xZlQy7BXP",
+    "admin": true,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 26,
+    "firstName": "tincidunt in",
+    "lastName": "vulputate luctus",
+    "email": "bpavicp@imdb.com",
+    "password": "U9gV6bJr",
+    "admin": true,
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": 27,
+    "firstName": "justo aliquam",
+    "lastName": "dictumst etiam",
+    "email": "cmaherq@posterous.com",
+    "password": "H3M93kfcT",
+    "admin": true,
+    "avatar": "/images/avatars/jala.jpg"
+  },
+  {
+    "id": 28,
+    "firstName": "sollicitudin ut",
+    "lastName": "nunc",
+    "email": "rcurrierr@bigcartel.com",
+    "password": "yvrn4Vx54",
+    "admin": false,
+    "avatar": "/images/avatars/tostada.jpg"
+  },
+  {
+    "id": 29,
+    "firstName": "augue vestibulum",
+    "lastName": "ac",
+    "email": "sfeaverss@craigslist.org",
+    "password": "6Dz0Bb5OEvF",
+    "admin": true,
+    "avatar": "/images/avatars/tostada.jpg"
+  },
+  {
+    "id": 30,
+    "firstName": "luctus et",
+    "lastName": "leo maecenas",
+    "email": "jdartnallt@state.gov",
+    "password": "iFUsKgqJ9H",
+    "admin": false,
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 31,
+    "firstName": "lolo",
+    "lastName": "Perez",
+    "email": "lolopez@gmail.com",
+    "password": "",
+    "admin": false,
+    "avatar": "1680215766794_user.jpg"
+  },
+  {
+    "id": 32,
+    "firstName": "asdas",
+    "lastName": "adasd",
+    "email": "sadasd@gmail.com",
+    "password": "asdadasda",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 33,
+    "firstName": "francisco",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdadsas",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 34,
+    "firstName": "francisco",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "asdasdasd",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 35,
+    "firstName": "pepep",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdasd",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 36,
+    "firstName": "francisco131231",
+    "lastName": "adasd",
+    "email": "sadasd@dfadasd.com",
+    "password": "dasdasda",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 37,
+    "firstName": "juanfran",
+    "lastName": "adasd",
+    "email": "re@gmail.com",
+    "password": "1234",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 38,
+    "firstName": "juanfrancisco",
+    "lastName": "adasd",
+    "email": "pepepe@gmail.com",
+    "password": "f1234",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 39,
+    "firstName": "asda12312asda",
+    "lastName": "asd123",
+    "email": "dasdsad@gmail.com",
+    "password": "asdasdas",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 40,
+    "firstName": "caro",
+    "lastName": "adasd",
+    "email": "caro@gmail.com",
+    "password": "$2a$10$lPQyj2aYwJETHH2Jy48JxuOoFnvG1HAWHZ9AyJHsgN.4o2YPnyHc2",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 41,
+    "firstName": "natalia",
+    "lastName": "armendariz",
+    "email": "armendariznaty@hotmail.com",
+    "password": "$2a$10$aJbhGjrMKbQqLQqw8j4sOOmGa8PtI6FYGisqa/8BOzFIon2p1.73y",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 42,
+    "firstName": "francisco pa",
+    "lastName": "adasdas2",
+    "email": "e@gmail.com",
+    "password": "$2a$10$PyQ/j7LDJnKsE4twjCiHe.Hu8woODJx3Gr3INVYYIns3G0N6.TH3K",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 43,
+    "firstName": "Juan",
+    "lastName": "prueba",
+    "email": "juan@prueba.com",
+    "password": "$2a$10$xTS5s3bYt7GGRa7E2IVCy.Dv4odz5zdOmVQ1IJau6XXN44ieeWNs.",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  },
+  {
+    "id": 44,
+    "firstName": "francisco pepe",
+    "lastName": "pepeee",
+    "email": "pepaa@gmail.com",
+    "password": "$2a$10$hU8JHtLEjO2Dsv.ttKZ9luK85S6QKYkgj84jIfkjNzj4jkaF6CavG",
+    "admin": false,
+    "avatar": "default-user.jpg"
+  }
+]
