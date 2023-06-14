@@ -53,9 +53,9 @@
     <button class="ant-btn">Anterior</button>
     <button class="sig-btn">Siguiente</button>
   </div> -->
-  <section class="featured-products">
-    <h2 class="main-text">PRODUCTOS QUE DEBERIAS PROBAR:</h2>
-        <div class="slider">
+  <div class="carousel-container">
+    <button class="carousel-btns" id="prevBtn">Anterior</button>
+    <div class="carousel">
           <div class="slide">
             <img src="./images/products/collar3.png" alt="producto 1">
             <h3>Collar material reciclable para gatos</h3>
@@ -81,7 +81,6 @@
 
         <h1 class="destacados"> Productos destacados</h1>
       </div>
- <%-include('partials/section') %>
 
       <script>
         const carousel = document.querySelector('.carousel');
@@ -107,21 +106,21 @@
         }
 
         prevBtn.addEventListener('click', () => {
+        console.log("clickeando boton");
           if (currentIndex > 0) {
             currentIndex--;
-            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+            carousel.style.transform = `translateX(+${currentIndex * 20}%)`;
           }
         });
 
         nextBtn.addEventListener('click', () => {
+          console.log("clickeando boton 2");
           if (currentIndex < 4) {
             currentIndex++;
             carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
           }
         });
         </script>
-
-        <script src="/js/slider.js"></script>
   </body>
   <%-include('partials/footer') %>
 

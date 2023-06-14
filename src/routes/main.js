@@ -9,7 +9,6 @@ const uploadFile = require('../middlewares/multer');
 const router = express.Router();
 
 router.get('/', mainController.index);
-router.get('/cart', mainController.cart);
 router.get('/contact', mainController.contact);
 router.post('/processContactForm', uploadFile.single("contact-img"), contact, result, mainController.processContactForm);
 

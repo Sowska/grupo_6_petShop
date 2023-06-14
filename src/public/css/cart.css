@@ -21,7 +21,7 @@ h3{
 body {
     margin-top: 146px;
     width: 100%;
-    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -508,7 +508,7 @@ object-fit: cover;
     overflow: hidden;
 }
 .slide{ 
-    position: absolute;
+/*     position: absolute; */
     top:0;
     width: 100%;
     height: 26.625rem;
@@ -518,7 +518,6 @@ object-fit: cover;
     transition: transform 1s;
 }
 .slide > img{
-    width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -1353,6 +1352,7 @@ button.primary.ghost {
 #prevBtn,
 #nextBtn {
     position: absolute;
+    z-index: 2;
     top: 50%;
     transform: translateY(-50%);
     margin-top: 10px;

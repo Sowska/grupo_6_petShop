@@ -163,11 +163,11 @@
     align-items: center;
     justify-content: center;
   }
-  
+/*   
   .slide img {
     max-width: 60%;
     height: 80%;
-  }
+  } */
 
   .slide>.description {
     margin-top: 10px;
