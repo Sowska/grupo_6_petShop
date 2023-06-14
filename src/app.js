@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookies = require('cookie-parser');
 const cors = require('cors')
+/*const { sequelize } = require('./database/models');*/
 
 const session = require('express-session');
 
@@ -25,6 +26,7 @@ const productsRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
 const productsAPIRoutes = require('./routes/api/products');
 const cartRoutes = require('./routes/cart');
+const usersAPIRoutes = require('./routes/api/users');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false })); // esto nos permite capturar la informacion que se envia por un formulario via POST (req.body)
@@ -48,6 +50,7 @@ app.use('/products', productsRoutes);
 app.use('/user', userRoutes);
 app.use('/api', productsAPIRoutes);
 app.use('/cart', cartRoutes);
+app.use('/api', usersAPIRoutes);
 
 
 /* sequelize.sync()
