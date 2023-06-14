@@ -22,7 +22,7 @@ function updateFilename(name) {
 }
 
 // Limpiar el nombre de archivo al seleccionar un archivo mediante el input de tipo file
-const fileInput = document.querySelector('.new-product-img');
+const fileInput = document.getElementById('edit-product-img');
 fileInput.addEventListener('change', () => {
   const file = fileInput.files[0];
   updateFilename(file ? file.name : '');

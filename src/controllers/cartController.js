@@ -83,7 +83,6 @@ const controller = {
                 db.Item.create(newItem).then(() => {
                     console.log("Producto añadido con éxito");
                 });
-                res.json({ success: true });
             } else {
                 console.log("carrito no encontrado");
                 const newCarrito = db.Cart.build({
@@ -105,7 +104,6 @@ const controller = {
                 await newOrder.save();
 
                 console.log('Carrito creado y producto añadido');
-                res.json({ success: true });
             }
         } catch (error) {
             console.error('Error al agregar carrito', error);

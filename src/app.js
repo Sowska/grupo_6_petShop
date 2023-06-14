@@ -50,8 +50,7 @@ app.use('/api', productsAPIRoutes);
 app.use('/cart', cartRoutes);
 
 
-/* Descomenten esta linea de codigo, es para crear la tabla pivot de product colors
-sequelize.sync()
+/* sequelize.sync()
     .then(() => {
         console.log('Tablas sincronizadas');
     })

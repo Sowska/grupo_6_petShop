@@ -1,6 +1,6 @@
 const decrementarBtn = document.getElementById('down');
 const incrementarBtn = document.getElementById('up');
-const cantidadInput = document.getElementById('cantidad');
+const cantidadInput = document.getElementById('quantity');
 
 decrementarBtn.addEventListener('click', () => {
     if (parseInt(cantidadInput.value) > 1) {

@@ -27,12 +27,14 @@ module.exports = (sequelize,dataType) =>{
     Item.associate = (models) => {
         Item.belongsTo(models.Cart, { //listo
             as: 'cart',
-            foreignKey: 'cart_id'
+            foreignKey: 'cart_id',
+            onDelete: 'CASCADE'
         });
 
         Item.belongsTo(models.Product, { //listo
             as: 'product',
-            foreignKey: 'product_id'
+            foreignKey: 'product_id',
+            onDelete: 'CASCADE'
         });
     }
 
