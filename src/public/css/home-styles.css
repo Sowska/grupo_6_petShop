@@ -50,6 +50,14 @@
     position: relative;
 }
 
+.destacados {
+  text-align: center; 
+  font-size: 30px; 
+  color: var(--verde);
+  margin-top: 10px; 
+  margin-bottom: 20px; 
+  }
+
 .shopping-cart::before {
     content: "5";
     height: 14px;
@@ -156,6 +164,11 @@
     justify-content: center;
   }
   
+  .slide img {
+    max-width: 60%;
+    height: 80%;
+  }
+
   .slide>.description {
     margin-top: 10px;
     font-size: 20px;

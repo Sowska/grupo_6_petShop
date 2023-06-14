@@ -12,11 +12,11 @@
 
       <div class="secciones">
         <div class="section-selector">
-          <img src="./images/perros.png" alt="perros" width="300">
+          <img src="./images/perros.png" alt="perros" width="400">
           <a href="" class="link">PERROS</a>
         </div>
         <div class="section-selector">
-          <img src="./images/gatos.png" alt="gatos" width="300" class="">
+          <img src="./images/gatos.png" alt="gatos" width="400" class="">
           <a href="" class="link">GATOS</a>
         </div>
       </div>
@@ -57,32 +57,69 @@
     <h2 class="main-text">PRODUCTOS QUE DEBERIAS PROBAR:</h2>
         <div class="slider">
           <div class="slide">
-                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo1"/>
-            </div>
+            <img src="./images/products/collar3.png" alt="producto 1">
+            <h3>Collar material reciclable para gatos</h3>
+          </div>
           <div class="slide">
-                <img src="https://images.unsplash.com/photo-1619266465172-02a857c3556d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80" alt="Photo3"/>
-            </div> 
+            <img src="./images/products/pretal2.jpg" alt="producto 2">
+            <h3>Correa de paseo para perros</h3>
+          </div>
           <div class="slide">
-                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo2"/>
-            </div>
+            <img src="./images/products/bandana.png" alt="producto 3">
+            <h3>Corbatin para mascotas</h3>
+          </div>
           <div class="slide">
-                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Photo3"/>
-            </div> 
-    
-            <button class="btn-slide prev"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="btn-slide next"><i class="fa-solid fa-arrow-right"></i></button>
-          
+            <img src="./images/products/correa1.jpg" alt="producto 4">
+            <h3> Correa para pasear ajustable</h3>
+          </div>
+          <div class="slide">
+            <img src="./images/products/morral2.jpg" alt="producto 5">
+            <h3> Mochila para perros</h3>
+          </div>
         </div>
-        <div class="dots-container">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-          <span class="dot" data-slide="3"></span>
-        </div>
-        
-        </section>
+        <button class="carousel-btns" id="nextBtn">Siguiente</button>
 
-        <%-include('partials/section') %>
+        <h1 class="destacados"> Productos destacados</h1>
+      </div>
+ <%-include('partials/section') %>
+
+      <script>
+        const carousel = document.querySelector('.carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+          autoScrollInterval = setInterval(() => {
+            if (currentIndex < 4) {
+              currentIndex++;
+              carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+            } else {
+              currentIndex = 0;
+              carousel.style.transform = `translateX(0)`;
+            }
+          }, 2000);
+        }
+
+        function stopAutoScroll() {
+          clearInterval(autoScrollInterval);
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < 4) {
+            currentIndex++;
+            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
+          }
+        });
+        </script>
 
         <script src="/js/slider.js"></script>
   </body>

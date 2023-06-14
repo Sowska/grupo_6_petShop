@@ -52,14 +52,14 @@ app.use('/api', productsAPIRoutes);
 app.use('/cart', cartRoutes);
 app.use('/api', usersAPIRoutes);
 
-
-/* sequelize.sync()
-    .then(() => {
-        console.log('Tablas sincronizadas');
-    })
-    .catch(err => {
-        console.error('Error al sincronizar las tablas:', err);
-    }); */
+// (async () => {
+//     try {
+//       await sequelize.sync();
+//       console.log('Tablas sincronizadas correctamente');
+//     } catch (error) {
+//       console.error('Error al sincronizar las tablas:', error);
+//     }
+//   })();
 
 const port = process.env.PORT || 3030;
 
