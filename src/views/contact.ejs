@@ -4,9 +4,11 @@
 
     <body class="contact-body">
         <%-include('partials/header') %>
-
+    <div class="contact-container">
+         <div class="contact-titulo">
             <h1>Contactanos</h1>
-            <div>
+         </div>
+              <div>
                 <% if (locals.errors) { %>
                   <ul>
                     <% for (let i =0; i<errors.length; i++) { %>
@@ -17,17 +19,19 @@
               </div>
             <form class="create-form" action="/processContactForm" method="POST" enctype="multipart/form-data">
 
-                <label for="name">Nombre
-                    <input type="text" name="name" id="name" value="">
-                </label>
-
-                <label for="contact-img">Imagen
-                    <input type="file" name="contact-img" id="contact-img"></label>
-
-                <button type="submit" class="save save-button">Enviar</button>
-                <button type="reset" class="clear">Cancelar</button>
+                <label class="form-label" for="name">Nombre:</label>
+                <input class="contact-name" type="text" id="name" name="name" required>
+              
+                <label class="form-label" for="email">Email:</label>
+                <input class="contact-email" type="email" id="email" name="email" required>
+              
+                <label class="form-label" for="message">Mensaje:</label>
+                <textarea class="form-textcontact" id="message" name="message" required></textarea>
+              
+                <button class="form-button" type="submit">Enviar</button>
 
             </form>
+    </div>        
             <%-include('partials/footer') %>
     </body>
 
