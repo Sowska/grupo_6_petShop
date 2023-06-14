@@ -25,16 +25,19 @@
                             <label for="name" class="form-label">Nombre del producto:</label>
                             <input type="text" id="name" name="name" placeholder="Ej: Collar de cascabel"
                                 class="form-input" value="<%= productToEdit.name %>">
+                                <p class="error-message" id="error-name"></p>
                         </div>
                         <div class="info-edit-row">
                             <label for="description" class="form-label">Descripcion:</label>
                             <input type="text" id="description" name="description" placeholder="Ej: Collar de cascabel"
                                 class="form-input" value="<%= productToEdit.description %>">
+                                <p class="error-message" id="error-description"></p>
                         </div>
                         <div class="info-edit-row">
                             <label for="price" class="form-label">Precio del producto:</label>
                             <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input"
                                 value="<%= productToEdit.price %>">
+                                <p class="error-message" id="error-price"></p>
                         </div>
                         <div class="info-edit-row">
                             <label for="discount" class="form-label">Descuento vigente:</label>
@@ -70,6 +73,7 @@
                                     <% } %>
                                 <%} %>
                             </select>
+                            <p class="error-message" id="error-material"></p>
                         </div>
                         <div id="size-div" class="info-edit-row">
                             <label for="size" class="form-label">Talle:</label>
@@ -82,7 +86,9 @@
                                 <option value="L"<%=productToEdit.size=='L' ? "selected" : "" %>>L</option>
                                 <option value="XL"<%=productToEdit.size=='XL' ? "selected" : "" %>>XL</option>
                             </select>
+                            <p class="error-message" id="error-size"></p>
                         </div>
+
 
                         <div id="flavor-div" class="info-edit-row">
                             <label for="size" class="form-label">Sabor:</label>
@@ -131,6 +137,8 @@
                                 <option value="gato" <%=productToEdit.pet=='gato' ? "selected" : "" %>>Gato</option>
                                 <option value="perro" <%=productToEdit.pet=='perro' ? "selected" : "" %>>Perro</option>
                             </select>
+                            <p class="error-message" id="error-category"></p>
+                            
                         </div>
                         <div class="stock-options">
                             <label for="name" class="form-label">¿Este producto se encuentra en stock?:</label>
@@ -141,6 +149,7 @@
                             <input type="radio" name="stockValue" value="false"<%= productToEdit.inStock ?  "":"checked" %>>No</input>
                             </label>
                         </div>
+                         <p class="error-message" id="error-stock"></p>
                         <h4>Imagen principal del producto:</h4>
                         <img src="/images/products/<%= productToEdit.mainImage %>" alt="imagen">
                         <div class="drag-drop-container">
@@ -148,6 +157,7 @@
                             <span></span>
                             <span class="filename">Haz click o arrastra y suelta la imagen de tu producto aquí</span>
                         </div>
+                        <p class="error-message" id="error-image"></p>
                         <div class="centered-row">
                             <button type="submit" class="save-button">Guardar producto</button>
                         </div>
@@ -156,6 +166,7 @@
             </div>
         
             <%-include('partials/footer') %>
+            <script src="../js"></script>
 
             <script src="/js/showFileNameAtEditProduct.js"></script>
             <script src="/js/showFieldsEditForm.js" ></script>
