@@ -168,7 +168,7 @@
     max-width: 60%;
     height: 80%;
   }
-  
+
   .slide>.description {
     margin-top: 10px;
     font-size: 20px;
@@ -204,12 +204,6 @@
     right: 0
 }
   
-  .footer-container {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
   .images-container {
     display: flex;
     justify-content: center;
@@ -220,10 +214,3 @@
     width: 50px;
     height: 50px;
   }
-  
-  footer p {
-    font-size: 14px;
-    /* color: #3F51B5; */
-    margin: 0;
-  }
-  

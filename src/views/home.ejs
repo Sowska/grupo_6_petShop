@@ -53,9 +53,9 @@
     <button class="ant-btn">Anterior</button>
     <button class="sig-btn">Siguiente</button>
   </div> -->
-      <div class="carousel-container">
-        <button class="carousel-btns" id="prevBtn">Anterior</button>
-        <div class="carousel">
+  <section class="featured-products">
+    <h2 class="main-text">PRODUCTOS QUE DEBERIAS PROBAR:</h2>
+        <div class="slider">
           <div class="slide">
             <img src="./images/products/collar3.png" alt="producto 1">
             <h3>Collar material reciclable para gatos</h3>
@@ -81,7 +81,7 @@
 
         <h1 class="destacados"> Productos destacados</h1>
       </div>
-
+ <%-include('partials/section') %>
 
       <script>
         const carousel = document.querySelector('.carousel');
@@ -119,12 +119,9 @@
             carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
           }
         });
+        </script>
 
-        carousel.addEventListener('mouseover', stopAutoScroll);
-        carousel.addEventListener('mouseout', startAutoScroll);
-
-        startAutoScroll();
-      </script>
+        <script src="/js/slider.js"></script>
   </body>
   <%-include('partials/footer') %>
 

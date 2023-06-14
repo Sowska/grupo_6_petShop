@@ -40,7 +40,8 @@ const controller = {
 			let creatorId = user.getDataValue('id');
 			let category = req.body.categoryValue
 			let kind = req.body.material ? req.body.material : null;
-
+			var selectedColors = req.body.color;
+			
 			let newProduct = {
 				name: req.body.name,
 				description: req.body.description,
@@ -84,7 +85,7 @@ const controller = {
 			res.redirect('/products');
 		}
 			})
-		})
+		});
 	}
 	},
 
@@ -106,8 +107,9 @@ const controller = {
 	},
 
 	update: (req, res) => {
-    var selectedColors = req.body.color
+    var selectedColors = req.body.color 
 	db.Product.findByPk(req.params.id).then((product) => {
+		var ulimg = req.file ? req.file.filename : product.mainImage;
 		product.update({
             name: req.body.name,
             description: req.body.description,
@@ -118,12 +120,19 @@ const controller = {
             size: req.body.size,
             discount_id: req.body.discount,
             material_id: req.body.material,
-            pet: req.body.pet
-        }).then(() => {
+            pet: req.body.pet,
+			mainImage: ulimg
+        }).then((product) => {
+			try{
             product.setColors(selectedColors).then(() => {
-                res.redirect('/products');
-            });
-        });
+			res.redirect('/products');
+
+			});
+        }catch(error) {
+			console.error('Error al establecer los colores del producto atrapado', error);
+			res.redirect('/products');
+		}
+	})
     });
 	},
 
