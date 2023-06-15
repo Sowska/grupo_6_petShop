@@ -139,22 +139,23 @@ const controller = {
 						console.error('Error al establecer los colores del producto atrapado', error);
 						res.redirect('/products');
 					}
-				}); }catch(error){
-					console.error('Error al actualizar el product', error);
-						res.redirect('/products');
-				}
-			});
-		},
+				});
+			} catch (error) {
+				console.error('Error al actualizar el product', error);
+				res.redirect('/products');
+			}
+		});
+	},
 
-					destroy: (req, res) => {
-						db.Product.destroy({
-							where: {
-								id: req.params.id
-							}
-						})
-						res.redirect('/products');
+	destroy: (req, res) => {
+		db.Product.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
+		res.redirect('/products');
 
-					}
-				};
+	}
+};
 
-				module.exports = controller;
+module.exports = controller;
