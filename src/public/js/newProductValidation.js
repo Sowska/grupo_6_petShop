@@ -38,7 +38,8 @@ priceField.addEventListener("blur", (e) => validateEmptyField("Debes incluir el 
 imgField.addEventListener("change", (e) => {
     const field = e.target
     const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-    const fileExtension = e.target.files[0].name.split(".").pop().toLowerCase();
+    const fileExtension =  e.target.files.length>0 ? e.target.files[0].name.split(".").pop().toLowerCase() : "null";
+    if(fileExtension!=null){
     if (!allowedExtensions.includes(fileExtension)) {
         field.classList.add("is-invalid")
         field.nextElementSibling.classList.add("text-danger")
@@ -50,5 +51,11 @@ imgField.addEventListener("change", (e) => {
         field.nextElementSibling.innerText = "";
         errors = errors.filter(function(msg){ return msg !== "Extensiones invalidas"})
     }
+} else {
+    field.classList.add("is-invalid")
+        field.nextElementSibling.classList.add("text-danger")
+        field.nextElementSibling.innerText = "Agrega una imagen para tu producto";
+        errors.push("No hay imagen de producto");
+}
 })
 
