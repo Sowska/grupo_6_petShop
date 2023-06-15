@@ -1781,3 +1781,21 @@ button.primary.ghost {
 .contact-body {
     display: grid;
 }
+
+
+@media (min-width:320px){
+    .products-title{
+        margin-top: 41px;
+        margin-bottom: 100px;
+    }
+
+    .product-container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 305px;
+        margin-left: 60px;
+    }
+}

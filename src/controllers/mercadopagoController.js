@@ -24,7 +24,7 @@ const controllerMercadopago = {
                 }
             ],
             back_urls: {
-                success: 'http://localhost:3030/pago/success',
+                success: 'http://localhost:3030/',
                 failure: 'http://localhost:3030/failure',
                 pending: 'http://localhost:3030/pending'
             },

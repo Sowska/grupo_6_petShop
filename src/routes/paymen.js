@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/create-order',controllerMercadopago.createOrder)
 
-router.get('/success', (req,res)=> res.send('pago exitoso'))
+router.get('/success')
 
 router.get('/failure')
 
