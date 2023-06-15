@@ -1,37 +1,36 @@
 window.onload = () => {
-    let categoryField = document.querySelector(".category-field").textContent;
-    console.log(categoryField);
+    let categoryField = document.querySelector(".category-field").innerText;
     switch (categoryField) {
         case "Accesorios":
             document.getElementById('color-div').style.display = 'grid';
-            document.getElementById('material-div').style.display = 'flex';
+            document.getElementById('material-div').style.display = 'grid';
             document.getElementById('fragrance-div').style.display = 'none';
             document.getElementById('flavor-div').style.display = 'none';
             document.getElementById('size-div').style.display = 'none';
             break;
 
         case "Alimentos":
-            document.getElementById('color-div').style.display = 'grid';
-            document.getElementById('material-div').style.display = 'flex';
+            document.getElementById('color-div').style.display = 'none';
+            document.getElementById('material-div').style.display = 'none';
             document.getElementById('fragrance-div').style.display = 'none';
-            document.getElementById('flavor-div').style.display = 'none';
+            document.getElementById('flavor-div').style.display = 'grid';
             document.getElementById('size-div').style.display = 'none';
             break;
 
         case "Higiene":
             document.getElementById('color-div').style.display = 'none';
             document.getElementById('material-div').style.display = 'none';
-            document.getElementById('fragrance-div').style.display = 'flex';
+            document.getElementById('fragrance-div').style.display = 'grid';
             document.getElementById('flavor-div').style.display = 'none';
             document.getElementById('size-div').style.display = 'none';
             break;
 
         case "Indumentaria":
             document.getElementById('color-div').style.display = 'grid';
-            document.getElementById('material-div').style.display = 'flex';
+            document.getElementById('material-div').style.display = 'grid';
             document.getElementById('fragrance-div').style.display = 'none';
             document.getElementById('flavor-div').style.display = 'none';
-            document.getElementById('size-div').style.display = 'flex';
+            document.getElementById('size-div').style.display = 'grid';
             break;
     }
 };

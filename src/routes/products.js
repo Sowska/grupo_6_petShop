@@ -10,7 +10,7 @@ const { result, newProductValidation} = require('../middlewares/formValidationMi
 router.get('/', productsController.allProducts); 
 
 router.get('/create',authMiddleware, productsController.createForm);
-router.post('/', uploadFile.single('new-product-img'), newProductValidation, result, productsController.create); 
+router.post('/', uploadFile.array('additional-product-img', 5), uploadFile.single('new-product-img'), newProductValidation, result, productsController.create); 
 
 router.get('/:id', productsController.detail);
 
