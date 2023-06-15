@@ -1,8 +1,12 @@
 :root{
     --naranja: #D07631;
+    --lightorange: #e5e48c;
     --verde: #3A9742;
+    --watergreen: rgba(178, 210, 192, 1);
+    --secondarygreen: #0b3b35;
     --gris: #5d5d5d;
     --grisClaro: #D8D8D8;
+    --text: #166406;
     
 
     --tipografia-1:

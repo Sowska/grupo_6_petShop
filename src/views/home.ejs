@@ -12,11 +12,11 @@
 
       <div class="secciones">
         <div class="section-selector">
-          <img src="./images/perros.png" alt="perros" width="300">
+          <img src="./images/perros.png" alt="perros" width="400">
           <a href="" class="link">PERROS</a>
         </div>
         <div class="section-selector">
-          <img src="./images/gatos.png" alt="gatos" width="300" class="">
+          <img src="./images/gatos.png" alt="gatos" width="400" class="">
           <a href="" class="link">GATOS</a>
         </div>
       </div>
@@ -53,28 +53,34 @@
     <button class="ant-btn">Anterior</button>
     <button class="sig-btn">Siguiente</button>
   </div> -->
-      <div class="carousel-container">
-        <button class="carousel-btns" id="prevBtn">Anterior</button>
-        <div class="carousel">
+  <div class="carousel-container">
+    <button class="carousel-btns" id="prevBtn">Anterior</button>
+    <div class="carousel">
           <div class="slide">
-            <img src="../public/images/products/collar3.png" alt="producto 1">
+            <img src="./images/products/collar3.png" alt="producto 1">
+            <h3>Collar material reciclable para gatos</h3>
           </div>
           <div class="slide">
-            <img src="../public/images/products/pretal.jpg" alt="producto 2">
+            <img src="./images/products/pretal2.jpg" alt="producto 2">
+            <h3>Correa de paseo para perros</h3>
           </div>
           <div class="slide">
-            <img src="../public/images/products/bandana.png" alt="producto 3">
+            <img src="./images/products/bandana.png" alt="producto 3">
+            <h3>Corbatin para mascotas</h3>
           </div>
           <div class="slide">
-            <img src="../public/images/products/correa1.jpg" alt="producto 4">
+            <img src="./images/products/correa1.jpg" alt="producto 4">
+            <h3> Correa para pasear ajustable</h3>
           </div>
           <div class="slide">
-            <img src="../public/images/products/morral2.jpg" alt="producto 5">
+            <img src="./images/products/morral2.jpg" alt="producto 5">
+            <h3> Mochila para perros</h3>
           </div>
         </div>
         <button class="carousel-btns" id="nextBtn">Siguiente</button>
-      </div>
 
+        <h1 class="destacados"> Productos destacados</h1>
+      </div>
 
       <script>
         const carousel = document.querySelector('.carousel');
@@ -82,7 +88,7 @@
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
         let autoScrollInterval;
-
+        
         function startAutoScroll() {
           autoScrollInterval = setInterval(() => {
             if (currentIndex < 4) {
@@ -94,30 +100,27 @@
             }
           }, 2000);
         }
-
+        
         function stopAutoScroll() {
           clearInterval(autoScrollInterval);
         }
-
+        
         prevBtn.addEventListener('click', () => {
+        console.log("clickeando boton");
           if (currentIndex > 0) {
             currentIndex--;
             carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
           }
         });
-
+        
         nextBtn.addEventListener('click', () => {
+          console.log("clickeando boton 2");
           if (currentIndex < 4) {
             currentIndex++;
             carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
           }
         });
-
-        carousel.addEventListener('mouseover', stopAutoScroll);
-        carousel.addEventListener('mouseout', startAutoScroll);
-
-        startAutoScroll();
-      </script>
+        </script>
   </body>
   <%-include('partials/footer') %>
 

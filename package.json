@@ -86,7 +86,7 @@
     "safer-buffer": "^2.1.2",
     "semver": "^5.7.1",
     "send": "^0.18.0",
-    "sequelize": "^6.31.1",
+    "sequelize": "^6.32.0",
     "sequelize-cli": "^6.6.0",
     "serve-static": "^1.15.0",
     "setprototypeof": "^1.2.0",
@@ -104,7 +104,9 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed:all" : "npx sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",

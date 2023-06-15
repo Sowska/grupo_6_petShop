@@ -152,7 +152,7 @@ h5.contraseña {
    border-radius: 10px;
 }
 
-.inicio-secion-form {
+.inicio-sesion-form {
     color:  #5d5d5d;
     text-align: center;
 }
@@ -211,6 +211,6 @@ h5 a {
 
 .recordar-mi {
     display: flex;
-    align-items: center;
+    
 }
  

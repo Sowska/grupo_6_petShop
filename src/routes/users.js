@@ -12,7 +12,7 @@ router.post('/login', usersController.processLogin);
 
 router.get('/register', guestMiddleware, usersController.register);
 
-router.post('/register', validator.validatorCreateForm, usersController.store);
+router.post('/register',  validator.validatorCreateForm,  usersController.store);
 
 router.get('login',guestMiddleware, usersController.login);
 

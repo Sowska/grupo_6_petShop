@@ -14,11 +14,11 @@
                         
                             <!-- parte que se despliega al click -->
                             <nav class="menu1"> 
-                            <a class="link1" href="/">Inicio</a>
+                            <a class="link1" href="/">INICIO</a>
                             <a class="link1" href="/products">Productos</a>
                             <a class="link1" href="">Nosotros</a>
                             <a class="link1" href="">Promos</a>
-                            <a class="link1" href="">Contacto</a>
+                            <a class="link1" href="/contact">Contacto</a>
                             <a class="link1" href="">Agregar Producto</a>
                             </nav>
                         </nav>
@@ -44,11 +44,12 @@
             <div class="navigation-icons-container">
                 <% if (!locals.isLogged) { %>
                     <button><a href="/user/register"><i class="fa fa-sign-in"></a></i></button>
+                    <button><a href="/user/login"><i class="fas fa-user-circle"></a></i></button>
                 <% } else { %>
                     <button><a href="/cart"><i class="fa fa-shopping-cart"></a></i></button>
-                    <button><a href="/user/profile"><i class="fa fa-user"></a></i></button>
+                    <button><a href="/user/profile"><i class="fas fa-user-check"></a></i></button>
                     <button><a href=""><i class="fa fa-heart"></a></i></button>
-                    <button><a href="/user/logout"><i class="fa fa-sign-out"></a></i></button>
+                    <button><a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></a></i></button>
                 <% } %>
             </div>
     
@@ -59,11 +60,11 @@
         <div class="navbar-container">
             <nav class="navbar">
                 <ul class="navbar-list">
-                    <li class="navbar-list-item">INICIO</li>
+                    <li class="navbar-list-item"><a href="/">INICIO</a></li>
                     <li class="navbar-list-item"><a href="/products">Productos</a></li>
                     <li class="navbar-list-item">NOSOTROS</li>
                     <li class="navbar-list-item">PROMOS</li>
-                    <li class="navbar-list-item">CONTACTO</li>
+                    <li class="navbar-list-item"><a href="/contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
