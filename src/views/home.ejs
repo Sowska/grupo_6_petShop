@@ -88,7 +88,7 @@
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
         let autoScrollInterval;
-
+        
         function startAutoScroll() {
           autoScrollInterval = setInterval(() => {
             if (currentIndex < 4) {
@@ -100,19 +100,19 @@
             }
           }, 2000);
         }
-
+        
         function stopAutoScroll() {
           clearInterval(autoScrollInterval);
         }
-
+        
         prevBtn.addEventListener('click', () => {
         console.log("clickeando boton");
           if (currentIndex > 0) {
             currentIndex--;
-            carousel.style.transform = `translateX(+${currentIndex * 20}%)`;
+            carousel.style.transform = `translateX(-${currentIndex * 20}%)`;
           }
         });
-
+        
         nextBtn.addEventListener('click', () => {
           console.log("clickeando boton 2");
           if (currentIndex < 4) {
