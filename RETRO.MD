@@ -49,3 +49,28 @@ RETROSPECTIVA #6
 
 Durante el desarrollo de la restrospectiva #6, concluimos que quedan a repasar  el concepto de migraciones, y queda el crud de productos incompleto por falta de ajustes en la vista, necesarios para corroborar el funcionamiento correcto del crud. 
 Se acordó concluirla en la semana del 09/05 a mas tardar.
+
+
+
+
+
+
+
+
+
+
+RETROSPECTIVA #7
+
+Durante el desarrollo de la restrospectiva #7, concluimos se necesita tener claros los conceptos de base de datos, muy importante completar todos los ejercicios practicos en playground para que podamos hacer cambios en el proyecto. En esta etapa vamos a priorizar y dejar en claro los cambios del front, formularios, crud, vistas, etc. Se tiene pensado la inclusion de una api para mMercadoLibre, el cual sera desarrollado con ayuda de consultas a los profes. Y tambien mejorar y agregar un feat unico de descuento al carrito de compras, esta funcionalidad seria un plus.
+
+
+
+
+
+
+
+
+
+RETROSPECTIVA #8
+
+Durante el desarrollo de la restrospectiva #8, concluimos que por temas de tiempo se tomara de base el dashboard compartido en la practica, queda pendiente realizar la api de productos y de user para que pueda estar todo conectado. Los temas de front se iran solucionando en el camino y tener todo listo para la la presentacion final.
