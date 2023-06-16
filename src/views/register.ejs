@@ -1,79 +1,83 @@
 <!-- HEAD DINAMICO -->
 <%-include('partials/head') %>
-<!-- HEADER DINAMICO -->
+    <!-- HEADER DINAMICO -->
 
-<body>
-    <%-include('partials/header') %>
+    <body>
+        <%-include('partials/header') %>
 
-<main class="container">
-    <section class="container-form">
-        <div class="form-card">
-            <h3 class="form-card-title">Registrarme</h3>
-            <div class="form-card-container">
-                <form action="/user/register" class= "register-form" method="POST">
-                <div class="form-control">
-                <label for="name">Nombre</label>
-                <input type="text" name="firstName" id="name" value="<%= locals.oldData ? oldData.firstName : null%>">
-                <p class="error-message" id="error-name"></p>
-                        <% if (locals.errors && errors.firstName) { %>
-                            <div class="text-danger">
-                                <%= errors.firstName.msg %>
-                            </div>
-                        <% } %>
-                    </div>
-                    <div class="form-control">
-                        <label for="lastName">Apellido</label>
-                        <input type="text" name="lastName" id="lastName" value="<%= locals.oldData ? oldData.lastName : null%>">
-                        <p class="error-message" id="error-lastName"></p>
-                        <% if (locals.errors && errors.lastName) { %>
-                            <div class="text-danger">
-                                <%= errors.lastName.msg %>
-                            </div>
-                        <% } %>
-                    </div>
-                    <div class="form-control">
-                        <label for="email">Correo electronico</label>
-                        <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null%>">
-                        <p class="error-message" id="error-email"></p>
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %>
-                            </div>
-                        <% } %>
-                    </div>
-                    <div class="form-control">
-                        <label for="password">Contraseña</label>
-                        <input type="password" name="password" id="password">
-                        <p class="error-message" id="error-password"></p>
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger">
-                                <%= errors.password.msg %>
-                            </div>
-                        <% } %>
-                    </div>
-                    <div class="form-control">
-                        <label for="profile_pic">Imagen</label>
-                        <input type="file" name="profile_pic" id="profile_pic" >
-                        <p class="error-message" id="error-profile_pic"></p>
-                    </div>
-                    <div>
-                        <p class="error-msg"></p>
-                    </div>
-                    <div class="action">
-                        <button type="submit" id="btn-submit" class="text-danger">
-                            Finalizar
-                        </button>
-                    </div>
-                </form>
-                <div class="loginlink">
-                    <h5><a href="./login"> ¿Ya tenes cuenta? Ingresa por aqui! </a></h5>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-<%-include('partials/footer') %>
-<script src="../js/register.js"></script> 
-</body>
+            <main class="container">
+                <section class="container-form">
+                    <div class="green-container">
+                        <h3 class="form-card-title">Registrarme</h3>
+                        <div class="form-card-container">
+                        </div>
+                        <div class="text-danger">
+                        </div>
+                        <form action="/user/register" class="register-form" method="POST" enctype="multipart/form-data">
 
-</html>
+                            <div class="form-control">
+                                <label for="name">Nombre</label>
+                                <input type="text" name="firstName" id="name"
+                                    value="<%= locals.oldData ? oldData.firstName : null%>">
+                                <p class="error-message" id="error-name"></p>
+                                <% if (locals.errors && errors.firstName) { %>
+                                    <div class="text-danger">
+                                        <%= errors.firstName.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="lastName">Apellido</label>
+                                <input type="text" name="lastName" id="lastName"
+                                    value="<%= locals.oldData ? oldData.lastName : null%>">
+                                <p class="error-message" id="error-lastName"></p>
+                                <% if (locals.errors && errors.lastName) { %>
+                                    <div class="text-danger">
+                                        <%= errors.lastName.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="email">Correo electronico</label>
+                                <input type="email" name="email" id="email"
+                                    value="<%= locals.oldData ? oldData.email : null%>">
+                                <p class="error-message" id="error-email"></p>
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="text-danger">
+                                        <%= errors.email.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="password">Contraseña</label>
+                                <input type="password" name="password" id="password">
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class="text-danger">
+                                        <%= errors.password.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="profile_pic">Imagen</label>
+                                <input type="file" name="profile_pic" id="profile_pic">
+                                <p class="error-message" id="error-profile_pic"></p>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="action">
+                                <button type="submit" id="btn-submit" class="text-danger">
+                                    Finalizar
+                                </button>
+                            </div>
+                        </form>
+                        <div class="loginlink">
+                            <h5><a href="./login"> ¿Ya tenes cuenta? Ingresa por aqui! </a></h5>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            </main>
+            <%-include('partials/footer') %>
+    </body>
+
+    </html>

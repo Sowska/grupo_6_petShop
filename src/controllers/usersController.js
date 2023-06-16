@@ -66,8 +66,8 @@ const controller = {
 						last_name: req.body.lastName,
 						email: req.body.email,
 						password: hashedPassword,
-						avatar_url: "default-user.jpg",
-						id_role: 1
+						avatar_url: req.file.filename,
+						id_role: 2
 					});
 
 					res.redirect('/user/login');

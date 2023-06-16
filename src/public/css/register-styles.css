@@ -66,6 +66,9 @@
     color: white;
 }
 
+.form-card-title{
+    color: var(--verde);
+}
 .navbar {
     width: 100%;
     background-color: var(--naranja);

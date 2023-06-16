@@ -17,8 +17,7 @@ module.exports = {
         .withMessage('Ingresa una contraseña').bail()
         .isLength({ min: 8 }).withMessage('Debe tener al menos 8').bail()
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)
-        .withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial')
-    
+        .withMessage('La password debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial')
     
     ],
 

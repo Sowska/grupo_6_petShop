@@ -45,7 +45,7 @@ form.addEventListener('submit', (e) => {
     validation('size', /^[a-zA-Z ]+$/, 'Debe ingresar una talla valida', 'Debe tener una mayuscula');
     validation('category', /^[a-z]+$/, 'Debe ingresar un categoria valida', 'Debe seleccionar una categoria');
 
-    validation('password', /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$/, 'La contraseña debe tener mas de 8 caracteres e incluir caracteres especiales')
+/*     validation('password', /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$/, 'La contraseña debe tener mas de 8 caracteres e incluir caracteres especiales') */
 
     
     errors.forEach(error => {
