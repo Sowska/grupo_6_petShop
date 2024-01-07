@@ -14,8 +14,8 @@ const controllerMercadopago = {
         const result = await mercadopago.preferences.create({
             items: [
                 {
-                    title: "title",
-                    unit_price: 2,
+                    title: "collar",
+                    unit_price: 100,
                     currency_id: 'ARS',
                     quantity: 1,
                 }

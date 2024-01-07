@@ -104,8 +104,8 @@ const controller = {
 		if (req.file) {
 			ulimg = req.file.filename
 		}
-		if(req.body.pswValue =="true"){
-			password=bcryptjs.hashSync(req.body.password, 10)
+		if (req.body.pswValue == "true") {
+			password = bcryptjs.hashSync(req.body.password, 10)
 		}
 		db.User.update({
 			first_name: req.body.firstName,
@@ -119,7 +119,7 @@ const controller = {
 				id: req.params.id
 			}
 		}).then(() => {
-		res.redirect('/');
+			res.redirect('/');
 		});
 	},
 
@@ -133,7 +133,7 @@ const controller = {
 		).then(() => {
 			res.redirect('/');
 		})
-		
+
 	},
 
 	processLogin: async (req, res) => {
@@ -146,7 +146,7 @@ const controller = {
 				let isOkThePassword = bcryptjs.compareSync(req.body.password, compare);
 				if (isOkThePassword) {
 					delete userToLogin.password;
-					
+
 					req.session.userLogged = userToLogin;
 					res.locals.userLogged = true;
 
@@ -183,7 +183,7 @@ const controller = {
 
 
 	profile: (req, res) => {
-		
+
 		return res.render('profile', {
 			user: req.session.userLogged
 		});

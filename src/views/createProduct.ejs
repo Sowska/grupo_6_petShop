@@ -1,10 +1,10 @@
 <!-- HEAD DINAMICO -->
-<%-include('partials/head') %>
+<%-include('partials /head') %>
 
   <body>
 
     <!-- HEADER DINAMICO -->
-    <%-include('partials/header') %>
+    <%-include('partials /header') %>
 
       <section class="green-container">
         <h2 class="titulo">Agregar Producto</h2>
@@ -139,44 +139,44 @@
             </div>
 
 
-              <div class="drag-drop-container">
-                <input type="file" id="new-product-img" name="new-product-img" class="img-input" />
-                <span></span>
-                <span class="filename">Haz click o arrastra y suelta la imagen de tu producto aquí</span>
-              </div>
+            <div class="drag-drop-container">
+              <input type="file" id="new-product-img" name="new-product-img" class="img-input" />
+              <span></span>
+              <span class="filename">Haz click o arrastra y suelta la imagen de tu producto aquí</span>
+            </div>
 
             <div class="horizontal-alignment">
-            <label for="price" class="form-label">Precio del producto:
-              <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input"
-                value="<%= locals.oldData && oldData.price ? oldData.price : null %>">
-              <span></span>
-            </label>
-            <div class="form-div">
-              <label for="discountValue" class="form-label">¿Tiene descuento?:</label>
-              <div class="horizontal-alignment">
-                <label for="hasDiscountTrue">
-                  <input type="radio" id="hasDiscountTrue" name="percentage" value="" onclick="selectDiscount(true)">
-                  <span class="radio-label">Sí</span>
-                </label>
-                <label for="hasDiscountFalse">
-                  <input type="radio" id="hasDiscountFalse" name="percentage" value="" onclick="selectDiscount(false)"
-                    checked>
-                  <span class="radio-label">No</span>
+              <label for="price" class="form-label">Precio del producto:
+                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input"
+                  value="<%= locals.oldData && oldData.price ? oldData.price : null %>">
+                <span></span>
+              </label>
+              <div class="form-div">
+                <label for="discountValue" class="form-label">¿Tiene descuento?:</label>
+                <div class="horizontal-alignment">
+                  <label for="hasDiscountTrue">
+                    <input type="radio" id="hasDiscountTrue" name="percentage" value="" onclick="selectDiscount(true)">
+                    <span class="radio-label">Sí</span>
+                  </label>
+                  <label for="hasDiscountFalse">
+                    <input type="radio" id="hasDiscountFalse" name="percentage" value="" onclick="selectDiscount(false)"
+                      checked>
+                    <span class="radio-label">No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="centered-row">
+                <label for="discount" class="form-label">Porcentaje de descuento:
+                  <select name="discount" id="discount" disabled>
+                    <% for (let i=0; i<discounts.length; i++) { %>
+                      <option value="<%= discounts[i].id %>">
+                        <%= discounts[i].percentage%>
+                      </option>
+                      <%} %>
+                  </select>
                 </label>
               </div>
             </div>
-            <div class="centered-row">
-              <label for="discount" class="form-label">Porcentaje de descuento:
-                <select name="discount" id="discount" disabled>
-                  <% for (let i=0; i<discounts.length; i++) { %>
-                    <option value="<%= discounts[i].id %>">
-                      <%= discounts[i].percentage%>
-                    </option>
-                    <%} %>
-                </select>
-              </label>
-            </div>
-          </div>
             <div class="centered-row">
               <button type="submit" class="save save-button">Crear producto</button>
               <button type="reset" class="clear">Cancelar</button>
@@ -190,7 +190,7 @@
       <script src="/js/selectDiscount.js"></script>
       <script src="/js/newProductValidation.js"></script>
       <script src="/js/showFileNameAtCreateProduct.js"></script>
-      <%-include('partials/footer') %>
+      <%-include('partials /footer') %>
 
   </body>
 
